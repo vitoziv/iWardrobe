@@ -14,7 +14,6 @@
 		5F012151190BFAD000C36277 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012150190BFAD000C36277 /* main.m */; };
 		5F012155190BFAD000C36277 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012154190BFAD000C36277 /* AppDelegate.m */; };
 		5F012158190BFAD000C36277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F012156190BFAD000C36277 /* Main.storyboard */; };
-		5F01215B190BFAD000C36277 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01215A190BFAD000C36277 /* ViewController.m */; };
 		5F01215D190BFAD000C36277 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F01215C190BFAD000C36277 /* Images.xcassets */; };
 		5F012164190BFAD000C36277 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F012163190BFAD000C36277 /* XCTest.framework */; };
 		5F012165190BFAD000C36277 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F012144190BFAD000C36277 /* Foundation.framework */; };
@@ -25,6 +24,9 @@
 		5F012188190CE3D900C36277 /* Collocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012187190CE3D900C36277 /* Collocation.m */; };
 		5F01218B190CE3D900C36277 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01218A190CE3D900C36277 /* Favorite.m */; };
 		5F01218E190CE3D900C36277 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01218D190CE3D900C36277 /* Item.m */; };
+		5F012191190CF21600C36277 /* ItemsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012190190CF21600C36277 /* ItemsCollectionViewController.m */; };
+		5F012194190CF67100C36277 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012193190CF67100C36277 /* AddViewController.m */; };
+		5F01219B190CFF6800C36277 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01219A190CFF6800C36277 /* MainTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +51,6 @@
 		5F012153190BFAD000C36277 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F012154190BFAD000C36277 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F012157190BFAD000C36277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5F012159190BFAD000C36277 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5F01215A190BFAD000C36277 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5F01215C190BFAD000C36277 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5F012162190BFAD000C36277 /* iWardrobeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWardrobeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F012163190BFAD000C36277 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -64,6 +64,12 @@
 		5F01218A190CE3D900C36277 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		5F01218C190CE3D900C36277 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		5F01218D190CE3D900C36277 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		5F01218F190CF21600C36277 /* ItemsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCollectionViewController.h; sourceTree = "<group>"; };
+		5F012190190CF21600C36277 /* ItemsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCollectionViewController.m; sourceTree = "<group>"; };
+		5F012192190CF67100C36277 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		5F012193190CF67100C36277 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		5F012199190CFF6800C36277 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		5F01219A190CFF6800C36277 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,12 +129,11 @@
 		5F01214A190BFAD000C36277 /* iWardrobe */ = {
 			isa = PBXGroup;
 			children = (
-				5F012179190C05C400C36277 /* model */,
 				5F012153190BFAD000C36277 /* AppDelegate.h */,
 				5F012154190BFAD000C36277 /* AppDelegate.m */,
 				5F012156190BFAD000C36277 /* Main.storyboard */,
-				5F012159190BFAD000C36277 /* ViewController.h */,
-				5F01215A190BFAD000C36277 /* ViewController.m */,
+				5F012195190CF67500C36277 /* ViewControllers */,
+				5F012179190C05C400C36277 /* model */,
 				5F01215C190BFAD000C36277 /* Images.xcassets */,
 				5F01214B190BFAD000C36277 /* Supporting Files */,
 			);
@@ -176,6 +181,19 @@
 				5F012187190CE3D900C36277 /* Collocation.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		5F012195190CF67500C36277 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F01218F190CF21600C36277 /* ItemsCollectionViewController.h */,
+				5F012190190CF21600C36277 /* ItemsCollectionViewController.m */,
+				5F012192190CF67100C36277 /* AddViewController.h */,
+				5F012193190CF67100C36277 /* AddViewController.m */,
+				5F012199190CFF6800C36277 /* MainTabBarViewController.h */,
+				5F01219A190CFF6800C36277 /* MainTabBarViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,12 +294,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F01218B190CE3D900C36277 /* Favorite.m in Sources */,
-				5F01215B190BFAD000C36277 /* ViewController.m in Sources */,
 				5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */,
 				5F012188190CE3D900C36277 /* Collocation.m in Sources */,
 				5F012155190BFAD000C36277 /* AppDelegate.m in Sources */,
 				5F01218E190CE3D900C36277 /* Item.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
+				5F01219B190CFF6800C36277 /* MainTabBarViewController.m in Sources */,
+				5F012194190CF67100C36277 /* AddViewController.m in Sources */,
+				5F012191190CF21600C36277 /* ItemsCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
