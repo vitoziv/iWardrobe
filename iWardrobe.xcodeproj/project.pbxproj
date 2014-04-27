@@ -21,6 +21,10 @@
 		5F012166190BFAD000C36277 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F012148190BFAD000C36277 /* UIKit.framework */; };
 		5F01216E190BFAD000C36277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F01216C190BFAD000C36277 /* InfoPlist.strings */; };
 		5F012170190BFAD000C36277 /* iWardrobeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01216F190BFAD000C36277 /* iWardrobeTests.m */; };
+		5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */; };
+		5F012188190CE3D900C36277 /* Collocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012187190CE3D900C36277 /* Collocation.m */; };
+		5F01218B190CE3D900C36277 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01218A190CE3D900C36277 /* Favorite.m */; };
+		5F01218E190CE3D900C36277 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01218D190CE3D900C36277 /* Item.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,13 @@
 		5F01216B190BFAD000C36277 /* iWardrobeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iWardrobeTests-Info.plist"; sourceTree = "<group>"; };
 		5F01216D190BFAD000C36277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5F01216F190BFAD000C36277 /* iWardrobeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iWardrobeTests.m; sourceTree = "<group>"; };
+		5F01217B190C05D800C36277 /* WardrobeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WardrobeModel.xcdatamodel; sourceTree = "<group>"; };
+		5F012186190CE3D900C36277 /* Collocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collocation.h; sourceTree = "<group>"; };
+		5F012187190CE3D900C36277 /* Collocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collocation.m; sourceTree = "<group>"; };
+		5F012189190CE3D900C36277 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		5F01218A190CE3D900C36277 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
+		5F01218C190CE3D900C36277 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		5F01218D190CE3D900C36277 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +123,7 @@
 		5F01214A190BFAD000C36277 /* iWardrobe */ = {
 			isa = PBXGroup;
 			children = (
+				5F012179190C05C400C36277 /* model */,
 				5F012153190BFAD000C36277 /* AppDelegate.h */,
 				5F012154190BFAD000C36277 /* AppDelegate.m */,
 				5F012156190BFAD000C36277 /* Main.storyboard */,
@@ -150,6 +162,20 @@
 				5F01216C190BFAD000C36277 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F012179190C05C400C36277 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */,
+				5F01218C190CE3D900C36277 /* Item.h */,
+				5F01218D190CE3D900C36277 /* Item.m */,
+				5F012189190CE3D900C36277 /* Favorite.h */,
+				5F01218A190CE3D900C36277 /* Favorite.m */,
+				5F012186190CE3D900C36277 /* Collocation.h */,
+				5F012187190CE3D900C36277 /* Collocation.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,8 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F01218B190CE3D900C36277 /* Favorite.m in Sources */,
 				5F01215B190BFAD000C36277 /* ViewController.m in Sources */,
+				5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */,
+				5F012188190CE3D900C36277 /* Collocation.m in Sources */,
 				5F012155190BFAD000C36277 /* AppDelegate.m in Sources */,
+				5F01218E190CE3D900C36277 /* Item.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +496,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5F01217B190C05D800C36277 /* WardrobeModel.xcdatamodel */,
+			);
+			currentVersion = 5F01217B190C05D800C36277 /* WardrobeModel.xcdatamodel */;
+			path = WardrobeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5F012139190BFAD000C36277 /* Project object */;
 }
