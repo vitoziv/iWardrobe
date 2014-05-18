@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Collocation" representedClassName="Collocation" syncable="YES">
-        <attribute name="collocationId" attributeType="String" syncable="YES"/>
-        <attribute name="coverImageUrl" attributeType="String" syncable="YES"/>
-        <attribute name="createDate" attributeType="Date" syncable="YES"/>
-        <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
-        <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="favorite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="collocations" inverseEntity="Favorite" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="collocations" inverseEntity="Item" syncable="YES"/>
-    </entity>
-    <entity name="Favorite" representedClassName="Favorite" syncable="YES">
-        <relationship name="collocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collocation" inverseName="favorite" inverseEntity="Collocation" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="favorite" inverseEntity="Item" syncable="YES"/>
-    </entity>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createDate" attributeType="Date" syncable="YES"/>
         <attribute name="imageUrl" attributeType="String" syncable="YES"/>
         <attribute name="itemId" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
-        <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="collocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collocation" inverseName="items" inverseEntity="Collocation" syncable="YES"/>
-        <relationship name="favorite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="items" inverseEntity="Favorite" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="collocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Look" inverseName="items" inverseEntity="Look" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="item" inverseEntity="Location" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="items" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="x" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="locations" inverseEntity="Item" syncable="YES"/>
+        <relationship name="look" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Look" inverseName="itemLocations" inverseEntity="Look" syncable="YES"/>
+    </entity>
+    <entity name="Look" representedClassName="Look" syncable="YES">
+        <attribute name="collocationId" attributeType="String" syncable="YES"/>
+        <attribute name="coverImageUrl" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" attributeType="Date" syncable="YES"/>
+        <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
+        <relationship name="itemLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="look" inverseEntity="Location" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="collocations" inverseEntity="Item" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="looks" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="tags" inverseEntity="Item" syncable="YES"/>
+        <relationship name="looks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Look" inverseName="tags" inverseEntity="Look" syncable="YES"/>
     </entity>
     <fetchRequest name="FetchRequest" entity="Item"/>
     <elements>
-        <element name="Item" positionX="-378" positionY="279" width="128" height="163"/>
-        <element name="Collocation" positionX="97" positionY="279" width="128" height="148"/>
-        <element name="Favorite" positionX="-173" positionY="468" width="128" height="73"/>
+        <element name="Item" positionX="-146" positionY="197" width="128" height="193"/>
+        <element name="Location" positionX="-389" positionY="180" width="128" height="103"/>
+        <element name="Look" positionX="-612" positionY="275" width="128" height="148"/>
+        <element name="Tag" positionX="-371" positionY="477" width="128" height="90"/>
     </elements>
 </model>

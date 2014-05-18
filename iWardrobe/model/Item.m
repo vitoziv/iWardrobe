@@ -2,24 +2,27 @@
 //  Item.m
 //  iWardrobe
 //
-//  Created by Vito on 4/27/14.
+//  Created by Vito on 5/18/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
 #import "Item.h"
-#import "Collocation.h"
-#import "Favorite.h"
+#import "Location.h"
+#import "Look.h"
+#import "Tag.h"
 
 
 @implementation Item
 
-@dynamic itemId;
-@dynamic tag;
 @dynamic brand;
-@dynamic imageUrl;
 @dynamic createDate;
+@dynamic imageUrl;
+@dynamic itemId;
 @dynamic modifyDate;
+@dynamic price;
+@dynamic status;
 @dynamic collocations;
-@dynamic favorite;
+@dynamic tags;
+@dynamic locations;
 
 @end
