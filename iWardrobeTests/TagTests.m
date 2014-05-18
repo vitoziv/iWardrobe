@@ -1,18 +1,19 @@
 //
-//  iWardrobeTests.m
-//  iWardrobeTests
+//  TagTests.m
+//  iWardrobe
 //
-//  Created by Vito on 4/26/14.
+//  Created by Vito on 5/18/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "Tag+Service.h"
 
-@interface iWardrobeTests : XCTestCase
+@interface TagTests : XCTestCase
 
 @end
 
-@implementation iWardrobeTests
+@implementation TagTests
 
 - (void)setUp
 {
@@ -26,9 +27,12 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testInsertTag
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSString *tagName = @"Test Tag";
+    Tag *tag = [Tag tagWithName:tagName inContext:nil];
+    
+    XCTAssertEqual(tag.name, tagName, @"Tag name should be right!");
 }
 
 @end
