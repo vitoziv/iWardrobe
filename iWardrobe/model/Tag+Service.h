@@ -13,8 +13,11 @@ extern NSString *const IWTagName;
 
 @interface Tag (Service)
 
++ (Tag *)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 + (Tag *)tagWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 + (Tag *)updateWithTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
 + (void)deleteTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
+
++ (NSArray *)tagListInContext:(NSManagedObjectContext *)context;
 
 @end
