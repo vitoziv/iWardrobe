@@ -2,7 +2,7 @@
 //  Item.m
 //  iWardrobe
 //
-//  Created by Vito on 5/18/14.
+//  Created by Vito on 5/22/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
@@ -16,13 +16,13 @@
 
 @dynamic brand;
 @dynamic createDate;
-@dynamic imageUrl;
+@dynamic imagePath;
 @dynamic itemId;
 @dynamic modifyDate;
 @dynamic price;
 @dynamic status;
-@dynamic collocations;
-@dynamic tags;
+@dynamic looks;
 @dynamic locations;
+@dynamic tags;
 
 @end

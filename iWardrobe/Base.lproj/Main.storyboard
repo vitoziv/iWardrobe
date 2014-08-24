@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aSf-We-F29">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aSf-We-F29">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Collection View Controller-->
@@ -45,7 +46,7 @@
         <scene sceneID="MK1-YF-zst">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="aSf-We-F29" customClass="MainTabBarViewController" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dCh-89-Fj2">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -61,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="176" y="8"/>
         </scene>
-        <!--Add View Controller - Add-->
+        <!--Add View Controller - Looks-->
         <scene sceneID="ZZu-4d-GsS">
             <objects>
                 <viewController id="081-Qk-HjH" customClass="AddViewController" sceneMemberID="viewController">
@@ -104,7 +105,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Add" id="8F9-WF-RoH"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Looks" id="8F9-WF-RoH"/>
                     <connections>
                         <outlet property="imageView" destination="8fj-lz-YRN" id="czW-SK-Pfk"/>
                     </connections>
@@ -113,28 +114,51 @@
             </objects>
             <point key="canvasLocation" x="710" y="8"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Items Collection View Controller-->
         <scene sceneID="uDr-22-VNa">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="8AW-ST-kwL" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="8AW-ST-kwL" customClass="ItemsCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="dup-2w-0Hl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8GK-wH-9om">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="145" height="145"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sOf-td-Qfo">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="sOf-td-Qfo" customClass="IWItemCollectionViewCell">
+                                <rect key="frame" x="10" y="74" width="145" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WSJ-lD-fkH">
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="WSJ-lD-fkH" secondAttribute="height" multiplier="1:1" id="99D-9r-IoS"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="WSJ-lD-fkH" secondAttribute="bottom" id="21n-SK-yCk"/>
+                                    <constraint firstItem="WSJ-lD-fkH" firstAttribute="leading" secondItem="sOf-td-Qfo" secondAttribute="leading" id="N7w-mq-byb"/>
+                                    <constraint firstItem="WSJ-lD-fkH" firstAttribute="top" secondItem="sOf-td-Qfo" secondAttribute="top" id="NXD-wS-p1S"/>
+                                    <constraint firstAttribute="trailing" secondItem="WSJ-lD-fkH" secondAttribute="trailing" id="bOj-jb-d5G"/>
+                                    <constraint firstItem="WSJ-lD-fkH" firstAttribute="top" secondItem="sOf-td-Qfo" secondAttribute="top" id="it5-kQ-ZGE"/>
+                                    <constraint firstItem="WSJ-lD-fkH" firstAttribute="leading" secondItem="sOf-td-Qfo" secondAttribute="leading" id="mCd-2v-teM"/>
+                                    <constraint firstAttribute="trailing" secondItem="WSJ-lD-fkH" secondAttribute="trailing" id="nFs-WC-aXm"/>
+                                    <constraint firstAttribute="bottom" secondItem="WSJ-lD-fkH" secondAttribute="bottom" id="qkE-di-xgF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="WSJ-lD-fkH" id="9nn-vu-w4M"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -144,7 +168,11 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="szZ-gm-AgR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="XRf-Kc-ill"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XRf-Kc-ill">
+                            <connections>
+                                <action selector="addAction:" destination="8AW-ST-kwL" id="JxV-zn-SlX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
@@ -171,11 +199,11 @@
             </objects>
             <point key="canvasLocation" x="710" y="-809"/>
         </scene>
-        <!--Navigation Controller - Collocations-->
+        <!--Navigation Controller - Items-->
         <scene sceneID="S7K-EH-K1A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1C3-Zv-XD0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collocations" id="UIl-1I-av8"/>
+                    <tabBarItem key="tabBarItem" title="Items" id="UIl-1I-av8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y4o-kr-LJi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

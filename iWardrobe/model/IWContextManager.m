@@ -31,6 +31,23 @@ static NSString *const kModelStorePath = @"/WardrobeModel.sqlite";
     return instance;
 }
 
+
++ (NSManagedObjectContext *)sharedContext
+{
+    return [[self sharedInstance] managedObjectContext];
+}
+
++ (void)saveContext
+{
+    NSManagedObjectContext *context = [self sharedContext];
+    if (context) {
+        NSError *error;
+        if (context.hasChanges && ![context save:&error]) {
+            NSLog(@"Save Context Unresolved error: %@", error);
+        }
+    }
+}
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext) {

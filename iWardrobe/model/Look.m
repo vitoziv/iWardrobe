@@ -2,7 +2,7 @@
 //  Look.m
 //  iWardrobe
 //
-//  Created by Vito on 5/18/14.
+//  Created by Vito on 5/22/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @implementation Look
 
-@dynamic collocationId;
-@dynamic coverImageUrl;
+@dynamic lookId;
+@dynamic imagePath;
 @dynamic createDate;
 @dynamic modifyDate;
+@dynamic itemLocations;
 @dynamic items;
 @dynamic tags;
-@dynamic itemLocations;
 
 @end
