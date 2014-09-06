@@ -21,7 +21,6 @@
 		5F01216E190BFAD000C36277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F01216C190BFAD000C36277 /* InfoPlist.strings */; };
 		5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */; };
 		5F012191190CF21600C36277 /* ItemsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012190190CF21600C36277 /* ItemsCollectionViewController.m */; };
-		5F012194190CF67100C36277 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012193190CF67100C36277 /* AddViewController.m */; };
 		5F01219B190CFF6800C36277 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01219A190CFF6800C36277 /* MainTabBarViewController.m */; };
 		5F10A835192E23940079D26B /* ItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10A834192E23940079D26B /* ItemTests.m */; };
 		5F10A838192E25570079D26B /* Item+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10A837192E25570079D26B /* Item+Service.m */; };
@@ -32,6 +31,9 @@
 		5F6A40841928AC3F00E40606 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40801928AC3F00E40606 /* Tag.m */; };
 		5FC5CEC51928F1B900B237E3 /* TagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5CEC41928F1B900B237E3 /* TagTests.m */; };
 		5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5CEC71928F27600B237E3 /* IWContextManager.m */; };
+		5FDD5DAD19BAA0FB00A4EA26 /* LooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DAC19BAA0FB00A4EA26 /* LooksViewController.m */; };
+		5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */; };
+		5FDD5DB319BAAE6E00A4EA26 /* IWStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */; };
 		5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */; };
 		5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C245194495C700F7C2AD /* IWImageUtil.m */; };
 		5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C249194496F300F7C2AD /* DFDateFormatterFactory.m */; };
@@ -70,8 +72,6 @@
 		5F01217B190C05D800C36277 /* WardrobeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WardrobeModel.xcdatamodel; sourceTree = "<group>"; };
 		5F01218F190CF21600C36277 /* ItemsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCollectionViewController.h; sourceTree = "<group>"; };
 		5F012190190CF21600C36277 /* ItemsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCollectionViewController.m; sourceTree = "<group>"; };
-		5F012192190CF67100C36277 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
-		5F012193190CF67100C36277 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		5F012199190CFF6800C36277 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		5F01219A190CFF6800C36277 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		5F10A834192E23940079D26B /* ItemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTests.m; sourceTree = "<group>"; };
@@ -91,6 +91,12 @@
 		5FC5CEC61928F27600B237E3 /* IWContextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWContextManager.h; path = model/IWContextManager.h; sourceTree = "<group>"; };
 		5FC5CEC71928F27600B237E3 /* IWContextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWContextManager.m; path = model/IWContextManager.m; sourceTree = "<group>"; };
 		5FC5CECB1928F49000B237E3 /* IWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWDefine.h; sourceTree = "<group>"; };
+		5FDD5DAB19BAA0FB00A4EA26 /* LooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LooksViewController.h; sourceTree = "<group>"; };
+		5FDD5DAC19BAA0FB00A4EA26 /* LooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LooksViewController.m; sourceTree = "<group>"; };
+		5FDD5DAE19BAA70F00A4EA26 /* Look+IW_Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Look+IW_Service.h"; sourceTree = "<group>"; };
+		5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Look+IW_Service.m"; sourceTree = "<group>"; };
+		5FDD5DB119BAAE6E00A4EA26 /* IWStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWStringGenerator.h; sourceTree = "<group>"; };
+		5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWStringGenerator.m; sourceTree = "<group>"; };
 		5FF9C24019448F9B00F7C2AD /* IWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemCollectionViewCell.h; sourceTree = "<group>"; };
 		5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemCollectionViewCell.m; sourceTree = "<group>"; };
 		5FF9C244194495C700F7C2AD /* IWImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageUtil.h; sourceTree = "<group>"; };
@@ -225,10 +231,10 @@
 			children = (
 				5F01218F190CF21600C36277 /* ItemsCollectionViewController.h */,
 				5F012190190CF21600C36277 /* ItemsCollectionViewController.m */,
-				5F012192190CF67100C36277 /* AddViewController.h */,
-				5F012193190CF67100C36277 /* AddViewController.m */,
 				5F012199190CFF6800C36277 /* MainTabBarViewController.h */,
 				5F01219A190CFF6800C36277 /* MainTabBarViewController.m */,
+				5FDD5DAB19BAA0FB00A4EA26 /* LooksViewController.h */,
+				5FDD5DAC19BAA0FB00A4EA26 /* LooksViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				5FC5CECB1928F49000B237E3 /* IWDefine.h */,
 				5FF9C244194495C700F7C2AD /* IWImageUtil.h */,
 				5FF9C245194495C700F7C2AD /* IWImageUtil.m */,
+				5FDD5DB119BAAE6E00A4EA26 /* IWStringGenerator.h */,
+				5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -270,6 +278,8 @@
 				5F10A837192E25570079D26B /* Item+Service.m */,
 				5F6A40761928AC0F00E40606 /* Tag+Service.h */,
 				5F6A40771928AC0F00E40606 /* Tag+Service.m */,
+				5FDD5DAE19BAA70F00A4EA26 /* Look+IW_Service.h */,
+				5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -421,13 +431,15 @@
 				5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */,
 				5F012155190BFAD000C36277 /* AppDelegate.m in Sources */,
 				5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */,
+				5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
+				5FDD5DAD19BAA0FB00A4EA26 /* LooksViewController.m in Sources */,
 				5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */,
 				5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */,
 				5F01219B190CFF6800C36277 /* MainTabBarViewController.m in Sources */,
 				5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */,
-				5F012194190CF67100C36277 /* AddViewController.m in Sources */,
 				5F6A40841928AC3F00E40606 /* Tag.m in Sources */,
+				5FDD5DB319BAAE6E00A4EA26 /* IWStringGenerator.m in Sources */,
 				5F6A40781928AC0F00E40606 /* Tag+Service.m in Sources */,
 				5F10A838192E25570079D26B /* Item+Service.m in Sources */,
 				5F012191190CF21600C36277 /* ItemsCollectionViewController.m in Sources */,

@@ -26,6 +26,7 @@ NSString *const IWItemTags = @"tags";
 + (Item *)insertItemInContext:(NSManagedObjectContext *)context
 {
     Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:IWTableItem inManagedObjectContext:context];
+    // TODO: Unique ID
     newItem.itemId = @"Unique ID";
     
     NSDate *currentDate = [NSDate date];
