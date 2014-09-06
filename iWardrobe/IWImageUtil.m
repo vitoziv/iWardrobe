@@ -29,7 +29,7 @@
         });
     });
     
-    return path;
+    return imageName;
 }
 
 @end

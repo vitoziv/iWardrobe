@@ -15,7 +15,7 @@
 @implementation Look
 
 @dynamic lookId;
-@dynamic imagePath;
+@dynamic imageName;
 @dynamic imageMetaData;
 @dynamic createDate;
 @dynamic modifyDate;

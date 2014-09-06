@@ -13,7 +13,7 @@ typedef void(^IWImageUtilSaveBlock)(NSError *error);
 @interface IWImageUtil : NSObject
 
 /**
- ** retrun imagePath
+ ** retrun imageName
  **/
 + (NSString *)saveImage:(UIImage *)image completion:(IWImageUtilSaveBlock)completion;
 

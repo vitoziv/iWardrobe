@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Collection View Controller-->
@@ -73,8 +74,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rw7-rf-5nL">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="568"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rw7-rf-5nL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ijC-qC-l2W">
                                     <size key="itemSize" width="300" height="400"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -82,19 +84,49 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qot-yN-XHL">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Look Cell" id="Qot-yN-XHL" customClass="IWLookCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKo-dO-wPs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                                </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wRU-20-Xx2">
+                                                    <rect key="frame" x="140" y="190" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="VKo-dO-wPs" firstAttribute="leading" secondItem="Qot-yN-XHL" secondAttribute="leadingMargin" constant="-8" id="dIZ-u5-2Wj"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="VKo-dO-wPs" secondAttribute="bottom" constant="-8" id="eDg-FD-zOC"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="VKo-dO-wPs" secondAttribute="trailing" constant="-8" id="jE5-Kh-3Iv"/>
+                                            <constraint firstItem="VKo-dO-wPs" firstAttribute="top" secondItem="Qot-yN-XHL" secondAttribute="topMargin" constant="-8" id="mcC-lf-7q7"/>
+                                            <constraint firstAttribute="centerY" secondItem="wRU-20-Xx2" secondAttribute="centerY" id="rY7-NE-TZY"/>
+                                            <constraint firstAttribute="centerX" secondItem="wRU-20-Xx2" secondAttribute="centerX" id="vqq-F0-4oG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="VKo-dO-wPs" id="lE3-7E-sc0"/>
+                                            <outlet property="indicatorView" destination="wRU-20-Xx2" id="1f8-sB-7y1"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="081-Qk-HjH" id="oBi-TJ-uqG"/>
+                                    <outlet property="delegate" destination="081-Qk-HjH" id="TdM-Im-v22"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rw7-rf-5nL" firstAttribute="bottom" secondItem="vIh-KN-kBN" secondAttribute="bottomMargin" id="8KI-YK-lAi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rw7-rf-5nL" secondAttribute="trailing" constant="-16" id="Tr3-Aj-FCC"/>
+                            <constraint firstItem="rw7-rf-5nL" firstAttribute="leading" secondItem="vIh-KN-kBN" secondAttribute="leadingMargin" constant="-16" id="ivs-uV-piX"/>
+                            <constraint firstItem="rw7-rf-5nL" firstAttribute="top" secondItem="vIh-KN-kBN" secondAttribute="topMargin" id="pA3-F7-0Gx"/>
+                        </constraints>
                         <variation key="heightClass=regular-widthClass=regular"/>
                     </view>
                     <navigationItem key="navigationItem" title="Looks" id="lqa-l6-nRB">
@@ -104,6 +136,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="rw7-rf-5nL" id="a63-9h-hCZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqQ-Rh-vkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

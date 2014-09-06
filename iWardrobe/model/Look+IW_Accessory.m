@@ -13,8 +13,9 @@
 - (UIImage *)image
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:self.imagePath]) {
-        return [UIImage imageWithContentsOfFile:self.imagePath];
+    NSString *path = [NSString stringWithFormat:@"%@/%@", IWDocumentDirectory, self.imageName];
+    if ([fileManager fileExistsAtPath:path]) {
+        return [UIImage imageWithContentsOfFile:path];
     } else {
         return self.tempImage;
     }

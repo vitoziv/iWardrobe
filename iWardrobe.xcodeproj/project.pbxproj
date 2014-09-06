@@ -38,6 +38,7 @@
 		5FDD5DB919BB42E900A4EA26 /* LookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB819BB42E900A4EA26 /* LookTests.m */; };
 		5FDD5DBB19BB441D00A4EA26 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDD5DBA19BB441D00A4EA26 /* test.png */; };
 		5FDD5DC219BB58DB00A4EA26 /* Look+IW_Accessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DC119BB58DB00A4EA26 /* Look+IW_Accessory.m */; };
+		5FDD5DC519BB5B9200A4EA26 /* IWLookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */; };
 		5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */; };
 		5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C245194495C700F7C2AD /* IWImageUtil.m */; };
 		5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C249194496F300F7C2AD /* DFDateFormatterFactory.m */; };
@@ -107,6 +108,8 @@
 		5FDD5DBA19BB441D00A4EA26 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		5FDD5DC019BB58DB00A4EA26 /* Look+IW_Accessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Look+IW_Accessory.h"; sourceTree = "<group>"; };
 		5FDD5DC119BB58DB00A4EA26 /* Look+IW_Accessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Look+IW_Accessory.m"; sourceTree = "<group>"; };
+		5FDD5DC319BB5B9200A4EA26 /* IWLookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWLookCell.h; sourceTree = "<group>"; };
+		5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWLookCell.m; sourceTree = "<group>"; };
 		5FF9C24019448F9B00F7C2AD /* IWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemCollectionViewCell.h; sourceTree = "<group>"; };
 		5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemCollectionViewCell.m; sourceTree = "<group>"; };
 		5FF9C244194495C700F7C2AD /* IWImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageUtil.h; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 			children = (
 				5FF9C24019448F9B00F7C2AD /* IWItemCollectionViewCell.h */,
 				5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */,
+				5FDD5DC319BB5B9200A4EA26 /* IWLookCell.h */,
+				5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */,
 				5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
+				5FDD5DC519BB5B9200A4EA26 /* IWLookCell.m in Sources */,
 				5FDD5DAD19BAA0FB00A4EA26 /* LooksViewController.m in Sources */,
 				5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */,
 				5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */,

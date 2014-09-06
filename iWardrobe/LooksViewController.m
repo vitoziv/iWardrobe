@@ -10,11 +10,15 @@
 #import "SVProgressHUD.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Look+IW_Service.h"
+#import "IWLookCell.h"
 
-@interface LooksViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface LooksViewController ()
+<UINavigationControllerDelegate,
+UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) NSArray *looksData;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -22,7 +26,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    __block NSArray *datas;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        datas = [Look allLooksInContext:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            self.looksData = datas;
+            [self.collectionView reloadData];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,34 +113,57 @@
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
-    __block NSDictionary *imageMetadata;
+    void(^finishBlock)(NSDictionary *imageMetaData) = ^(NSDictionary *imageMetaData) {
+        NSLog(@"finished");
+        // TODO: Save image
+        Look * look = [Look saveLookWithImage:image imageMetaData:imageMetaData inContext:nil];
+        NSMutableArray *looksData = [NSMutableArray arrayWithObject:look];
+        [looksData addObjectsFromArray:self.looksData];
+        self.looksData = looksData;
+        
+        // TODO: Refresh collection view, add item to collection view
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+        } completion:nil];
+    };
+    
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-        imageMetadata = info[UIImagePickerControllerMediaMetadata];
+        finishBlock(info[UIImagePickerControllerMediaMetadata]);
     } else {
         ALAssetsLibrary * lib = [[ALAssetsLibrary alloc] init];
         [lib assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
              resultBlock:^(ALAsset *asset) {
-                 imageMetadata = asset.defaultRepresentation.metadata;
+                 finishBlock(asset.defaultRepresentation.metadata);
              }
             failureBlock:nil];
     }
-    
-    // TODO: Save image
-    Look * look = [Look saveLookWithImage:image imageMetaData:imageMetadata inContext:nil];
-    NSMutableArray *looksData = [NSMutableArray arrayWithObject:look];
-    [looksData addObjectsFromArray:self.looksData];
-    self.looksData = looksData;
-    
-    // TODO: Refresh collection view, add item to collection view
-    
     
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - Collection View
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.looksData.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    static NSString *CellIdentifier = @"Look Cell";
+    IWLookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    [cell configureWithData:self.looksData[indexPath.item]];
+    
+    return cell;
 }
 
 @end

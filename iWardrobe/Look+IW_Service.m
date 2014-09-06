@@ -30,22 +30,26 @@ NSString *const IWLookCreateDate = @"createDate";
     look.imageMetaData = metaData;
     look.tempImage = image;
     
-    NSString *path = [IWImageUtil saveImage:image
-                                 completion:^(NSError *error) {
-                                     if (error) {
-                                         // TODO: need delete
-                                         NSLog(@"save look error: %@", error);
-                                     } else {
-                                         NSLog(@"Image saved! %@", path);
-                                     }
-                                 }];
-    look.imagePath = path;
+    NSString *imageName = [IWImageUtil saveImage:image
+                                      completion:^(NSError *error) {
+                                          if (error) {
+                                              // TODO: need delete
+                                              NSLog(@"save look error: %@", error);
+                                          } else {
+                                              NSLog(@"Image saved! imageName: %@", look.imageName);
+                                          }
+                                      }];
+    look.imageName = imageName;
     
     return look;
 }
 
 + (NSArray *)allLooksInContext:(NSManagedObjectContext *)context
 {
+    if (!context) {
+        context = [IWContextManager sharedContext];
+    }
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:IWTableLook];
     
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:IWLookCreateDate ascending:NO];

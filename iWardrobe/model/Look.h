@@ -14,7 +14,7 @@
 @interface Look : NSManagedObject
 
 @property (nonatomic, retain) NSString * lookId;
-@property (nonatomic, retain) NSString * imagePath;
+@property (nonatomic, retain) NSString * imageName;
 @property (nonatomic, retain) NSDictionary *imageMetaData;
 @property (nonatomic, retain) UIImage * tempImage;
 @property (nonatomic, retain) NSDate * createDate;
