@@ -34,6 +34,7 @@
 		5FDD5DAD19BAA0FB00A4EA26 /* LooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DAC19BAA0FB00A4EA26 /* LooksViewController.m */; };
 		5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */; };
 		5FDD5DB319BAAE6E00A4EA26 /* IWStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */; };
+		5FDD5DB519BAB5B300A4EA26 /* UtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB419BAB5B300A4EA26 /* UtilTests.m */; };
 		5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */; };
 		5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C245194495C700F7C2AD /* IWImageUtil.m */; };
 		5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C249194496F300F7C2AD /* DFDateFormatterFactory.m */; };
@@ -97,6 +98,7 @@
 		5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Look+IW_Service.m"; sourceTree = "<group>"; };
 		5FDD5DB119BAAE6E00A4EA26 /* IWStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWStringGenerator.h; sourceTree = "<group>"; };
 		5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWStringGenerator.m; sourceTree = "<group>"; };
+		5FDD5DB419BAB5B300A4EA26 /* UtilTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilTests.m; sourceTree = "<group>"; };
 		5FF9C24019448F9B00F7C2AD /* IWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemCollectionViewCell.h; sourceTree = "<group>"; };
 		5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemCollectionViewCell.m; sourceTree = "<group>"; };
 		5FF9C244194495C700F7C2AD /* IWImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageUtil.h; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				5F01216A190BFAD000C36277 /* Supporting Files */,
 				5FC5CEC41928F1B900B237E3 /* TagTests.m */,
 				5F10A834192E23940079D26B /* ItemTests.m */,
+				5FDD5DB419BAB5B300A4EA26 /* UtilTests.m */,
 			);
 			path = iWardrobeTests;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDD5DB519BAB5B300A4EA26 /* UtilTests.m in Sources */,
 				5F10A835192E23940079D26B /* ItemTests.m in Sources */,
 				5FC5CEC51928F1B900B237E3 /* TagTests.m in Sources */,
 			);

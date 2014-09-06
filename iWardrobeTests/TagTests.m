@@ -42,11 +42,10 @@ static NSString *const kTagForDeleteName = @"Test delete tag";
 
 - (void)testFetchTag
 {
-    Tag *tag = [Tag insertWithName:kFetchTagName inContext:self.context];
-    XCTAssertEqual(tag.name, kFetchTagName, @"Tag name should be right!");
+    [Tag insertWithName:kFetchTagName inContext:self.context];
     
     Tag *fetchTag = [Tag tagWithName:kFetchTagName inContext:self.context];
-    XCTAssertNotNil(fetchTag, @"Fetch tag should not be nil");
+    XCTAssertTrue([fetchTag.name isEqualToString:kFetchTagName], @"Fetch tag should have the same name");
 }
 
 - (void)testTagList
@@ -58,12 +57,10 @@ static NSString *const kTagForDeleteName = @"Test delete tag";
 - (void)testDeleteTag
 {
     Tag *tag = [Tag insertWithName:kTagForDeleteName inContext:self.context];
-    XCTAssertNotNil(tag, @"Tag should not be nil");
-    
     [Tag deleteTag:tag inContext:self.context];
     
     Tag *tagAfterDelete = [Tag tagWithName:kTagForDeleteName inContext:self.context];
-    XCTAssertNil(tagAfterDelete, @"Tag should be nil, because it is deleted!");
+    XCTAssertNil(tagAfterDelete, @"Tag should be nil, because it was deleted!");
 }
 
 @end

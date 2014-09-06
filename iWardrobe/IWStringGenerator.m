@@ -13,7 +13,7 @@
 
 + (NSString *)uniqueIDWithDate:(NSDate *)date
 {
-    NSDateFormatter *formatter = [[DFDateFormatterFactory sharedFactory] dateFormatterWithFormat:@"yyyyMMddHHmmss.SSS"];
+    NSDateFormatter *formatter = [[DFDateFormatterFactory sharedFactory] dateFormatterWithFormat:@"yyyyMMddHHmmssSSS"];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     formatter.timeZone = timeZone;
     
