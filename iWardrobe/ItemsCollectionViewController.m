@@ -72,23 +72,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+//    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    [IWImageUtil saveImage:image toLocalCompletion:^(NSString *imagePath, NSError *error) {
-        if (error) {
-            NSLog(@"Save image error: %@", error);
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Save image failed", nil)];
-        } else {
-            // Save new item
-            Item *newItem = [Item insertItemInContext:[IWContextManager sharedContext]];
-            newItem.imagePath = imagePath;
-            
-            // Update collection view data
-            self.items = [Item allItemsInContext:[IWContextManager sharedContext]];
-            [self.collectionView reloadData];
-            [SVProgressHUD dismiss];
-        }
-    }];
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

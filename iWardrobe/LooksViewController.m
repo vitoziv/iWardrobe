@@ -8,9 +8,12 @@
 
 #import "LooksViewController.h"
 #import "SVProgressHUD.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "Look+IW_Service.h"
 
 @interface LooksViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (strong, nonatomic) NSArray *looksData;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 @end
@@ -98,8 +101,29 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [self dismissViewControllerAnimated:YES completion:NULL];
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    __block NSDictionary *imageMetadata;
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        imageMetadata = info[UIImagePickerControllerMediaMetadata];
+    } else {
+        ALAssetsLibrary * lib = [[ALAssetsLibrary alloc] init];
+        [lib assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
+             resultBlock:^(ALAsset *asset) {
+                 imageMetadata = asset.defaultRepresentation.metadata;
+             }
+            failureBlock:nil];
+    }
+    
     // TODO: Save image
+    Look * look = [Look saveLookWithImage:image imageMetaData:imageMetadata inContext:nil];
+    NSMutableArray *looksData = [NSMutableArray arrayWithObject:look];
+    [looksData addObjectsFromArray:self.looksData];
+    self.looksData = looksData;
+    
+    // TODO: Refresh collection view, add item to collection view
+    
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

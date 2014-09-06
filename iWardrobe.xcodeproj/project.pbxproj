@@ -35,6 +35,9 @@
 		5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */; };
 		5FDD5DB319BAAE6E00A4EA26 /* IWStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */; };
 		5FDD5DB519BAB5B300A4EA26 /* UtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB419BAB5B300A4EA26 /* UtilTests.m */; };
+		5FDD5DB919BB42E900A4EA26 /* LookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DB819BB42E900A4EA26 /* LookTests.m */; };
+		5FDD5DBB19BB441D00A4EA26 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDD5DBA19BB441D00A4EA26 /* test.png */; };
+		5FDD5DC219BB58DB00A4EA26 /* Look+IW_Accessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DC119BB58DB00A4EA26 /* Look+IW_Accessory.m */; };
 		5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */; };
 		5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C245194495C700F7C2AD /* IWImageUtil.m */; };
 		5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C249194496F300F7C2AD /* DFDateFormatterFactory.m */; };
@@ -99,6 +102,11 @@
 		5FDD5DB119BAAE6E00A4EA26 /* IWStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWStringGenerator.h; sourceTree = "<group>"; };
 		5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWStringGenerator.m; sourceTree = "<group>"; };
 		5FDD5DB419BAB5B300A4EA26 /* UtilTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilTests.m; sourceTree = "<group>"; };
+		5FDD5DB719BB3B4500A4EA26 /* iWardrobe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iWardrobe-Bridging-Header.h"; path = "model/iWardrobe-Bridging-Header.h"; sourceTree = "<group>"; };
+		5FDD5DB819BB42E900A4EA26 /* LookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookTests.m; sourceTree = "<group>"; };
+		5FDD5DBA19BB441D00A4EA26 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		5FDD5DC019BB58DB00A4EA26 /* Look+IW_Accessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Look+IW_Accessory.h"; sourceTree = "<group>"; };
+		5FDD5DC119BB58DB00A4EA26 /* Look+IW_Accessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Look+IW_Accessory.m"; sourceTree = "<group>"; };
 		5FF9C24019448F9B00F7C2AD /* IWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemCollectionViewCell.h; sourceTree = "<group>"; };
 		5FF9C24119448F9B00F7C2AD /* IWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemCollectionViewCell.m; sourceTree = "<group>"; };
 		5FF9C244194495C700F7C2AD /* IWImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageUtil.h; sourceTree = "<group>"; };
@@ -167,7 +175,6 @@
 		5F01214A190BFAD000C36277 /* iWardrobe */ = {
 			isa = PBXGroup;
 			children = (
-				5FF9C2431944932C00F7C2AD /* Services */,
 				5F012179190C05C400C36277 /* Model */,
 				5FC5CEC91928F46300B237E3 /* Util */,
 				5FF9C23F19448F7200F7C2AD /* Views */,
@@ -184,6 +191,7 @@
 		5F01214B190BFAD000C36277 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5FDD5DB719BB3B4500A4EA26 /* iWardrobe-Bridging-Header.h */,
 				5F01214C190BFAD000C36277 /* iWardrobe-Info.plist */,
 				5F01214D190BFAD000C36277 /* InfoPlist.strings */,
 				5F012150190BFAD000C36277 /* main.m */,
@@ -195,10 +203,9 @@
 		5F012169190BFAD000C36277 /* iWardrobeTests */ = {
 			isa = PBXGroup;
 			children = (
-				5F01216A190BFAD000C36277 /* Supporting Files */,
-				5FC5CEC41928F1B900B237E3 /* TagTests.m */,
-				5F10A834192E23940079D26B /* ItemTests.m */,
+				5FDD5DBC19BB460C00A4EA26 /* CoreDataTest */,
 				5FDD5DB419BAB5B300A4EA26 /* UtilTests.m */,
+				5F01216A190BFAD000C36277 /* Supporting Files */,
 			);
 			path = iWardrobeTests;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 		5F01216A190BFAD000C36277 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5FDD5DBA19BB441D00A4EA26 /* test.png */,
 				5F01216B190BFAD000C36277 /* iWardrobeTests-Info.plist */,
 				5F01216C190BFAD000C36277 /* InfoPlist.strings */,
 			);
@@ -215,6 +223,8 @@
 		5F012179190C05C400C36277 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5FDD5DBF19BB582E00A4EA26 /* Accessory */,
+				5FF9C2431944932C00F7C2AD /* Services */,
 				5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */,
 				5F6A407B1928AC3F00E40606 /* Location.h */,
 				5F6A407C1928AC3F00E40606 /* Location.m */,
@@ -263,6 +273,25 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		5FDD5DBC19BB460C00A4EA26 /* CoreDataTest */ = {
+			isa = PBXGroup;
+			children = (
+				5FC5CEC41928F1B900B237E3 /* TagTests.m */,
+				5F10A834192E23940079D26B /* ItemTests.m */,
+				5FDD5DB819BB42E900A4EA26 /* LookTests.m */,
+			);
+			name = CoreDataTest;
+			sourceTree = "<group>";
+		};
+		5FDD5DBF19BB582E00A4EA26 /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				5FDD5DC019BB58DB00A4EA26 /* Look+IW_Accessory.h */,
+				5FDD5DC119BB58DB00A4EA26 /* Look+IW_Accessory.m */,
+			);
+			name = Accessory;
+			sourceTree = "<group>";
+		};
 		5FF9C23F19448F7200F7C2AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +314,7 @@
 				5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */,
 			);
 			name = Services;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5FF9C247194496F300F7C2AD /* DFDateFormatterFactory */ = {
@@ -385,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F01216E190BFAD000C36277 /* InfoPlist.strings in Resources */,
+				5FDD5DBB19BB441D00A4EA26 /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +470,7 @@
 				5FDD5DAD19BAA0FB00A4EA26 /* LooksViewController.m in Sources */,
 				5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */,
 				5FF9C24219448F9B00F7C2AD /* IWItemCollectionViewCell.m in Sources */,
+				5FDD5DC219BB58DB00A4EA26 /* Look+IW_Accessory.m in Sources */,
 				5F01219B190CFF6800C36277 /* MainTabBarViewController.m in Sources */,
 				5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */,
 				5F6A40841928AC3F00E40606 /* Tag.m in Sources */,
@@ -455,6 +487,7 @@
 			files = (
 				5FDD5DB519BAB5B300A4EA26 /* UtilTests.m in Sources */,
 				5F10A835192E23940079D26B /* ItemTests.m in Sources */,
+				5FDD5DB919BB42E900A4EA26 /* LookTests.m in Sources */,
 				5FC5CEC51928F1B900B237E3 /* TagTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -561,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -573,11 +606,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iWardrobe/iWardrobe-Prefix.pch";
 				INFOPLIST_FILE = "iWardrobe/iWardrobe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iWardrobe/model/iWardrobe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -588,11 +626,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iWardrobe/iWardrobe-Prefix.pch";
 				INFOPLIST_FILE = "iWardrobe/iWardrobe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iWardrobe/model/iWardrobe-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

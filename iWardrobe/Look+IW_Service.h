@@ -10,7 +10,7 @@
 
 @interface Look (IW_Service)
 
-+ (instancetype)newLookWithImage:(UIImage *)image inContext:(NSManagedObjectContext *)context;
++ (instancetype)saveLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context;
 + (NSArray *)allLooksInContext:(NSManagedObjectContext *)context;
 
 @end

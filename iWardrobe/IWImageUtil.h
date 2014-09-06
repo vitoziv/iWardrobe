@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^IWImageUtilSaveBlock)(NSError *error);
+
 @interface IWImageUtil : NSObject
 
-+ (void)saveImage:(UIImage *)image toLocalCompletion:(void(^)(NSString *imageName, NSError *error))completion;
+/**
+ ** retrun imagePath
+ **/
++ (NSString *)saveImage:(UIImage *)image completion:(IWImageUtilSaveBlock)completion;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "IWContextManager.h"
 #import "Item.h"
 
 @interface ItemTests : XCTestCase

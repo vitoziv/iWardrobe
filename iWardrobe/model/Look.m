@@ -16,10 +16,12 @@
 
 @dynamic lookId;
 @dynamic imagePath;
+@dynamic imageMetaData;
 @dynamic createDate;
 @dynamic modifyDate;
 @dynamic itemLocations;
 @dynamic items;
 @dynamic tags;
+@dynamic tempImage;
 
 @end

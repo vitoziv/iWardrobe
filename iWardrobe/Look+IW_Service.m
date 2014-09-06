@@ -8,26 +8,56 @@
 
 #import "Look+IW_Service.h"
 #import "IWStringGenerator.h"
+#import "IWImageUtil.h"
+#import "IWContextManager.h"
 
 NSString *const IWTableLook = @"Look";
+NSString *const IWLookCreateDate = @"createDate";
 
 @implementation Look (IW_Service)
 
-+ (instancetype)newLookWithImage:(UIImage *)image inContext:(NSManagedObjectContext *)context
++ (instancetype)saveLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {
+    if (!context) {
+        context = [IWContextManager sharedContext];
+    }
     Look *look = [NSEntityDescription insertNewObjectForEntityForName:IWTableLook inManagedObjectContext:context];
     
     NSDate *newDate = [NSDate new];
     look.lookId = [IWStringGenerator uniqueIDWithDate:newDate];
     look.createDate = newDate;
     look.modifyDate = newDate;
+    look.imageMetaData = metaData;
+    look.tempImage = image;
+    
+    NSString *path = [IWImageUtil saveImage:image
+                                 completion:^(NSError *error) {
+                                     if (error) {
+                                         // TODO: need delete
+                                         NSLog(@"save look error: %@", error);
+                                     } else {
+                                         NSLog(@"Image saved! %@", path);
+                                     }
+                                 }];
+    look.imagePath = path;
     
     return look;
 }
 
 + (NSArray *)allLooksInContext:(NSManagedObjectContext *)context
 {
-    return nil;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:IWTableLook];
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:IWLookCreateDate ascending:NO];
+    request.sortDescriptors = @[sort];
+    
+    NSError *error;
+    NSArray *result = [context executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"Get look list error: %@", error);
+    }
+    
+    return result;
 }
 
 @end
