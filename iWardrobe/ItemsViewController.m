@@ -13,6 +13,9 @@
 #import "SVProgressHUD.h"
 #import "IWItemLayout.h"
 #import "CHTCollectionViewWaterfallLayout.h"
+#import "ItemDetailViewController.h"
+
+static NSString *kSegueIdentifierShowItemDetail = @"ShowItemDetail";
 
 @interface ItemsViewController ()
 <UICollectionViewDataSource,
@@ -37,6 +40,19 @@ UIImagePickerControllerDelegate>
     [self setupDataCompletion:nil];
 }
 
+
+- (IBAction)backToItem:(UIStoryboardSegue*)sender
+{
+    NSLog(@"back to item");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:kSegueIdentifierShowItemDetail]) {
+        ItemDetailViewController *viewController = segue.destinationViewController;
+        viewController.item = sender;
+    }
+}
 
 #pragma mark - Data
 
@@ -71,6 +87,14 @@ UIImagePickerControllerDelegate>
     [cell configureWithItem:item];
     
     return cell;
+}
+
+#pragma mark - UICollectionViewDelgate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Item *item = self.items[indexPath.row];
+    [self performSegueWithIdentifier:kSegueIdentifierShowItemDetail sender:item];
 }
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
@@ -154,10 +178,9 @@ UIImagePickerControllerDelegate>
         self.items = items;
         
         // TODO: Refresh collection view, add item to collection view
-//        [self.collectionView performBatchUpdates:^{
-//            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
-//        } completion:nil];
-        [self.collectionView reloadData];
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+        } completion:nil];
     };
     
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {

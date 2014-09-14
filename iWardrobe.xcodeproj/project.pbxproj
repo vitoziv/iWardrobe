@@ -32,6 +32,9 @@
 		5F776C8319C41A00006C8E87 /* VIArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8219C41A00006C8E87 /* VIArrayDataSource.m */; };
 		5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8519C42295006C8E87 /* ImageBaseData.m */; };
 		5F776C8A19C477DD006C8E87 /* IWItemLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8919C477DD006C8E87 /* IWItemLayout.m */; };
+		5FBD44A119C5857100ED6E3C /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */; };
+		5FBD44A519C5887400ED6E3C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD44A319C5887400ED6E3C /* 1.jpg */; };
+		5FBD44A619C5887400ED6E3C /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD44A419C5887400ED6E3C /* 3.jpg */; };
 		5FC5CEC51928F1B900B237E3 /* TagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5CEC41928F1B900B237E3 /* TagTests.m */; };
 		5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5CEC71928F27600B237E3 /* IWContextManager.m */; };
 		5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DAF19BAA70F00A4EA26 /* Look+IW_Service.m */; };
@@ -99,6 +102,10 @@
 		5F776C8519C42295006C8E87 /* ImageBaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBaseData.m; sourceTree = "<group>"; };
 		5F776C8819C477DD006C8E87 /* IWItemLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemLayout.h; sourceTree = "<group>"; };
 		5F776C8919C477DD006C8E87 /* IWItemLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemLayout.m; sourceTree = "<group>"; };
+		5FBD449F19C5857100ED6E3C /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		5FBD44A319C5887400ED6E3C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		5FBD44A419C5887400ED6E3C /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		5FC5CEC41928F1B900B237E3 /* TagTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTests.m; sourceTree = "<group>"; };
 		5FC5CEC61928F27600B237E3 /* IWContextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWContextManager.h; path = model/IWContextManager.h; sourceTree = "<group>"; };
 		5FC5CEC71928F27600B237E3 /* IWContextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWContextManager.m; path = model/IWContextManager.m; sourceTree = "<group>"; };
@@ -181,6 +188,7 @@
 		5F01214A190BFAD000C36277 /* iWardrobe */ = {
 			isa = PBXGroup;
 			children = (
+				5FBD44A219C5885B00ED6E3C /* Resources */,
 				5F012179190C05C400C36277 /* Model */,
 				5FC5CEC91928F46300B237E3 /* Util */,
 				5FF9C23F19448F7200F7C2AD /* Views */,
@@ -253,8 +261,19 @@
 				5F776C7B19C41285006C8E87 /* HomeViewController.m */,
 				5F776C7D19C4153E006C8E87 /* ItemsViewController.h */,
 				5F776C7E19C4153E006C8E87 /* ItemsViewController.m */,
+				5FBD449F19C5857100ED6E3C /* ItemDetailViewController.h */,
+				5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5FBD44A219C5885B00ED6E3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FBD44A319C5887400ED6E3C /* 1.jpg */,
+				5FBD44A419C5887400ED6E3C /* 3.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		5FC5CEC91928F46300B237E3 /* Util */ = {
@@ -406,7 +425,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FBD44A619C5887400ED6E3C /* 3.jpg in Resources */,
 				5F01215D190BFAD000C36277 /* Images.xcassets in Resources */,
+				5FBD44A519C5887400ED6E3C /* 1.jpg in Resources */,
 				5F01214F190BFAD000C36277 /* InfoPlist.strings in Resources */,
 				5F012158190BFAD000C36277 /* Main.storyboard in Resources */,
 			);
@@ -463,6 +484,7 @@
 			files = (
 				5F776C8319C41A00006C8E87 /* VIArrayDataSource.m in Sources */,
 				5F10A841192E3C7B0079D26B /* Item.m in Sources */,
+				5FBD44A119C5857100ED6E3C /* ItemDetailViewController.m in Sources */,
 				5F10A83E192E3C7B0079D26B /* Look.m in Sources */,
 				5F6A40821928AC3F00E40606 /* Location.m in Sources */,
 				5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */,
