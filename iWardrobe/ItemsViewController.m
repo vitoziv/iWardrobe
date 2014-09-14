@@ -34,12 +34,6 @@ UIImagePickerControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#warning 实现自适应 collectionView 的功能
-    CGFloat size = CGRectGetWidth(self.view.bounds) / 2 - 15;
-    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-    layout.columnCount = 2;
-    self.collectionView.collectionViewLayout = layout;//[[IWItemLayout alloc] initWIthItemSize:CGSizeMake(size, size)];
-    
     [self setupDataCompletion:nil];
 }
 
@@ -80,11 +74,11 @@ UIImagePickerControllerDelegate>
 }
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    IWItemCollectionViewCell *cell = (IWItemCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    NSLog(@"cell: %@", cell);
-    return CGSizeMake(180, 180 + indexPath.row * 10);
+    Item *item = self.items[indexPath.row];
+    return item.image.size;
 }
 
 

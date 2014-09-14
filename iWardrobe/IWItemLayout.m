@@ -10,19 +10,16 @@
 
 @implementation IWItemLayout
 
-- (void)commonInit
+- (void)iwCommonInit
 {
-    self.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.sectionInset = UIEdgeInsetsMake(60, 10, 20, 10);
-    self.minimumLineSpacing = 10;
-    self.minimumInteritemSpacing = 10;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        [self commonInit];
+        [self iwCommonInit];
     }
     
     return self;
@@ -32,19 +29,11 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self commonInit];
+        [self iwCommonInit];
     }
     
     return self;
 }
 
-- (instancetype)initWIthItemSize:(CGSize)size
-{
-    self = [self init];
-    if (self) {
-        self.itemSize = size;
-    }
-    return self;
-}
 
 @end

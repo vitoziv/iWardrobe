@@ -126,84 +126,30 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AVP-oW-PgD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rb0-sZ-MYX">
-                                    <size key="itemSize" width="212" height="268"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="u7A-0q-aZH" customClass="IWItemLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="Cqk-jP-E3e" customClass="IWItemCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="212" height="268"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-1I-gnF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="212" height="260"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-1I-gnF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="212" height="268"/>
                                                 </imageView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LEu-xg-wpA">
-                                                    <rect key="frame" x="0.0" y="194" width="212" height="74"/>
-                                                    <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="74" id="TQt-Hm-ie3"/>
-                                                    </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tnQ-R6-cXU">
-                                                        <size key="itemSize" width="77" height="77"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemTagCell" id="MuY-Gh-Bi1" customClass="IWItemTagCollectionViewCell">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhV-ep-gf3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="nhV-ep-gf3" firstAttribute="top" secondItem="MuY-Gh-Bi1" secondAttribute="topMargin" constant="-8" id="8kq-BB-6Gd"/>
-                                                                <constraint firstItem="nhV-ep-gf3" firstAttribute="leading" secondItem="MuY-Gh-Bi1" secondAttribute="leadingMargin" constant="-8" id="Hm4-pb-80e"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="nhV-ep-gf3" secondAttribute="trailing" constant="-8" id="cYS-cx-sch"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="nhV-ep-gf3" secondAttribute="bottom" constant="-8" id="kTG-GD-sEp"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="tagLabel" destination="nhV-ep-gf3" id="fQ4-Ev-HMz"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="Cqk-jP-E3e" id="sbo-Ey-iAx"/>
-                                                    </connections>
-                                                </collectionView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.8416859686" green="0.8435637399" blue="0.87221827649999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="LEu-xg-wpA" secondAttribute="bottom" constant="-8" id="2bf-Sj-tfR"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="o1f-1I-gnF" secondAttribute="trailing" constant="-8" id="SHw-Mn-RDI"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="o1f-1I-gnF" secondAttribute="bottom" id="TjP-C4-gZC"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="LEu-xg-wpA" secondAttribute="trailing" constant="-8" id="Zyc-qz-jnr"/>
+                                            <constraint firstAttribute="bottom" secondItem="o1f-1I-gnF" secondAttribute="bottom" id="1d9-xg-bCv"/>
+                                            <constraint firstItem="o1f-1I-gnF" firstAttribute="leading" secondItem="Cqk-jP-E3e" secondAttribute="leading" id="J4N-yd-Qys"/>
+                                            <constraint firstAttribute="trailing" secondItem="o1f-1I-gnF" secondAttribute="trailing" id="PjQ-vH-VtW"/>
                                             <constraint firstItem="o1f-1I-gnF" firstAttribute="top" secondItem="Cqk-jP-E3e" secondAttribute="topMargin" constant="-8" id="cuB-bW-SuW"/>
-                                            <constraint firstItem="LEu-xg-wpA" firstAttribute="leading" secondItem="Cqk-jP-E3e" secondAttribute="leadingMargin" constant="-8" id="iqP-5M-wvK"/>
-                                            <constraint firstItem="o1f-1I-gnF" firstAttribute="leading" secondItem="Cqk-jP-E3e" secondAttribute="leadingMargin" constant="-8" id="xnl-gV-Bja"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="o1f-1I-gnF" id="xlb-g4-zmC"/>
-                                            <outlet property="tagCollectionView" destination="LEu-xg-wpA" id="tJM-7f-mL8"/>
-                                            <outlet property="tagCollectionViewHeightConstraint" destination="TQt-Hm-ie3" id="ddm-yD-lCo"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

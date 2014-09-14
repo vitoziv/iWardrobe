@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHTCollectionViewWaterfallLayout.h"
 
-@interface IWItemLayout : UICollectionViewFlowLayout
+@interface IWItemLayout : CHTCollectionViewWaterfallLayout
 
-- (instancetype)initWIthItemSize:(CGSize)size;
 
 @end
