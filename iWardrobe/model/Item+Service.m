@@ -7,6 +7,8 @@
 //
 
 #import "Item+Service.h"
+#import "IWStringGenerator.h"
+#import "IWContextManager.h"
 
 NSString *const IWTableItem = @"Item";
 
@@ -23,17 +25,24 @@ NSString *const IWItemTags = @"tags";
 
 @implementation Item (Service)
 
-+ (Item *)insertItemInContext:(NSManagedObjectContext *)context
++ (void)deleteItem:(Item *)item
 {
-    Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:IWTableItem inManagedObjectContext:context];
-    // TODO: Unique ID
-    newItem.itemId = @"Unique ID";
-    
-    NSDate *currentDate = [NSDate date];
-    newItem.createDate = currentDate;
-    newItem.modifyDate = currentDate;
-    
-    return newItem;
+    [self deleteItem:item inContext:[IWContextManager sharedContext]];
+}
+
++ (NSArray *)itemsByTag:(Tag *)tag
+{
+    return [self itemsByTag:tag inContext:[IWContextManager sharedContext]];
+}
+
++ (NSArray *)allItems
+{
+    return [self allItemsInContext:[IWContextManager sharedContext]];
+}
+
++ (instancetype)createLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData
+{
+    return [self createWithEntityName:IWTableItem image:image imageMetaData:metaData];
 }
 
 + (NSArray *)itemsByTag:(Tag *)tag inContext:(NSManagedObjectContext *)context
@@ -69,19 +78,6 @@ NSString *const IWItemTags = @"tags";
         NSLog(@"Fetch all items error: %@", error);
     }
     
-    return matches;
-}
-
-#pragma mark - Private
-
-+ (NSArray *)fetchTagsWithName:(NSString *)name inContext:(NSManagedObjectContext *)context error:(NSError **)error {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:IWTableItem];
-    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
-    
-    NSArray *matches = [context executeFetchRequest:request error:error];
-    if (error) {
-        NSLog(@"fetch error: %@", *error);
-    }
     return matches;
 }
 

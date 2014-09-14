@@ -29,7 +29,7 @@
 - (void)testInsert {
     UIImage *image = [UIImage imageNamed:@"test"];
     NSDictionary *metaData = @{@"city": @"xiamen"};
-    Look *look = [Look saveLookWithImage:image imageMetaData:metaData inContext:self.context];
+    Look *look = [Look createLookWithImage:image imageMetaData:metaData inContext:self.context];
     XCTAssertTrue(look.tempImage == image && look.imageMetaData == metaData, @"Should save to look");
 }
 

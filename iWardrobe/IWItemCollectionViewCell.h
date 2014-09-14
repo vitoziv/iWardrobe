@@ -13,5 +13,6 @@
 @interface IWItemCollectionViewCell : UICollectionViewCell
 
 - (void)configureWithItem:(Item *)item;
+- (CGSize)cellSize;
 
 @end

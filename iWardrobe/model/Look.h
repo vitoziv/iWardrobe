@@ -7,21 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "ImageBaseData.h"
 
 @class Item, Location, Tag;
 
-@interface Look : NSManagedObject
+@interface Look : ImageBaseData
 
-@property (nonatomic, retain) NSString * lookId;
-@property (nonatomic, retain) NSString * imageName;
-@property (nonatomic, retain) NSDictionary *imageMetaData;
-@property (nonatomic, retain) UIImage * tempImage;
-@property (nonatomic, retain) NSDate * createDate;
-@property (nonatomic, retain) NSDate * modifyDate;
-@property (nonatomic, retain) NSSet *itemLocations;
 @property (nonatomic, retain) NSSet *items;
-@property (nonatomic, retain) NSSet *tags;
+
 @end
 
 @interface Look (CoreDataGeneratedAccessors)

@@ -7,7 +7,7 @@
 //
 
 #import "IWLookCell.h"
-#import "Look+IW_Accessory.h"
+#import "Look.h"
 
 @interface IWLookCell ()
 

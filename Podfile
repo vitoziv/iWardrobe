@@ -1,3 +1,4 @@
-platform :ios, :deployment_tagert => "7.0"
+platform :ios, '8.0'
 
 pod 'SVProgressHUD', '~> 1.0'
+pod 'CHTCollectionViewWaterfallLayout', '~> 0.7'

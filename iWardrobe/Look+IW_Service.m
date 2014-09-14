@@ -16,7 +16,7 @@ NSString *const IWLookCreateDate = @"createDate";
 
 @implementation Look (IW_Service)
 
-+ (instancetype)saveLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
++ (instancetype)createLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {
     if (!context) {
         context = [IWContextManager sharedContext];
@@ -24,7 +24,7 @@ NSString *const IWLookCreateDate = @"createDate";
     Look *look = [NSEntityDescription insertNewObjectForEntityForName:IWTableLook inManagedObjectContext:context];
     
     NSDate *newDate = [NSDate new];
-    look.lookId = [IWStringGenerator uniqueIDWithDate:newDate];
+    look.uid = [IWStringGenerator uniqueIDWithDate:newDate];
     look.createDate = newDate;
     look.modifyDate = newDate;
     look.imageMetaData = metaData;

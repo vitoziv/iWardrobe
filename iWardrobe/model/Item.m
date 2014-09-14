@@ -7,22 +7,12 @@
 //
 
 #import "Item.h"
-#import "Location.h"
-#import "Look.h"
-#import "Tag.h"
-
 
 @implementation Item
 
 @dynamic brand;
-@dynamic createDate;
-@dynamic imagePath;
-@dynamic itemId;
-@dynamic modifyDate;
 @dynamic price;
 @dynamic status;
 @dynamic looks;
-@dynamic locations;
-@dynamic tags;
 
 @end

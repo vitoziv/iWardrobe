@@ -1,57 +1,92 @@
 //
-//  LooksViewController.m
+//  ItemsViewController.m
 //  iWardrobe
 //
-//  Created by Vito on 9/6/14.
+//  Created by Vito on 9/13/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
-#import "LooksViewController.h"
-#import "SVProgressHUD.h"
+#import "ItemsViewController.h"
+#import "IWItemCollectionViewCell.h"
+#import "Item+Service.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "Look+IW_Service.h"
-#import "IWLookCell.h"
+#import "SVProgressHUD.h"
+#import "IWItemLayout.h"
+#import "CHTCollectionViewWaterfallLayout.h"
 
-@interface LooksViewController ()
-<UINavigationControllerDelegate,
+@interface ItemsViewController ()
+<UICollectionViewDataSource,
+UICollectionViewDelegate,
+CHTCollectionViewDelegateWaterfallLayout,
+UINavigationControllerDelegate,
 UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) NSArray *looksData;
-@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *items;
+
+
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 @end
 
-@implementation LooksViewController
+@implementation ItemsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    __block NSArray *datas;
+#warning 实现自适应 collectionView 的功能
+    CGFloat size = CGRectGetWidth(self.view.bounds) / 2 - 15;
+    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
+    layout.columnCount = 2;
+    self.collectionView.collectionViewLayout = layout;//[[IWItemLayout alloc] initWIthItemSize:CGSizeMake(size, size)];
+    
+    [self setupDataCompletion:nil];
+}
+
+
+#pragma mark - Data
+
+- (void)setupDataCompletion:(void(^)(void))completion
+{
+    __block NSArray *items = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        datas = [Look allLooksInContext:nil];
+        items = [Item allItems];
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            self.looksData = datas;
+            self.items = items;
             [self.collectionView reloadData];
+            if (completion) {
+                completion();
+            }
         });
     });
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UICollcetionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.items.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"ItemCell";
+    IWItemCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    Item *item = self.items[indexPath.row];
+    [cell configureWithItem:item];
+    
+    return cell;
 }
-*/
+
+#pragma mark - CHTCollectionViewDelegateWaterfallLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    IWItemCollectionViewCell *cell = (IWItemCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    NSLog(@"cell: %@", cell);
+    return CGSizeMake(180, 180 + indexPath.row * 10);
+}
+
 
 #pragma mark - Add
 
@@ -119,16 +154,16 @@ UIImagePickerControllerDelegate>
     
     void(^finishBlock)(NSDictionary *imageMetaData) = ^(NSDictionary *imageMetaData) {
         NSLog(@"finished");
-        // TODO: Save image
-        Look * look = [Look createLookWithImage:image imageMetaData:imageMetaData inContext:nil];
-        NSMutableArray *looksData = [NSMutableArray arrayWithObject:look];
-        [looksData addObjectsFromArray:self.looksData];
-        self.looksData = looksData;
+        Item * item = [Item createLookWithImage:image imageMetaData:imageMetaData];
+        NSMutableArray *items = [NSMutableArray arrayWithObject:item];
+        [items addObjectsFromArray:self.items];
+        self.items = items;
         
         // TODO: Refresh collection view, add item to collection view
-        [self.collectionView performBatchUpdates:^{
-            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
-        } completion:nil];
+//        [self.collectionView performBatchUpdates:^{
+//            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+//        } completion:nil];
+        [self.collectionView reloadData];
     };
     
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
@@ -146,24 +181,6 @@ UIImagePickerControllerDelegate>
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-#pragma mark - Collection View
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.looksData.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
-{
-    static NSString *CellIdentifier = @"Look Cell";
-    IWLookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell configureWithData:self.looksData[indexPath.item]];
-    
-    return cell;
 }
 
 @end

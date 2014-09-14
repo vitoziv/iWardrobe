@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "IWContextManager.h"
-#import "Item.h"
+#import "Item+Service.h"
 
 @interface ItemTests : XCTestCase
 
@@ -30,22 +30,23 @@
 
 - (void)testInsertItem
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-- (void)testUpdateItem
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    Item *newItem = [Item createItem];
+    XCTAssertNotNil(newItem, @"Create a new item should not be nil");
 }
 
 - (void)testFetchItem
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSArray *items = [Item allItems];
+    XCTAssertTrue([items isKindOfClass:[NSArray class]], @"Fetch items should be a NSArray");
 }
 
 - (void)testDeleteItem
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    Item *newItem = [Item createItem];
+    XCTAssertNotNil(newItem, @"Create a new item should not be nil");
+    
+    [Item deleteItem:newItem];
+    XCTAssertTrue(newItem.deleted, @"Item should be delete");
 }
 
 @end

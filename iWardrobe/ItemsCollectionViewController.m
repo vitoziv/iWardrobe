@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.items = [Item allItemsInContext:[IWContextManager sharedContext]];
+    self.items = [Item allItems];
 }
 
 - (void)didReceiveMemoryWarning

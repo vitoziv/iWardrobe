@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.17" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createDate" attributeType="Date" syncable="YES"/>
-        <attribute name="imagePath" attributeType="String" syncable="YES"/>
-        <attribute name="itemId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="imageMetaData" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="imageName" attributeType="String" syncable="YES"/>
         <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tempImage" optional="YES" transient="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="uid" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="item" inverseEntity="Location" syncable="YES"/>
         <relationship name="looks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Look" inverseName="items" inverseEntity="Look" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="items" inverseEntity="Tag" syncable="YES"/>
@@ -16,17 +19,18 @@
         <attribute name="x" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="y" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="locations" inverseEntity="Item" syncable="YES"/>
-        <relationship name="look" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Look" inverseName="itemLocations" inverseEntity="Look" syncable="YES"/>
+        <relationship name="look" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Look" inverseName="locations" inverseEntity="Look" syncable="YES"/>
     </entity>
     <entity name="Look" representedClassName="Look" syncable="YES">
         <attribute name="createDate" attributeType="Date" syncable="YES"/>
         <attribute name="imageMetaData" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="imageName" attributeType="String" syncable="YES"/>
-        <attribute name="lookId" attributeType="String" syncable="YES"/>
         <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tempImage" optional="YES" transient="YES" attributeType="Transformable" syncable="YES"/>
-        <relationship name="itemLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="look" inverseEntity="Location" syncable="YES"/>
+        <attribute name="uid" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="looks" inverseEntity="Item" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="look" inverseEntity="Location" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="looks" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
@@ -36,9 +40,9 @@
     </entity>
     <fetchRequest name="FetchRequest" entity="Item" predicateString="brand == &quot;&quot;"/>
     <elements>
-        <element name="Item" positionX="-146" positionY="197" width="128" height="193"/>
+        <element name="Item" positionX="-146" positionY="197" width="128" height="238"/>
         <element name="Location" positionX="-389" positionY="180" width="128" height="103"/>
-        <element name="Look" positionX="-612" positionY="275" width="128" height="180"/>
+        <element name="Look" positionX="-612" positionY="275" width="128" height="193"/>
         <element name="Tag" positionX="-371" positionY="477" width="128" height="88"/>
     </elements>
 </model>

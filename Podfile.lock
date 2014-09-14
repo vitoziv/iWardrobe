@@ -1,10 +1,13 @@
 PODS:
+  - CHTCollectionViewWaterfallLayout (0.7)
   - SVProgressHUD (1.0)
 
 DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout (~> 0.7)
   - SVProgressHUD (~> 1.0)
 
 SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: 184d3b6d5456b48e93ac97e93e606bd8b68aedcc
   SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
 
 COCOAPODS: 0.33.1

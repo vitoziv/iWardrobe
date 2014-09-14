@@ -7,21 +7,9 @@
 //
 
 #import "Look.h"
-#import "Item.h"
-#import "Location.h"
-#import "Tag.h"
-
 
 @implementation Look
 
-@dynamic lookId;
-@dynamic imageName;
-@dynamic imageMetaData;
-@dynamic createDate;
-@dynamic modifyDate;
-@dynamic itemLocations;
 @dynamic items;
-@dynamic tags;
-@dynamic tempImage;
 
 @end

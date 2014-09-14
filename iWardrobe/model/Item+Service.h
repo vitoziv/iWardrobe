@@ -10,10 +10,10 @@
 
 @interface Item (Service)
 
-+ (Item *)insertItemInContext:(NSManagedObjectContext *)context;
-+ (void)deleteItem:(Item *)item inContext:(NSManagedObjectContext *)context;
++ (instancetype)createLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData;
++ (void)deleteItem:(Item *)item;
 
-+ (NSArray *)itemsByTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
-+ (NSArray *)allItemsInContext:(NSManagedObjectContext *)context;
++ (NSArray *)itemsByTag:(Tag *)tag;
++ (NSArray *)allItems;
 
 @end
