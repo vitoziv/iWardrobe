@@ -14,7 +14,7 @@
 		5F012151190BFAD000C36277 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012150190BFAD000C36277 /* main.m */; };
 		5F012155190BFAD000C36277 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F012154190BFAD000C36277 /* AppDelegate.m */; };
 		5F012158190BFAD000C36277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F012156190BFAD000C36277 /* Main.storyboard */; };
-		5F01215D190BFAD000C36277 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F01215C190BFAD000C36277 /* Images.xcassets */; };
+		5F01215D190BFAD000C36277 /* Logo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F01215C190BFAD000C36277 /* Logo.xcassets */; };
 		5F012164190BFAD000C36277 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F012163190BFAD000C36277 /* XCTest.framework */; };
 		5F012165190BFAD000C36277 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F012144190BFAD000C36277 /* Foundation.framework */; };
 		5F012166190BFAD000C36277 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F012148190BFAD000C36277 /* UIKit.framework */; };
@@ -24,6 +24,7 @@
 		5F10A838192E25570079D26B /* Item+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10A837192E25570079D26B /* Item+Service.m */; };
 		5F10A83E192E3C7B0079D26B /* Look.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10A83D192E3C7B0079D26B /* Look.m */; };
 		5F10A841192E3C7B0079D26B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10A840192E3C7B0079D26B /* Item.m */; };
+		5F3AFD7C19C8663B000EAF56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F3AFD7B19C8663B000EAF56 /* Images.xcassets */; };
 		5F6A40781928AC0F00E40606 /* Tag+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40771928AC0F00E40606 /* Tag+Service.m */; };
 		5F6A40821928AC3F00E40606 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A407C1928AC3F00E40606 /* Location.m */; };
 		5F6A40841928AC3F00E40606 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40801928AC3F00E40606 /* Tag.m */; };
@@ -73,7 +74,7 @@
 		5F012153190BFAD000C36277 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F012154190BFAD000C36277 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F012157190BFAD000C36277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5F01215C190BFAD000C36277 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5F01215C190BFAD000C36277 /* Logo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logo.xcassets; sourceTree = "<group>"; };
 		5F012162190BFAD000C36277 /* iWardrobeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWardrobeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F012163190BFAD000C36277 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		5F01216B190BFAD000C36277 /* iWardrobeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iWardrobeTests-Info.plist"; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		5F10A83D192E3C7B0079D26B /* Look.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Look.m; sourceTree = "<group>"; };
 		5F10A83F192E3C7B0079D26B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		5F10A840192E3C7B0079D26B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		5F3AFD7B19C8663B000EAF56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5F6A40761928AC0F00E40606 /* Tag+Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+Service.h"; path = "model/Tag+Service.h"; sourceTree = "<group>"; };
 		5F6A40771928AC0F00E40606 /* Tag+Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Service.m"; path = "model/Tag+Service.m"; sourceTree = "<group>"; };
 		5F6A407B1928AC3F00E40606 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -196,7 +198,6 @@
 				5FC5CECA1928F46B00B237E3 /* UI */,
 				5F012153190BFAD000C36277 /* AppDelegate.h */,
 				5F012154190BFAD000C36277 /* AppDelegate.m */,
-				5F01215C190BFAD000C36277 /* Images.xcassets */,
 				5F01214B190BFAD000C36277 /* Supporting Files */,
 			);
 			path = iWardrobe;
@@ -270,6 +271,8 @@
 		5FBD44A219C5885B00ED6E3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F01215C190BFAD000C36277 /* Logo.xcassets */,
+				5F3AFD7B19C8663B000EAF56 /* Images.xcassets */,
 				5FBD44A319C5887400ED6E3C /* 1.jpg */,
 				5FBD44A419C5887400ED6E3C /* 3.jpg */,
 			);
@@ -426,8 +429,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD44A619C5887400ED6E3C /* 3.jpg in Resources */,
-				5F01215D190BFAD000C36277 /* Images.xcassets in Resources */,
+				5F01215D190BFAD000C36277 /* Logo.xcassets in Resources */,
 				5FBD44A519C5887400ED6E3C /* 1.jpg in Resources */,
+				5F3AFD7C19C8663B000EAF56 /* Images.xcassets in Resources */,
 				5F01214F190BFAD000C36277 /* InfoPlist.strings in Resources */,
 				5F012158190BFAD000C36277 /* Main.storyboard in Resources */,
 			);
