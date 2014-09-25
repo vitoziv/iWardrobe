@@ -14,6 +14,7 @@
 @implementation ImageBaseData
 
 @dynamic uid;
+@dynamic name;
 @dynamic imageName;
 @dynamic note;
 @dynamic imageMetaData;

@@ -13,7 +13,7 @@
 
 @interface Look : ImageBaseData
 
-@property (nonatomic, retain) NSSet *items;
+@property (nonatomic, strong) NSSet *items;
 
 @end
 

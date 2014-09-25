@@ -10,16 +10,17 @@
 
 @interface ImageBaseData : NSManagedObject
 
-@property (nonatomic, retain) NSString *uid;
-@property (nonatomic, retain) NSString *imageName;
-@property (nonatomic, retain) NSString *note;
-@property (nonatomic, retain) NSDictionary *imageMetaData;
-@property (nonatomic, retain) UIImage *tempImage;
-@property (nonatomic, retain) NSDate *createDate;
-@property (nonatomic, retain) NSDate *modifyDate;
+@property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *imageName;
+@property (nonatomic, copy) NSString *note;
+@property (nonatomic, strong) NSDictionary *imageMetaData;
+@property (nonatomic, strong) UIImage *tempImage;
+@property (nonatomic, strong) NSDate *createDate;
+@property (nonatomic, strong) NSDate *modifyDate;
 
-@property (nonatomic, retain) NSSet *tags;
-@property (nonatomic, retain) NSSet *locations;
+@property (nonatomic, strong) NSSet *tags;
+@property (nonatomic, strong) NSSet *locations;
 
 + (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image imageMetaData:(NSDictionary *)metaData;
 

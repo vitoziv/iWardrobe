@@ -172,7 +172,7 @@ UIImagePickerControllerDelegate>
     
     void(^finishBlock)(NSDictionary *imageMetaData) = ^(NSDictionary *imageMetaData) {
         NSLog(@"finished");
-        Item * item = [Item createLookWithImage:image imageMetaData:imageMetaData];
+        Item * item = [Item createItemWithImage:image imageMetaData:imageMetaData];
         NSMutableArray *items = [NSMutableArray arrayWithObject:item];
         [items addObjectsFromArray:self.items];
         self.items = items;

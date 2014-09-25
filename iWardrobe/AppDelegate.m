@@ -8,12 +8,17 @@
 
 #import "AppDelegate.h"
 #import "IWContextManager.h"
+#import "IWDebugUtil.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    BOOL lunchFlag = [[NSUserDefaults standardUserDefaults] boolForKey:@"IWLunchFlag"];
+    if (!lunchFlag) {
+        [IWDebugUtil setupData];
+    }
     return YES;
 }
 							

@@ -40,7 +40,7 @@ NSString *const IWItemTags = @"tags";
     return [self allItemsInContext:[IWContextManager sharedContext]];
 }
 
-+ (instancetype)createLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData
++ (instancetype)createItemWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData
 {
     return [self createWithEntityName:IWTableItem image:image imageMetaData:metaData];
 }

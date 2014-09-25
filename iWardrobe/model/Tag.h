@@ -13,9 +13,9 @@
 
 @interface Tag : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *looks;
-@property (nonatomic, retain) NSSet *items;
+@property (nonatomic, copy) NSString * name;
+@property (nonatomic, strong) NSSet *looks;
+@property (nonatomic, strong) NSSet *items;
 @end
 
 @interface Tag (CoreDataGeneratedAccessors)
