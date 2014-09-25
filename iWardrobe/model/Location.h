@@ -13,9 +13,9 @@
 
 @interface Location : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * x;
-@property (nonatomic, retain) NSNumber * y;
-@property (nonatomic, retain) Look *look;
-@property (nonatomic, retain) Item *item;
+@property (nonatomic, strong) NSNumber * x;
+@property (nonatomic, strong) NSNumber * y;
+@property (nonatomic, strong) Look *look;
+@property (nonatomic, strong) Item *item;
 
 @end
