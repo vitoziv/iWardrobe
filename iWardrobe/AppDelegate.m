@@ -18,6 +18,7 @@
     BOOL lunchFlag = [[NSUserDefaults standardUserDefaults] boolForKey:@"IWLunchFlag"];
     if (!lunchFlag) {
         [IWDebugUtil setupData];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"IWLunchFlag"];
     }
     return YES;
 }

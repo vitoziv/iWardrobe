@@ -29,19 +29,22 @@
     item1.name = @"New Balance Men's MR10 Minimus Road Running Shoe";
     item1.note = @"New Balance, is dedicated to helping athletes achieve their goals. It's been their mission for more than a century. It's why they don't spend money on celebrity endorsements. They spend it on research and development. It's why they don't design products to fit an image. They design them to fit. New Balance is driven to make the finest shoes for the same reason athletes lace them up: to achieve the very best.";
     item1.brand = @"New Balance";
-    item1.price = [[NSDecimalNumber alloc] initWithString:@"78" locale:[NSLocale localeWithLocaleIdentifier:@"en-US"]];
+    item1.price = [[NSDecimalNumber alloc] initWithString:@"78.56"];
+    item1.currencyLocale = [NSLocale localeWithLocaleIdentifier:@"en-US"];
     
     Item *item2 = [Item createItemWithImage:image2 imageMetaData:nil];
     item2.name = @"New Balance Men's MR10 Minimus Road Running Shoe";
     item2.note = @"New Balance, is dedicated to helping athletes achieve their goals. It's been their mission for more than a century. It's why they don't spend money on celebrity endorsements. They spend it on research and development. It's why they don't design products to fit an image. They design them to fit. New Balance is driven to make the finest shoes for the same reason athletes lace them up: to achieve the very best.";
     item2.brand = @"New Balance";
-    item2.price = [[NSDecimalNumber alloc] initWithString:@"78" locale:[NSLocale localeWithLocaleIdentifier:@"zh-CN"]];
+    item2.price = [[NSDecimalNumber alloc] initWithString:@"78.23"];
+    item2.currencyLocale = [NSLocale localeWithLocaleIdentifier:@"zh-CN"];
     
     Item *item3 = [Item createItemWithImage:image3 imageMetaData:nil];
     item3.name = @"New Balance Men's MR10 Minimus Road Running Shoe";
     item3.note = @"New Balance, is dedicated to helping athletes achieve their goals. It's been their mission for more than a century. It's why they don't spend money on celebrity endorsements. They spend it on research and development. It's why they don't design products to fit an image. They design them to fit. New Balance is driven to make the finest shoes for the same reason athletes lace them up: to achieve the very best.";
     item3.brand = @"New Balance";
-    item3.price = [[NSDecimalNumber alloc] initWithString:@"78" locale:[NSLocale localeWithLocaleIdentifier:@"zh-CN"]];
+    item3.price = [[NSDecimalNumber alloc] initWithString:@"78.39"];
+    item3.currencyLocale = [NSLocale localeWithLocaleIdentifier:@"zh-CN"];
     
     
     Look *look1 = [Look createLookWithImage:image4 imageMetaData:nil inContext:nil];
