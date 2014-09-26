@@ -389,8 +389,8 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="9Ee-HN-DCJ" secondAttribute="bottom" constant="46" id="A2Z-AU-bgV"/>
                                     <constraint firstItem="9Ee-HN-DCJ" firstAttribute="top" secondItem="t5f-60-iSw" secondAttribute="top" constant="200" id="JA5-5W-Ppi"/>
-                                    <constraint firstItem="9Ee-HN-DCJ" firstAttribute="leading" secondItem="t5f-60-iSw" secondAttribute="leading" id="V86-52-Fcf"/>
-                                    <constraint firstAttribute="trailing" secondItem="9Ee-HN-DCJ" secondAttribute="trailing" id="cG8-bj-HjX"/>
+                                    <constraint firstItem="9Ee-HN-DCJ" firstAttribute="leading" secondItem="t5f-60-iSw" secondAttribute="leading" placeholder="YES" id="V86-52-Fcf"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Ee-HN-DCJ" secondAttribute="trailing" placeholder="YES" id="cG8-bj-HjX"/>
                                 </constraints>
                             </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UAl-cu-WqM" userLabel="Item Image">
@@ -442,6 +442,7 @@
                     </view>
                     <connections>
                         <outlet property="brandLabel" destination="wNG-yX-9Lx" id="wBs-MJ-Bfs"/>
+                        <outlet property="contentView" destination="9Ee-HN-DCJ" id="ClW-Qk-oTd"/>
                         <outlet property="imageView" destination="UAl-cu-WqM" id="NML-Ij-cQp"/>
                         <outlet property="itemNameLabel" destination="T3q-vV-Y4V" id="Wh1-Mh-uKB"/>
                         <outlet property="looksCollectionView" destination="lvw-U6-efB" id="vqY-jv-lPw"/>
