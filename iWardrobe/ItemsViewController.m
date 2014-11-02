@@ -14,15 +14,18 @@
 #import "IWItemLayout.h"
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "ItemDetailViewController.h"
+#import "ItemAddViewController.h"
 
 static NSString *kSegueIdentifierShowItemDetail = @"ShowItemDetail";
+static NSString *kSegueIdentifierShowItemAdd = @"ShowItemAdd";
 
 @interface ItemsViewController ()
 <UICollectionViewDataSource,
 UICollectionViewDelegate,
 CHTCollectionViewDelegateWaterfallLayout,
 UINavigationControllerDelegate,
-UIImagePickerControllerDelegate>
+UIImagePickerControllerDelegate,
+ItemAddViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *items;
@@ -37,7 +40,9 @@ UIImagePickerControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupDataCompletion:nil];
+    [self setupDataCompletion:^{
+        [self.collectionView reloadData];
+    }];
 }
 
 
@@ -51,6 +56,10 @@ UIImagePickerControllerDelegate>
     if ([segue.identifier isEqualToString:kSegueIdentifierShowItemDetail]) {
         ItemDetailViewController *viewController = segue.destinationViewController;
         viewController.item = sender;
+    } else if ([segue.identifier isEqualToString:kSegueIdentifierShowItemAdd]) {
+        ItemAddViewController *viewController = segue.destinationViewController;
+        viewController.imageMetaDataInfo = sender;
+        viewController.delegate = self;
     }
 }
 
@@ -64,7 +73,6 @@ UIImagePickerControllerDelegate>
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.items = items;
-            [self.collectionView reloadData];
             if (completion) {
                 completion();
             }
@@ -165,39 +173,28 @@ UIImagePickerControllerDelegate>
 
 #pragma mark UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self performSegueWithIdentifier:kSegueIdentifierShowItemAdd sender:info];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     [self dismissViewControllerAnimated:YES completion:NULL];
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-    void(^finishBlock)(NSDictionary *imageMetaData) = ^(NSDictionary *imageMetaData) {
-        NSLog(@"finished");
-        Item * item = [Item createItemWithImage:image imageMetaData:imageMetaData];
-        NSMutableArray *items = [NSMutableArray arrayWithObject:item];
-        [items addObjectsFromArray:self.items];
-        self.items = items;
-        
-        // TODO: Refresh collection view, add item to collection view
+}
+
+#pragma mark - ItemAddViewControllerDelegate
+
+- (void)itemAddViewControllerDidSave:(ItemAddViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self setupDataCompletion:^{
         [self.collectionView performBatchUpdates:^{
             [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
         } completion:nil];
-    };
-    
-    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-        finishBlock(info[UIImagePickerControllerMediaMetadata]);
-    } else {
-        ALAssetsLibrary * lib = [[ALAssetsLibrary alloc] init];
-        [lib assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
-             resultBlock:^(ALAsset *asset) {
-                 finishBlock(asset.defaultRepresentation.metadata);
-             }
-            failureBlock:nil];
-    }
-    
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    }];
 }
 
 @end

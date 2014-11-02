@@ -30,6 +30,8 @@
 		5F3C158D19D455CC00902013 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C158919D455CC00902013 /* 4.jpg */; };
 		5F3C158E19D455CC00902013 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C158A19D455CC00902013 /* 5.jpg */; };
 		5F3C158F19D455CC00902013 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C158B19D455CC00902013 /* 6.jpg */; };
+		5F4D434B1A0620F500C6E19B /* ItemAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D434A1A0620F500C6E19B /* ItemAddViewController.m */; };
+		5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D434E1A062BD000C6E19B /* IWImageResizer.m */; };
 		5F6A40781928AC0F00E40606 /* Tag+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40771928AC0F00E40606 /* Tag+Service.m */; };
 		5F6A40821928AC3F00E40606 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A407C1928AC3F00E40606 /* Location.m */; };
 		5F6A40841928AC3F00E40606 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40801928AC3F00E40606 /* Tag.m */; };
@@ -99,6 +101,10 @@
 		5F3C158919D455CC00902013 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		5F3C158A19D455CC00902013 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		5F3C158B19D455CC00902013 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		5F4D43491A0620F500C6E19B /* ItemAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAddViewController.h; sourceTree = "<group>"; };
+		5F4D434A1A0620F500C6E19B /* ItemAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAddViewController.m; sourceTree = "<group>"; };
+		5F4D434D1A062BD000C6E19B /* IWImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageResizer.h; sourceTree = "<group>"; };
+		5F4D434E1A062BD000C6E19B /* IWImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWImageResizer.m; sourceTree = "<group>"; };
 		5F6A40761928AC0F00E40606 /* Tag+Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+Service.h"; path = "model/Tag+Service.h"; sourceTree = "<group>"; };
 		5F6A40771928AC0F00E40606 /* Tag+Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Service.m"; path = "model/Tag+Service.m"; sourceTree = "<group>"; };
 		5F6A407B1928AC3F00E40606 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -271,12 +277,33 @@
 			children = (
 				5F776C7A19C41285006C8E87 /* HomeViewController.h */,
 				5F776C7B19C41285006C8E87 /* HomeViewController.m */,
+				5F4D434C1A0620FA00C6E19B /* Items */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5F4D434C1A0620FA00C6E19B /* Items */ = {
+			isa = PBXGroup;
+			children = (
 				5F776C7D19C4153E006C8E87 /* ItemsViewController.h */,
 				5F776C7E19C4153E006C8E87 /* ItemsViewController.m */,
 				5FBD449F19C5857100ED6E3C /* ItemDetailViewController.h */,
 				5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */,
+				5F4D43491A0620F500C6E19B /* ItemAddViewController.h */,
+				5F4D434A1A0620F500C6E19B /* ItemAddViewController.m */,
 			);
-			name = ViewControllers;
+			name = Items;
+			sourceTree = "<group>";
+		};
+		5F4D43501A062BDB00C6E19B /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				5FF9C244194495C700F7C2AD /* IWImageUtil.h */,
+				5FF9C245194495C700F7C2AD /* IWImageUtil.m */,
+				5F4D434D1A062BD000C6E19B /* IWImageResizer.h */,
+				5F4D434E1A062BD000C6E19B /* IWImageResizer.m */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		5FBD44A219C5885B00ED6E3C /* Resources */ = {
@@ -299,8 +326,7 @@
 			children = (
 				5FF9C247194496F300F7C2AD /* DFDateFormatterFactory */,
 				5FC5CECB1928F49000B237E3 /* IWDefine.h */,
-				5FF9C244194495C700F7C2AD /* IWImageUtil.h */,
-				5FF9C245194495C700F7C2AD /* IWImageUtil.m */,
+				5F4D43501A062BDB00C6E19B /* Image */,
 				5FDD5DB119BAAE6E00A4EA26 /* IWStringGenerator.h */,
 				5FDD5DB219BAAE6E00A4EA26 /* IWStringGenerator.m */,
 				5F776C8119C41A00006C8E87 /* VIArrayDataSource.h */,
@@ -516,8 +542,10 @@
 				5F01217C190C05D800C36277 /* WardrobeModel.xcdatamodeld in Sources */,
 				5F012155190BFAD000C36277 /* AppDelegate.m in Sources */,
 				5F776C8A19C477DD006C8E87 /* IWItemLayout.m in Sources */,
+				5F4D434B1A0620F500C6E19B /* ItemAddViewController.m in Sources */,
 				5F776C7C19C41285006C8E87 /* HomeViewController.m in Sources */,
 				5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */,
+				5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */,
 				5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
 				5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */,

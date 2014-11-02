@@ -9,7 +9,51 @@
 #import "IWImageUtil.h"
 #import "DFDateFormatterFactory.h"
 
+static NSString *const kImageSaveSizeKey = @"kImageSaveSizeKey";
+
+@interface IWImageUtil ()
+
+@property (nonatomic) CGSize imageSaveSize;
+
+@end
+
 @implementation IWImageUtil
+
++ (instancetype)sharedInstance
+{
+    static dispatch_once_t pred;
+    static IWImageUtil *instance = nil;
+    dispatch_once(&pred, ^{
+        instance = [[self alloc] init];
+        NSString *sizeString = [[NSUserDefaults standardUserDefaults] objectForKey:kImageSaveSizeKey];
+        if (sizeString) {
+            instance.imageSaveSize = CGSizeFromString(sizeString);
+        } else {
+            instance.imageSaveSize = CGSizeMake(1600, 1600);
+            [instance saveImageSizeWithType:ImageSizeTypeNormal];
+        }
+    });
+    return instance;
+}
+
+- (void)saveImageSizeWithType:(ImageSizeType)type
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    switch (type) {
+        case ImageSizeTypeSmall:
+            [userDefault setObject:NSStringFromCGSize(CGSizeMake(1024, 1024)) forKey:kImageSaveSizeKey];
+            break;
+        case ImageSizeTypeNormal:
+            [userDefault setObject:NSStringFromCGSize(CGSizeMake(1600, 1600)) forKey:kImageSaveSizeKey];
+            break;
+        case ImageSizeTypeLarge:
+            [userDefault setObject:NSStringFromCGSize(CGSizeMake(2048, 2048)) forKey:kImageSaveSizeKey];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 + (NSString *)saveImage:(UIImage *)image completion:(IWImageUtilSaveBlock)completion
 {
