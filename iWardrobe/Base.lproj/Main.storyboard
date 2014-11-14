@@ -20,7 +20,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iWardrobe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9h-Wu-Xc2">
-                                    <rect key="frame" x="215" y="51" width="170" height="47.5"/>
+                                    <rect key="frame" x="215" y="51" width="170" height="48"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -245,10 +245,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHh-ms-Kqp" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="365"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="365"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ETP-Ne-QfS">
-                                                <rect key="frame" x="0.0" y="58" width="152.5" height="120"/>
+                                                <rect key="frame" x="0.0" y="58" width="153" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="PQf-xV-2KU"/>
                                                 </constraints>
@@ -263,7 +263,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JVn-MS-yFj">
-                                                <rect key="frame" x="20" y="198" width="112.5" height="30"/>
+                                                <rect key="frame" x="20" y="198" width="113" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="9tq-Ns-v5j"/>
                                                 </constraints>
@@ -284,17 +284,17 @@
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Brand name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZZ-r2-Wd1">
-                                                <rect key="frame" x="50" y="249" width="82.5" height="17"/>
+                                                <rect key="frame" x="50" y="249" width="83" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-di-YK2">
-                                                <rect key="frame" x="50" y="288" width="82.5" height="17"/>
+                                                <rect key="frame" x="50" y="288" width="83" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="45b-iu-Ue5" userLabel="Collection View - Tags">
-                                                <rect key="frame" x="20" y="327" width="112.5" height="30"/>
+                                                <rect key="frame" x="20" y="327" width="113" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="iO0-Z8-oUu"/>
@@ -341,7 +341,7 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4Z-Ec-bx9">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4Z-Ec-bx9">
                                                 <rect key="frame" x="102" y="20" width="34" height="30"/>
                                                 <state key="normal" title="Save">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -426,7 +426,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ee-HN-DCJ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="581.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="582"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UAl-cu-WqM" userLabel="Item Image">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
@@ -514,13 +514,13 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrb-Cd-HNn">
-                                                <rect key="frame" x="8" y="391" width="384" height="20.5"/>
+                                                <rect key="frame" x="8" y="391" width="384" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lvw-U6-efB" userLabel="Collection View - Looks">
-                                                <rect key="frame" x="8" y="431.5" width="384" height="150"/>
+                                                <rect key="frame" x="8" y="432" width="384" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="g0h-SO-KCO"/>
                                                 </constraints>
