@@ -33,8 +33,6 @@ NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 // Datas
-//@property (nonatomic, strong) NSArray *items;
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSMutableArray *sectionChanges;
 @property (strong, nonatomic) NSMutableArray *itemChanges;
@@ -46,10 +44,6 @@ NSFetchedResultsControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self setupDataCompletion:^{
-//        [self.collectionView reloadData];
-//    }];
-//    
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]) {
         // Update to handle the error appropriately.
@@ -76,21 +70,6 @@ NSFetchedResultsControllerDelegate>
 }
 
 #pragma mark - Data
-
-//- (void)setupDataCompletion:(void(^)(void))completion
-//{
-//    __block NSArray *items = nil;
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-//        items = [Item allItems];
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^(void) {
-//            self.items = items;
-//            if (completion) {
-//                completion();
-//            }
-//        });
-//    });
-//}
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil) {
@@ -123,7 +102,6 @@ NSFetchedResultsControllerDelegate>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return self.items.count;
     id  sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
@@ -231,11 +209,6 @@ NSFetchedResultsControllerDelegate>
 - (void)itemAddViewControllerDidSave:(ItemAddViewController *)viewController
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-//    [self setupDataCompletion:^{
-//        [self.collectionView performBatchUpdates:^{
-//            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
-//        } completion:nil];
-//    }];
 }
 
 - (void)itemAddViewControllerDidCancel:(ItemAddViewController *)viewController
@@ -325,4 +298,5 @@ NSFetchedResultsControllerDelegate>
         self.itemChanges = nil;
     }];
 }
+
 @end
