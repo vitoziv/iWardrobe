@@ -63,12 +63,13 @@
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [self fetchImageMetaDataCompletion:^(NSDictionary *metaData) {
-        Item *item = [Item createItemWithImage:self.itemImageView.image imageMetaData:metaData];
-        item.name = self.nameTextField.text;
-        item.brand = self.brandTextField.text;
-        item.price = [NSDecimalNumber decimalNumberWithString:self.priceTextField.text];
-        // TODO: Add Tags
-        [IWContextManager saveContext];
+        [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
+            Item *item = [Item createItemWithImage:self.itemImageView.image imageMetaData:metaData inContext:backgroundContext];
+            item.name = self.nameTextField.text;
+            item.brand = self.brandTextField.text;
+            item.price = [NSDecimalNumber decimalNumberWithString:self.priceTextField.text];
+            // TODO: Add Tags
+        }];
         
         [SVProgressHUD dismiss];
         [self.delegate itemAddViewControllerDidSave:self];

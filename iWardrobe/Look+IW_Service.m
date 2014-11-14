@@ -19,7 +19,7 @@ NSString *const IWLookCreateDate = @"createDate";
 + (instancetype)createLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {
     if (!context) {
-        context = [IWContextManager sharedContext];
+        context = [IWContextManager mainContext];
     }
     Look *look = [NSEntityDescription insertNewObjectForEntityForName:IWTableLook inManagedObjectContext:context];
     
@@ -47,7 +47,7 @@ NSString *const IWLookCreateDate = @"createDate";
 + (NSArray *)allLooksInContext:(NSManagedObjectContext *)context
 {
     if (!context) {
-        context = [IWContextManager sharedContext];
+        context = [IWContextManager mainContext];
     }
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:IWTableLook];

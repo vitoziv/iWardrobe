@@ -97,7 +97,7 @@ NSString *const IWTagId = @"tagId";
     request.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
     
     NSArray *matches = [context executeFetchRequest:request error:error];
-    if (error) {
+    if (*error) {
         NSLog(@"fetch error: %@", *error);
     }
     return matches;

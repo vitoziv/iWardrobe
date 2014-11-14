@@ -25,24 +25,19 @@ NSString *const IWItemTags = @"tags";
 
 @implementation Item (Service)
 
-+ (void)deleteItem:(Item *)item
-{
-    [self deleteItem:item inContext:[IWContextManager sharedContext]];
-}
-
 + (NSArray *)itemsByTag:(Tag *)tag
 {
-    return [self itemsByTag:tag inContext:[IWContextManager sharedContext]];
+    return [self itemsByTag:tag inContext:[IWContextManager mainContext]];
 }
 
 + (NSArray *)allItems
 {
-    return [self allItemsInContext:[IWContextManager sharedContext]];
+    return [self allItemsInContext:[IWContextManager mainContext]];
 }
 
-+ (instancetype)createItemWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData
++ (instancetype)createItemWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {
-    return [self createWithEntityName:IWTableItem image:image imageMetaData:metaData];
+    return [self createWithEntityName:IWTableItem image:image imageMetaData:metaData inContext:context];
 }
 
 + (NSArray *)itemsByTag:(Tag *)tag inContext:(NSManagedObjectContext *)context

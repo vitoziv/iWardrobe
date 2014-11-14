@@ -25,17 +25,16 @@
 @dynamic tags;
 @dynamic locations;
 
-+ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image imageMetaData:(NSDictionary *)metaData
++ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {
-    ImageBaseData *imageData = [NSEntityDescription insertNewObjectForEntityForName:name inManagedObjectContext:[IWContextManager sharedContext]];
+    ImageBaseData *imageData = [NSEntityDescription insertNewObjectForEntityForName:name inManagedObjectContext:context];
     
     NSDate *newDate = [NSDate new];
-    imageData.uid = [IWStringGenerator uniqueIDWithDate:newDate];
+    imageData.uid = [[NSProcessInfo processInfo] globallyUniqueString];
     imageData.createDate = newDate;
     imageData.modifyDate = newDate;
     imageData.imageMetaData = metaData;
     imageData.tempImage = image;
-    
     NSString *imageName = [IWImageUtil saveImage:image
                                       completion:^(NSError *error) {
                                           if (error) {

@@ -13,7 +13,8 @@ static NSString *const kModelStorePath = @"/WardrobeModel.sqlite";
 
 @interface IWContextManager ()
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *rootContext;
+@property (nonatomic, strong) NSManagedObjectContext *mainContext;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
@@ -32,36 +33,100 @@ static NSString *const kModelStorePath = @"/WardrobeModel.sqlite";
 }
 
 
-+ (NSManagedObjectContext *)sharedContext
++ (NSManagedObjectContext *)rootContext
 {
-    return [[self sharedInstance] managedObjectContext];
+    return [[self sharedInstance] rootContext];
+}
+
++ (NSManagedObjectContext *)mainContext
+{
+    return [[self sharedInstance] mainContext];
+}
+
++ (void)saveOnBackContext:(void(^)(NSManagedObjectContext *backgroundContext))handler
+{
+    NSManagedObjectContext *backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    backgroundContext.parentContext = self.mainContext;
+    
+    [backgroundContext performBlock:^{
+        if (handler) {
+            handler(backgroundContext);
+        }
+        
+        NSError *bgSaveError;
+        // push to parent
+        if (![backgroundContext save:&bgSaveError]) {
+            NSLog(@"background save error: %@", bgSaveError);
+        } else {
+            NSLog(@"push to main context successed");
+        }
+        
+        [self saveContext];
+    }];
 }
 
 + (void)saveContext
 {
-    NSManagedObjectContext *context = [self sharedContext];
-    if (context) {
-        NSError *error;
-        if (context.hasChanges && ![context save:&error]) {
-            NSLog(@"Save Context Unresolved error: %@", error);
-        }
+    NSManagedObjectContext *mainContext = [self mainContext];
+    
+    if (mainContext) {
+        [mainContext performBlock:^{
+            NSError *error;
+            if (mainContext.hasChanges && ![mainContext save:&error]) {
+                NSLog(@"save to main context error %@", error);
+            } else {
+                NSLog(@"push to root context successed");
+            }
+            
+            NSManagedObjectContext *rootContext = [self rootContext];
+            if (rootContext) {
+                [rootContext performBlock:^{
+                    NSError *rootError;
+                    if (![rootContext save:&rootError]) {
+                        NSLog(@"save root context error: %@", rootError);
+                    } else {
+                        NSLog(@"save to persistent store successed");
+                    }
+                }];
+            }
+        }];
     }
 }
 
-- (NSManagedObjectContext *)managedObjectContext
+- (NSManagedObjectContext *)rootContext
 {
-    if (_managedObjectContext) {
-        return _managedObjectContext;
+    if (_rootContext) {
+        return _rootContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
     if (coordinator) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        _managedObjectContext.persistentStoreCoordinator = coordinator;
+        _rootContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        _rootContext.persistentStoreCoordinator = coordinator;
     }
     
     
-    return _managedObjectContext;
+    return _rootContext;
+}
+
+- (NSManagedObjectContext *)mainContext
+{
+    if (_mainContext) {
+        return  _mainContext;
+    }
+    
+    _mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _mainContext.parentContext = self.rootContext;
+    
+    return _mainContext;
+}
+
+- (NSManagedObjectContext *)backgroundContext
+{
+    NSManagedObjectContext *backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    backgroundContext.parentContext = self.mainContext;
+    
+    return backgroundContext;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {

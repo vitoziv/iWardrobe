@@ -57,9 +57,7 @@ static NSString *const kImageSaveSizeKey = @"kImageSaveSizeKey";
 
 + (NSString *)saveImage:(UIImage *)image completion:(IWImageUtilSaveBlock)completion
 {
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[DFDateFormatterFactory sharedFactory] dateFormatterWithFormat:@"yyyyMMdd-HHmmss.SSS"];
-    NSString *imageName = [NSString stringWithFormat:@"%@.jpg", [formatter stringFromDate:date]];
+    NSString *imageName = [[NSProcessInfo processInfo] globallyUniqueString];
     NSString *path = [IWDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", imageName]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
