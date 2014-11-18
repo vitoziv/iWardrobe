@@ -66,7 +66,7 @@ NSFetchedResultsControllerDelegate>
         ItemDetailViewController *viewController = segue.destinationViewController;
         viewController.item = sender;
     } else if ([segue.identifier isEqualToString:kSegueIdentifierShowItemAdd]) {
-        ItemAddViewController *viewController = segue.destinationViewController;
+        ItemAddViewController *viewController = [[(UINavigationController *)segue.destinationViewController viewControllers] lastObject];
         viewController.imageMetaDataInfo = sender;
         viewController.delegate = self;
     }

@@ -10,7 +10,7 @@
 
 @protocol ItemAddViewControllerDelegate;
 
-@interface ItemAddViewController : UIViewController
+@interface ItemAddViewController : UITableViewController
 
 @property (strong, nonatomic) NSDictionary *imageMetaDataInfo;
 

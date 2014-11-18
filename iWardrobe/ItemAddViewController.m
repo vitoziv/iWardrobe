@@ -16,12 +16,7 @@
 
 @interface ItemAddViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *brandTextField;
-@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
-@property (weak, nonatomic) IBOutlet UICollectionView *tagsCollectionView;
 
 @end
 
@@ -29,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupUI];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
         UIImage *image = [IWImageResizer resizeImage:self.imageMetaDataInfo[UIImagePickerControllerOriginalImage]
                                      scaledToFitSize:[IWImageUtil sharedInstance].imageSaveSize.width];
@@ -39,26 +33,6 @@
     });
 }
 
-- (void)setupUI
-{
-    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
-                                                                      attribute:NSLayoutAttributeLeading
-                                                                      relatedBy:0
-                                                                         toItem:self.view
-                                                                      attribute:NSLayoutAttributeLeft
-                                                                     multiplier:1.0
-                                                                       constant:0];
-    [self.view addConstraint:leftConstraint];
-    
-    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
-                                                                       attribute:NSLayoutAttributeTrailing
-                                                                       relatedBy:0
-                                                                          toItem:self.view
-                                                                       attribute:NSLayoutAttributeRight
-                                                                      multiplier:1.0
-                                                                        constant:0];
-    [self.view addConstraint:rightConstraint];
-}
 
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
