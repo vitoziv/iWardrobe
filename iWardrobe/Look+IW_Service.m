@@ -27,7 +27,6 @@ NSString *const IWLookCreateDate = @"createDate";
     look.uid = [IWStringGenerator uniqueIDWithDate:newDate];
     look.createDate = newDate;
     look.modifyDate = newDate;
-    look.imageMetaData = metaData;
     look.tempImage = image;
     
     NSString *imageName = [IWImageUtil saveImage:image

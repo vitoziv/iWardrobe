@@ -65,9 +65,6 @@
     [self fetchImageMetaDataCompletion:^(NSDictionary *metaData) {
         [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
             Item *item = [Item createItemWithImage:self.itemImageView.image imageMetaData:metaData inContext:backgroundContext];
-            item.name = self.nameTextField.text;
-            item.brand = self.brandTextField.text;
-            item.price = [NSDecimalNumber decimalNumberWithString:self.priceTextField.text];
             // TODO: Add Tags
         }];
         

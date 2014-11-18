@@ -56,13 +56,6 @@
 - (void)setupData
 {
     self.imageView.image = self.item.image;
-    self.itemNameLabel.text = self.item.name;
-    self.brandLabel.text = self.item.brand;
-    
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [numberFormatter setLocale:self.item.currencyLocale];
-    self.priceLabel.text = [numberFormatter stringFromNumber:self.item.price];
 }
 
 #pragma mark - UICollectionViewDataSource

@@ -11,18 +11,16 @@
 @interface ImageBaseData : NSManagedObject
 
 @property (nonatomic, copy) NSString *uid;
-@property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *imageName;
-@property (nonatomic, copy) NSString *note;
-@property (nonatomic, strong) NSDictionary *imageMetaData;
 @property (nonatomic, strong) UIImage *tempImage;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
+@property (nonatomic, strong) NSArray *infos;
 
 @property (nonatomic, strong) NSSet *tags;
 @property (nonatomic, strong) NSSet *locations;
 
-+ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image imageMetaData:(NSDictionary *)metaData  inContext:(NSManagedObjectContext *)context;
++ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context;
 
 @end
 

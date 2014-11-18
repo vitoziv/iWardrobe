@@ -13,10 +13,6 @@
 
 @interface Item : ImageBaseData
 
-@property (nonatomic, copy) NSString *brand;
-@property (nonatomic, strong) NSDecimalNumber *price;
-@property (nonatomic, strong) NSLocale *currencyLocale;
-@property (nonatomic, copy) NSString *status;
 @property (nonatomic, strong) NSSet *looks;
 
 @end

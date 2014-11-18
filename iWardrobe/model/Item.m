@@ -10,10 +10,6 @@
 
 @implementation Item
 
-@dynamic brand;
-@dynamic price;
-@dynamic currencyLocale;
-@dynamic status;
 @dynamic looks;
 
 @end

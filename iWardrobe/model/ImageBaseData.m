@@ -16,8 +16,6 @@
 @dynamic uid;
 @dynamic name;
 @dynamic imageName;
-@dynamic note;
-@dynamic imageMetaData;
 @dynamic createDate;
 @dynamic modifyDate;
 @dynamic tempImage;
@@ -25,7 +23,7 @@
 @dynamic tags;
 @dynamic locations;
 
-+ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
++ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context
 {
     ImageBaseData *imageData = [NSEntityDescription insertNewObjectForEntityForName:name inManagedObjectContext:context];
     
@@ -33,7 +31,6 @@
     imageData.uid = [[NSProcessInfo processInfo] globallyUniqueString];
     imageData.createDate = newDate;
     imageData.modifyDate = newDate;
-    imageData.imageMetaData = metaData;
     imageData.tempImage = image;
     NSString *imageName = [IWImageUtil saveImage:image
                                       completion:^(NSError *error) {

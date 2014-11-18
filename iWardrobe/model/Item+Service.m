@@ -9,6 +9,7 @@
 #import "Item+Service.h"
 #import "IWStringGenerator.h"
 #import "IWContextManager.h"
+#import "IWFRCDelegate.h"
 
 NSString *const IWTableItem = @"Item";
 
@@ -37,7 +38,7 @@ NSString *const IWItemTags = @"tags";
 
 + (instancetype)createItemWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {
-    return [self createWithEntityName:IWTableItem image:image imageMetaData:metaData inContext:context];
+    return [self createWithEntityName:IWTableItem image:image inContext:context];
 }
 
 + (NSArray *)itemsByTag:(Tag *)tag inContext:(NSManagedObjectContext *)context
@@ -74,6 +75,30 @@ NSString *const IWItemTags = @"tags";
     }
     
     return matches;
+}
+
++ (NSFetchedResultsController *)controllerForAllItemsWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate
+{
+    NSManagedObjectContext *managedObjectContext = [IWContextManager mainContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSFetchedResultsController *fetchedResultsController =
+    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                        managedObjectContext:managedObjectContext sectionNameKeyPath:nil
+                                                   cacheName:@"Root"];
+
+    fetchedResultsController.delegate = delegate;
+    
+    return fetchedResultsController;
 }
 
 @end

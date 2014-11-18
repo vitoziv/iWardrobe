@@ -16,4 +16,7 @@
 + (NSArray *)itemsByTag:(Tag *)tag;
 + (NSArray *)allItems;
 
+
++ (NSFetchedResultsController *)controllerForAllItemsWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+
 @end
