@@ -14,11 +14,11 @@
 @implementation ImageBaseData
 
 @dynamic uid;
-@dynamic name;
 @dynamic imageName;
 @dynamic createDate;
 @dynamic modifyDate;
 @dynamic tempImage;
+@dynamic infos;
 
 @dynamic tags;
 @dynamic locations;
