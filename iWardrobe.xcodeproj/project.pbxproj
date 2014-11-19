@@ -33,6 +33,8 @@
 		5F4D434B1A0620F500C6E19B /* ItemAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D434A1A0620F500C6E19B /* ItemAddViewController.m */; };
 		5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D434E1A062BD000C6E19B /* IWImageResizer.m */; };
 		5F67AB1F1A1C8AA00021A73B /* IWAddInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F67AB1E1A1C8AA00021A73B /* IWAddInfoCell.m */; };
+		5F67AB221A1C9DD30021A73B /* IWEditInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F67AB211A1C9DD30021A73B /* IWEditInfoCell.m */; };
+		5F67AB251A1CAC970021A73B /* InfoType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F67AB241A1CAC970021A73B /* InfoType.m */; };
 		5F6A40781928AC0F00E40606 /* Tag+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40771928AC0F00E40606 /* Tag+Service.m */; };
 		5F6A40821928AC3F00E40606 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A407C1928AC3F00E40606 /* Location.m */; };
 		5F6A40841928AC3F00E40606 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40801928AC3F00E40606 /* Tag.m */; };
@@ -109,6 +111,10 @@
 		5F4D434E1A062BD000C6E19B /* IWImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWImageResizer.m; sourceTree = "<group>"; };
 		5F67AB1D1A1C8AA00021A73B /* IWAddInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWAddInfoCell.h; sourceTree = "<group>"; };
 		5F67AB1E1A1C8AA00021A73B /* IWAddInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWAddInfoCell.m; sourceTree = "<group>"; };
+		5F67AB201A1C9DD30021A73B /* IWEditInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWEditInfoCell.h; sourceTree = "<group>"; };
+		5F67AB211A1C9DD30021A73B /* IWEditInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWEditInfoCell.m; sourceTree = "<group>"; };
+		5F67AB231A1CAC970021A73B /* InfoType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoType.h; sourceTree = "<group>"; };
+		5F67AB241A1CAC970021A73B /* InfoType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoType.m; sourceTree = "<group>"; };
 		5F6A40761928AC0F00E40606 /* Tag+Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+Service.h"; path = "model/Tag+Service.h"; sourceTree = "<group>"; };
 		5F6A40771928AC0F00E40606 /* Tag+Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Service.m"; path = "model/Tag+Service.m"; sourceTree = "<group>"; };
 		5F6A407B1928AC3F00E40606 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -264,6 +270,8 @@
 			children = (
 				5FF9C2431944932C00F7C2AD /* Services */,
 				5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */,
+				5F67AB231A1CAC970021A73B /* InfoType.h */,
+				5F67AB241A1CAC970021A73B /* InfoType.m */,
 				5F6A407B1928AC3F00E40606 /* Location.h */,
 				5F6A407C1928AC3F00E40606 /* Location.m */,
 				5F6A407F1928AC3F00E40606 /* Tag.h */,
@@ -322,6 +330,8 @@
 				5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */,
 				5F67AB1D1A1C8AA00021A73B /* IWAddInfoCell.h */,
 				5F67AB1E1A1C8AA00021A73B /* IWAddInfoCell.m */,
+				5F67AB201A1C9DD30021A73B /* IWEditInfoCell.h */,
+				5F67AB211A1C9DD30021A73B /* IWEditInfoCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -574,7 +584,9 @@
 				5F776C7C19C41285006C8E87 /* HomeViewController.m in Sources */,
 				5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */,
 				5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */,
+				5F67AB221A1C9DD30021A73B /* IWEditInfoCell.m in Sources */,
 				5FDD5DB019BAA70F00A4EA26 /* Look+IW_Service.m in Sources */,
+				5F67AB251A1CAC970021A73B /* InfoType.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
 				5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */,
 				5FDD5DC519BB5B9200A4EA26 /* IWLookCell.m in Sources */,

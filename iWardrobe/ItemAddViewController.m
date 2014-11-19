@@ -8,15 +8,22 @@
 
 #import "ItemAddViewController.h"
 #import "IWImageResizer.h"
-#import "IWImageUtil.h"
+#import "IWImageConfigure.h"
 #import "Item+Service.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "IWContextManager.h"
 #import "SVProgressHUD.h"
+#import "IWAddInfoCell.h"
+#import "IWEditInfoCell.h"
+
+static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
 @interface ItemAddViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+
+@property (strong, nonatomic) NSMutableArray *datas;
+@property (strong, nonatomic) NSMutableArray *infos;
 
 @end
 
@@ -26,19 +33,20 @@
     [super viewDidLoad];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
         UIImage *image = [IWImageResizer resizeImage:self.imageMetaDataInfo[UIImagePickerControllerOriginalImage]
-                                     scaledToFitSize:[IWImageUtil sharedInstance].imageSaveSize.width];
+                                     scaledToFitSize:[IWImageConfigure sharedInstance].imageSaveSize.width];
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             self.itemImageView.image = image;
         });
     });
+    
+    [self setupDatas];
 }
-
 
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [self fetchImageMetaDataCompletion:^(NSDictionary *metaData) {
         [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
-            Item *item = [Item createItemWithImage:self.itemImageView.image imageMetaData:metaData inContext:backgroundContext];
+            Item *item = [Item insertItemWithImage:self.itemImageView.image imageMetaData:metaData inContext:backgroundContext];
             // TODO: Add Tags
             // TODO: Add info
         }];
@@ -46,6 +54,54 @@
         [SVProgressHUD dismiss];
         [self.delegate itemAddViewControllerDidSave:self];
     }];
+}
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.datas.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.datas[section] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary *data = self.datas[indexPath.section][indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:data[kCellIdentifierKey] forIndexPath:indexPath];
+    if ([cell isKindOfClass:[IWEditInfoCell class]]) {
+        IWEditInfoCell *editInfoCell = (IWEditInfoCell *)cell;
+        [editInfoCell configureWithData:data];
+    }
+    
+    return cell;
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([cell isKindOfClass:[IWAddInfoCell class]]) {
+        [self.infos addObject:@{kCellIdentifierKey: @"EditInfo", kEditInfoTitleKey: @"", kEditInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count + 1]}];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 1) inSection:0];
+        [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Setup
+
+- (void)setupDatas
+{
+    self.datas = [NSMutableArray array];
+    self.infos = [NSMutableArray array];
+    [self.datas addObject:self.infos];
+    [self.datas addObject:@[@{kCellIdentifierKey: @"AddInfo"}]];
 }
 
 #pragma mark - Helper

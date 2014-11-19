@@ -10,7 +10,7 @@
 
 @interface Item (Service)
 
-+ (instancetype)createItemWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context;
++ (instancetype)insertItemWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context;
 + (void)deleteItem:(Item *)item inContext:(NSManagedObjectContext *)context;
 
 + (NSArray *)itemsByTag:(Tag *)tag;

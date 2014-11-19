@@ -23,14 +23,19 @@
 @dynamic tags;
 @dynamic locations;
 
-+ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    NSDate *newDate = [NSDate new];
+    self.createDate = newDate;
+    self.modifyDate = newDate;
+}
+
++ (instancetype)insertWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context
 {
     ImageBaseData *imageData = [NSEntityDescription insertNewObjectForEntityForName:name inManagedObjectContext:context];
     
-    NSDate *newDate = [NSDate new];
     imageData.uid = [[NSProcessInfo processInfo] globallyUniqueString];
-    imageData.createDate = newDate;
-    imageData.modifyDate = newDate;
     imageData.tempImage = image;
     NSString *imageName = [IWImageConfigure saveImage:image
                                       completion:^(NSError *error) {

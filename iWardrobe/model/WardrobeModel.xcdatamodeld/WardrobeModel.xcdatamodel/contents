@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B23" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="InfoType" representedClassName="InfoType" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="createDate" attributeType="Date" syncable="YES"/>
         <attribute name="imageName" attributeType="String" syncable="YES"/>
@@ -39,5 +42,6 @@
         <element name="Location" positionX="-389" positionY="180" width="128" height="103"/>
         <element name="Look" positionX="-612" positionY="275" width="128" height="178"/>
         <element name="Tag" positionX="-371" positionY="477" width="128" height="88"/>
+        <element name="InfoType" positionX="-630" positionY="120" width="128" height="58"/>
     </elements>
 </model>

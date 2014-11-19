@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSSet *tags;
 @property (nonatomic, strong) NSSet *locations;
 
-+ (instancetype)createWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context;
++ (instancetype)insertWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context;
 
 @end
 
