@@ -7,7 +7,7 @@
 //
 
 #import "ItemsViewController.h"
-#import "IWItemCollectionViewCell.h"
+#import "IWItemCell.h"
 #import "Item+Service.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SVProgressHUD.h"
@@ -83,7 +83,7 @@ NSFetchedResultsControllerDelegate>
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ItemCell";
-    IWItemCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    IWItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell configureWithItem:item];
     

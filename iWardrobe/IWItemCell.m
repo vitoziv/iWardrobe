@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
-#import "IWItemCollectionViewCell.h"
+#import "IWItemCell.h"
 #import "Item.h"
 #import "Tag.h"
 
-@interface IWItemCollectionViewCell ()
+@interface IWItemCell ()
 
 @property (strong, nonatomic) NSArray *tags;
 
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation IWItemCollectionViewCell
+@implementation IWItemCell
 
 - (void)configureWithItem:(Item *)item
 {

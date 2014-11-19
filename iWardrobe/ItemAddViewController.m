@@ -40,6 +40,7 @@
         [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
             Item *item = [Item createItemWithImage:self.itemImageView.image imageMetaData:metaData inContext:backgroundContext];
             // TODO: Add Tags
+            // TODO: Add info
         }];
         
         [SVProgressHUD dismiss];

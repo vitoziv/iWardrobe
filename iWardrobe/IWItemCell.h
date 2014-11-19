@@ -10,7 +10,7 @@
 
 @class Item;
 
-@interface IWItemCollectionViewCell : UICollectionViewCell
+@interface IWItemCell : UICollectionViewCell
 
 - (void)configureWithItem:(Item *)item;
 

@@ -141,7 +141,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="u7A-0q-aZH" customClass="IWItemLayout"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="Cqk-jP-E3e" customClass="IWItemCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="Cqk-jP-E3e" customClass="IWItemCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -285,7 +285,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ch9-0r-zPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EON-Eq-mSo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4291" y="564"/>
+            <point key="canvasLocation" x="4221" y="564"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="geg-Hm-cD4">
