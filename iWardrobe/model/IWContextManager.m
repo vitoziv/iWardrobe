@@ -55,7 +55,7 @@ static NSString *const kModelStorePath = @"/WardrobeModel.sqlite";
         
         NSError *bgSaveError;
         // push to parent
-        if (![backgroundContext save:&bgSaveError]) {
+        if (backgroundContext.hasChanges && ![backgroundContext save:&bgSaveError]) {
             NSLog(@"background save error: %@", bgSaveError);
         } else {
             NSLog(@"push to main context successed");
