@@ -8,7 +8,7 @@
 
 #import "ImageBaseData.h"
 #import "IWStringGenerator.h"
-#import "IWImageUtil.h"
+#import "IWImageConfigure.h"
 #import "IWContextManager.h"
 
 @implementation ImageBaseData
@@ -32,7 +32,7 @@
     imageData.createDate = newDate;
     imageData.modifyDate = newDate;
     imageData.tempImage = image;
-    NSString *imageName = [IWImageUtil saveImage:image
+    NSString *imageName = [IWImageConfigure saveImage:image
                                       completion:^(NSError *error) {
                                           if (error) {
                                               // TODO: need delete

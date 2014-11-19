@@ -54,7 +54,7 @@
 		5FDD5DBB19BB441D00A4EA26 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDD5DBA19BB441D00A4EA26 /* test.png */; };
 		5FDD5DC519BB5B9200A4EA26 /* IWLookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */; };
 		5FF9C24219448F9B00F7C2AD /* IWItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C24119448F9B00F7C2AD /* IWItemCell.m */; };
-		5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C245194495C700F7C2AD /* IWImageUtil.m */; };
+		5FF9C246194495C700F7C2AD /* IWImageConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C245194495C700F7C2AD /* IWImageConfigure.m */; };
 		5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9C249194496F300F7C2AD /* DFDateFormatterFactory.m */; };
 		C53FEA241878428190EFE16C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B17EE68EF3B469D85216747 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -147,8 +147,8 @@
 		5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWLookCell.m; sourceTree = "<group>"; };
 		5FF9C24019448F9B00F7C2AD /* IWItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemCell.h; sourceTree = "<group>"; };
 		5FF9C24119448F9B00F7C2AD /* IWItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemCell.m; sourceTree = "<group>"; };
-		5FF9C244194495C700F7C2AD /* IWImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageUtil.h; sourceTree = "<group>"; };
-		5FF9C245194495C700F7C2AD /* IWImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWImageUtil.m; sourceTree = "<group>"; };
+		5FF9C244194495C700F7C2AD /* IWImageConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageConfigure.h; sourceTree = "<group>"; };
+		5FF9C245194495C700F7C2AD /* IWImageConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWImageConfigure.m; sourceTree = "<group>"; };
 		5FF9C248194496F300F7C2AD /* DFDateFormatterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFDateFormatterFactory.h; sourceTree = "<group>"; };
 		5FF9C249194496F300F7C2AD /* DFDateFormatterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFDateFormatterFactory.m; sourceTree = "<group>"; };
 		FD1E6E2F4B3C53EF4429BB25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -305,8 +305,8 @@
 		5F4D43501A062BDB00C6E19B /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				5FF9C244194495C700F7C2AD /* IWImageUtil.h */,
-				5FF9C245194495C700F7C2AD /* IWImageUtil.m */,
+				5FF9C244194495C700F7C2AD /* IWImageConfigure.h */,
+				5FF9C245194495C700F7C2AD /* IWImageConfigure.m */,
 				5F4D434D1A062BD000C6E19B /* IWImageResizer.h */,
 				5F4D434E1A062BD000C6E19B /* IWImageResizer.m */,
 			);
@@ -580,7 +580,7 @@
 				5FDD5DC519BB5B9200A4EA26 /* IWLookCell.m in Sources */,
 				5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */,
 				5FF9C24219448F9B00F7C2AD /* IWItemCell.m in Sources */,
-				5FF9C246194495C700F7C2AD /* IWImageUtil.m in Sources */,
+				5FF9C246194495C700F7C2AD /* IWImageConfigure.m in Sources */,
 				5F9855781A1A31B60030B54A /* IWFRCDelegate.m in Sources */,
 				5F6A40841928AC3F00E40606 /* Tag.m in Sources */,
 				5F67AB1F1A1C8AA00021A73B /* IWAddInfoCell.m in Sources */,

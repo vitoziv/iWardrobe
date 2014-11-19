@@ -8,7 +8,7 @@
 
 #import "Look+IW_Service.h"
 #import "IWStringGenerator.h"
-#import "IWImageUtil.h"
+#import "IWImageConfigure.h"
 #import "IWContextManager.h"
 
 NSString *const IWTableLook = @"Look";
@@ -29,15 +29,15 @@ NSString *const IWLookCreateDate = @"createDate";
     look.modifyDate = newDate;
     look.tempImage = image;
     
-    NSString *imageName = [IWImageUtil saveImage:image
-                                      completion:^(NSError *error) {
-                                          if (error) {
-                                              // TODO: need delete
-                                              NSLog(@"save look error: %@", error);
-                                          } else {
-                                              NSLog(@"Image saved! imageName: %@", look.imageName);
-                                          }
-                                      }];
+    NSString *imageName = [IWImageConfigure saveImage:image
+                                           completion:^(NSError *error) {
+                                               if (error) {
+                                                   // TODO: need delete
+                                                   NSLog(@"save look error: %@", error);
+                                               } else {
+                                                   NSLog(@"Image saved! imageName: %@", look.imageName);
+                                               }
+                                           }];
     look.imageName = imageName;
     
     return look;

@@ -6,23 +6,23 @@
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
-#import "IWImageUtil.h"
+#import "IWImageConfigure.h"
 #import "DFDateFormatterFactory.h"
 
 static NSString *const kImageSaveSizeKey = @"kImageSaveSizeKey";
 
-@interface IWImageUtil ()
+@interface IWImageConfigure ()
 
 @property (nonatomic) CGSize imageSaveSize;
 
 @end
 
-@implementation IWImageUtil
+@implementation IWImageConfigure
 
 + (instancetype)sharedInstance
 {
     static dispatch_once_t pred;
-    static IWImageUtil *instance = nil;
+    static IWImageConfigure *instance = nil;
     dispatch_once(&pred, ^{
         instance = [[self alloc] init];
         NSString *sizeString = [[NSUserDefaults standardUserDefaults] objectForKey:kImageSaveSizeKey];

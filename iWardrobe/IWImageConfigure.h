@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, ImageSizeType) {
 
 typedef void(^IWImageUtilSaveBlock)(NSError *error);
 
-@interface IWImageUtil : NSObject
+@interface IWImageConfigure : NSObject
 
 + (instancetype)sharedInstance;
 
