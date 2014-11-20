@@ -1,12 +1,12 @@
 //
-//  Look+IW_Service.m
+//  Look+Service.m
 //  iWardrobe
 //
 //  Created by Vito on 9/6/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
-#import "Look+IW_Service.h"
+#import "Look+Service.h"
 #import "IWStringGenerator.h"
 #import "IWImageConfigure.h"
 #import "IWContextManager.h"
@@ -14,7 +14,7 @@
 NSString *const IWTableLook = @"Look";
 NSString *const IWLookCreateDate = @"createDate";
 
-@implementation Look (IW_Service)
+@implementation Look (Service)
 
 + (instancetype)createLookWithImage:(UIImage *)image imageMetaData:(NSDictionary *)metaData inContext:(NSManagedObjectContext *)context
 {

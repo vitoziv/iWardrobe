@@ -9,7 +9,7 @@
 #import "IWDebugUtil.h"
 #import "Tag+Service.h"
 #import "Item+Service.h"
-#import "Look+IW_Service.h"
+#import "Look+Service.h"
 #import "IWContextManager.h"
 
 @implementation IWDebugUtil
