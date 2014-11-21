@@ -31,7 +31,7 @@ NSString *const kEditInfoContentKey = @"EditInfoContent";
     // Configure the view for the selected state
 }
 
-- (void)configureWithData:(NSDictionary *)data
+- (void)configureWithData:(NSDictionary *)data delegate:(id<IWEditInfoCellDelegate>)delegate
 {
     NSString *title = data[kEditInfoTitleKey];
     NSString *content = data[kEditInfoContentKey];
@@ -40,6 +40,16 @@ NSString *const kEditInfoContentKey = @"EditInfoContent";
         [self.titleButton setTitle:title forState:UIControlStateNormal];
     }
     self.contentTextField.text = content;
+    self.delegate = delegate;
+}
+
+- (void)updateType:(NSString *)type
+{
+    [self.titleButton setTitle:type forState:UIControlStateNormal];
+}
+
+- (IBAction)chooseTypeAction:(id)sender {
+    [self.delegate editInfoCellDidTapChooseType:self];
 }
 
 @end

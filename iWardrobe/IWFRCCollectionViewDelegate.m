@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
-#import "IWFRCDelegate.h"
+#import "IWFRCCollectionViewDelegate.h"
 
-@interface IWFRCDelegate ()
+@interface IWFRCCollectionViewDelegate ()
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation IWFRCDelegate
+@implementation IWFRCCollectionViewDelegate
 
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView
 {

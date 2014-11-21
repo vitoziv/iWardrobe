@@ -11,8 +11,19 @@
 extern NSString *const kEditInfoTitleKey;
 extern NSString *const kEditInfoContentKey;
 
+@class IWEditInfoCell;
+
+@protocol IWEditInfoCellDelegate <NSObject>
+
+- (void)editInfoCellDidTapChooseType:(IWEditInfoCell *)cell;
+
+@end
+
 @interface IWEditInfoCell : UITableViewCell
 
-- (void)configureWithData:(NSDictionary *)data;
+@property (weak, nonatomic) id<IWEditInfoCellDelegate> delegate;
+
+- (void)configureWithData:(NSDictionary *)data delegate:(id<IWEditInfoCellDelegate>)delegate;
+- (void)updateType:(NSString *)type;
 
 @end

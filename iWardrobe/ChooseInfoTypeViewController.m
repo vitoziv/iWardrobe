@@ -7,10 +7,17 @@
 //
 
 #import "ChooseInfoTypeViewController.h"
+#import "InfoType+Service.h"
+#import "IWFRCTableViewDelegate.h"
 
 @interface ChooseInfoTypeViewController ()
 
 @property (strong, nonatomic) NSArray *infoTypes;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) IWFRCTableViewDelegate *fetchedResultsControllerDelegate;
+
+@property (weak, nonatomic) IBOutlet UITextField *addTypeTextField;
 
 @end
 
@@ -20,80 +27,53 @@
     [super viewDidLoad];
     
     // Fetch infotypes
+    self.fetchedResultsControllerDelegate = [[IWFRCTableViewDelegate alloc] initWithTableView:self.tableView];
+    self.fetchedResultsController = [InfoType controllerForAllInfoTypesWithDelegate:self.fetchedResultsControllerDelegate];
+    
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        // TODO: Error handle
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)doneAction:(id)sender {
+    [self.delegate chooseInfoTypeViewController:self didChoosedType:self.addTypeTextField.text];
+    // TODO: save new custom info type
+}
+
+- (IBAction)cancelAction:(id)sender {
+    [self.delegate chooseInfoTypeViewControllerDidCancel:self];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    id  sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+        static NSString *InfoTypeCellIdentifier = @"InfoType";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:InfoTypeCellIdentifier forIndexPath:indexPath];
+        InfoType *infoType = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        cell.textLabel.text = infoType.type;
     
-    // Configure the cell...
-    
-    return cell;
+        return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    InfoType *infoType = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate chooseInfoTypeViewController:self didChoosedType:infoType.type];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

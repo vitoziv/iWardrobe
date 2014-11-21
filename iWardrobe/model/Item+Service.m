@@ -9,7 +9,7 @@
 #import "Item+Service.h"
 #import "IWStringGenerator.h"
 #import "IWContextManager.h"
-#import "IWFRCDelegate.h"
+#import "IWFRCCollectionViewDelegate.h"
 
 NSString *const IWTableItem = @"Item";
 
@@ -94,7 +94,7 @@ NSString *const IWItemTags = @"tags";
     NSFetchedResultsController *fetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                         managedObjectContext:managedObjectContext sectionNameKeyPath:nil
-                                                   cacheName:@"Root"];
+                                                   cacheName:@"items"];
 
     fetchedResultsController.delegate = delegate;
     

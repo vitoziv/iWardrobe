@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface IWFRCDelegate : NSObject <NSFetchedResultsControllerDelegate>
+@interface IWFRCCollectionViewDelegate : NSObject <NSFetchedResultsControllerDelegate>
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView;
 @end

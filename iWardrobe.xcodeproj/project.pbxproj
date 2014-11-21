@@ -32,6 +32,7 @@
 		5F3C158F19D455CC00902013 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F3C158B19D455CC00902013 /* 6.jpg */; };
 		5F41735C1A1DDD9F00490ED2 /* ChooseInfoTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F41735B1A1DDD9F00490ED2 /* ChooseInfoTypeViewController.m */; };
 		5F41735F1A1DDF7800490ED2 /* InfoType+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F41735E1A1DDF7800490ED2 /* InfoType+Service.m */; };
+		5F4173651A1EF7F500490ED2 /* IWFRCTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4173641A1EF7F500490ED2 /* IWFRCTableViewDelegate.m */; };
 		5F4D434B1A0620F500C6E19B /* ItemAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D434A1A0620F500C6E19B /* ItemAddViewController.m */; };
 		5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D434E1A062BD000C6E19B /* IWImageResizer.m */; };
 		5F67AB1F1A1C8AA00021A73B /* IWAddInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F67AB1E1A1C8AA00021A73B /* IWAddInfoCell.m */; };
@@ -45,7 +46,7 @@
 		5F776C8319C41A00006C8E87 /* VIArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8219C41A00006C8E87 /* VIArrayDataSource.m */; };
 		5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8519C42295006C8E87 /* ImageBaseData.m */; };
 		5F776C8A19C477DD006C8E87 /* IWItemLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8919C477DD006C8E87 /* IWItemLayout.m */; };
-		5F9855781A1A31B60030B54A /* IWFRCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9855771A1A31B60030B54A /* IWFRCDelegate.m */; };
+		5F9855781A1A31B60030B54A /* IWFRCCollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */; };
 		5FBD44A119C5857100ED6E3C /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */; };
 		5FBD44A519C5887400ED6E3C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD44A319C5887400ED6E3C /* 1.jpg */; };
 		5FBD44A619C5887400ED6E3C /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD44A419C5887400ED6E3C /* 3.jpg */; };
@@ -111,6 +112,8 @@
 		5F41735B1A1DDD9F00490ED2 /* ChooseInfoTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseInfoTypeViewController.m; sourceTree = "<group>"; };
 		5F41735D1A1DDF7800490ED2 /* InfoType+Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InfoType+Service.h"; sourceTree = "<group>"; };
 		5F41735E1A1DDF7800490ED2 /* InfoType+Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "InfoType+Service.m"; sourceTree = "<group>"; };
+		5F4173631A1EF7F500490ED2 /* IWFRCTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWFRCTableViewDelegate.h; sourceTree = "<group>"; };
+		5F4173641A1EF7F500490ED2 /* IWFRCTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWFRCTableViewDelegate.m; sourceTree = "<group>"; };
 		5F4D43491A0620F500C6E19B /* ItemAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAddViewController.h; sourceTree = "<group>"; };
 		5F4D434A1A0620F500C6E19B /* ItemAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAddViewController.m; sourceTree = "<group>"; };
 		5F4D434D1A062BD000C6E19B /* IWImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageResizer.h; sourceTree = "<group>"; };
@@ -137,8 +140,8 @@
 		5F776C8519C42295006C8E87 /* ImageBaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBaseData.m; sourceTree = "<group>"; };
 		5F776C8819C477DD006C8E87 /* IWItemLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemLayout.h; sourceTree = "<group>"; };
 		5F776C8919C477DD006C8E87 /* IWItemLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemLayout.m; sourceTree = "<group>"; };
-		5F9855761A1A31B60030B54A /* IWFRCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWFRCDelegate.h; sourceTree = "<group>"; };
-		5F9855771A1A31B60030B54A /* IWFRCDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWFRCDelegate.m; sourceTree = "<group>"; };
+		5F9855761A1A31B60030B54A /* IWFRCCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWFRCCollectionViewDelegate.h; sourceTree = "<group>"; };
+		5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWFRCCollectionViewDelegate.m; sourceTree = "<group>"; };
 		5FBD449F19C5857100ED6E3C /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		5FBD44A319C5887400ED6E3C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -371,8 +374,10 @@
 				5F776C8219C41A00006C8E87 /* VIArrayDataSource.m */,
 				5F3C158519D454CF00902013 /* IWDebugUtil.h */,
 				5F3C158619D454CF00902013 /* IWDebugUtil.m */,
-				5F9855761A1A31B60030B54A /* IWFRCDelegate.h */,
-				5F9855771A1A31B60030B54A /* IWFRCDelegate.m */,
+				5F9855761A1A31B60030B54A /* IWFRCCollectionViewDelegate.h */,
+				5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */,
+				5F4173631A1EF7F500490ED2 /* IWFRCTableViewDelegate.h */,
+				5F4173641A1EF7F500490ED2 /* IWFRCTableViewDelegate.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -593,6 +598,7 @@
 				5F4D434B1A0620F500C6E19B /* ItemAddViewController.m in Sources */,
 				5F776C7C19C41285006C8E87 /* HomeViewController.m in Sources */,
 				5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */,
+				5F4173651A1EF7F500490ED2 /* IWFRCTableViewDelegate.m in Sources */,
 				5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */,
 				5F67AB221A1C9DD30021A73B /* IWEditInfoCell.m in Sources */,
 				5FDD5DB019BAA70F00A4EA26 /* Look+Service.m in Sources */,
@@ -603,7 +609,7 @@
 				5FF9C24A194496F300F7C2AD /* DFDateFormatterFactory.m in Sources */,
 				5FF9C24219448F9B00F7C2AD /* IWItemCell.m in Sources */,
 				5FF9C246194495C700F7C2AD /* IWImageConfigure.m in Sources */,
-				5F9855781A1A31B60030B54A /* IWFRCDelegate.m in Sources */,
+				5F9855781A1A31B60030B54A /* IWFRCCollectionViewDelegate.m in Sources */,
 				5F6A40841928AC3F00E40606 /* Tag.m in Sources */,
 				5F67AB1F1A1C8AA00021A73B /* IWAddInfoCell.m in Sources */,
 				5FDD5DB319BAAE6E00A4EA26 /* IWStringGenerator.m in Sources */,

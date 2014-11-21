@@ -10,4 +10,8 @@
 
 @interface InfoType (Service)
 
++ (instancetype)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
+
++ (NSFetchedResultsController *)controllerForAllInfoTypesWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
+
 @end

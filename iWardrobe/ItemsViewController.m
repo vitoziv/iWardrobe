@@ -16,7 +16,7 @@
 #import "ItemDetailViewController.h"
 #import "ItemAddViewController.h"
 #import "IWContextManager.h"
-#import "IWFRCDelegate.h"
+#import "IWFRCCollectionViewDelegate.h"
 
 static NSString *kSegueIdentifierShowItemDetail = @"ShowItemDetail";
 static NSString *kSegueIdentifierShowItemAdd = @"ShowItemAdd";
@@ -34,7 +34,7 @@ NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 // Datas
-@property (strong, nonatomic) IWFRCDelegate *fetchedResultsControllerDelegate;
+@property (strong, nonatomic) IWFRCCollectionViewDelegate *fetchedResultsControllerDelegate;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -44,11 +44,12 @@ NSFetchedResultsControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.fetchedResultsControllerDelegate = [[IWFRCDelegate alloc] initWithCollectionView:self.collectionView];
+    self.fetchedResultsControllerDelegate = [[IWFRCCollectionViewDelegate alloc] initWithCollectionView:self.collectionView];
     self.fetchedResultsController = [Item controllerForAllItemsWithDelegate:self.fetchedResultsControllerDelegate];
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]) {
+        // TODO: Error handle
         // Update to handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }

@@ -15,15 +15,18 @@
 #import "SVProgressHUD.h"
 #import "IWAddInfoCell.h"
 #import "IWEditInfoCell.h"
+#import "ChooseInfoTypeViewController.h"
 
 static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
-@interface ItemAddViewController ()
+@interface ItemAddViewController () <IWEditInfoCellDelegate, ChooseInfoTypeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
 
 @property (strong, nonatomic) NSMutableArray *datas;
 @property (strong, nonatomic) NSMutableArray *infos;
+
+@property (strong, nonatomic) IWEditInfoCell *editingCell;
 
 @end
 
@@ -57,6 +60,15 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ChooseInfoType"]) {
+        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+        ChooseInfoTypeViewController *viewController = (ChooseInfoTypeViewController *)[navigationController.viewControllers lastObject];
+        viewController.delegate = self;
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -73,7 +85,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:data[kCellIdentifierKey] forIndexPath:indexPath];
     if ([cell isKindOfClass:[IWEditInfoCell class]]) {
         IWEditInfoCell *editInfoCell = (IWEditInfoCell *)cell;
-        [editInfoCell configureWithData:data];
+        [editInfoCell configureWithData:data delegate:self];
     }
     
     return cell;
@@ -92,6 +104,27 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - IWEditInfoCellDelegate
+
+- (void)editInfoCellDidTapChooseType:(IWEditInfoCell *)cell
+{
+    self.editingCell = cell;
+    [self performSegueWithIdentifier:@"ChooseInfoType" sender:nil];
+}
+
+#pragma mark - ChooseInfoTypeViewControllerDelegate
+
+- (void)chooseInfoTypeViewControllerDidCancel:(ChooseInfoTypeViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)chooseInfoTypeViewController:(ChooseInfoTypeViewController *)viewController didChoosedType:(NSString *)type
+{
+    [self.editingCell updateType:type];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Setup
