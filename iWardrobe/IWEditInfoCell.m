@@ -7,11 +7,9 @@
 //
 
 #import "IWEditInfoCell.h"
+#import "InfoType+Service.h"
 
-NSString *const kEditInfoTitleKey = @"EditInfoTitle";
-NSString *const kEditInfoContentKey = @"EditInfoContent";
-
-@interface IWEditInfoCell ()
+@interface IWEditInfoCell () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *titleButton;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
@@ -33,8 +31,8 @@ NSString *const kEditInfoContentKey = @"EditInfoContent";
 
 - (void)configureWithData:(NSDictionary *)data delegate:(id<IWEditInfoCellDelegate>)delegate
 {
-    NSString *title = data[kEditInfoTitleKey];
-    NSString *content = data[kEditInfoContentKey];
+    NSString *title = data[kInfoTypeKey];
+    NSString *content = data[kInfoContentKey];
     
     if (title.length > 0) {
         [self.titleButton setTitle:title forState:UIControlStateNormal];
@@ -46,10 +44,18 @@ NSString *const kEditInfoContentKey = @"EditInfoContent";
 - (void)updateType:(NSString *)type
 {
     [self.titleButton setTitle:type forState:UIControlStateNormal];
+    [self.delegate editInfoCell:self didChangeType:type];
 }
 
 - (IBAction)chooseTypeAction:(id)sender {
     [self.delegate editInfoCellDidTapChooseType:self];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.delegate editInfoCell:self didChangeContent:textField.text];
 }
 
 @end

@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const kEditInfoTitleKey;
-extern NSString *const kEditInfoContentKey;
-
 @class IWEditInfoCell;
 
 @protocol IWEditInfoCellDelegate <NSObject>
 
 - (void)editInfoCellDidTapChooseType:(IWEditInfoCell *)cell;
+
+- (void)editInfoCell:(IWEditInfoCell *)cell didChangeType:(NSString *)type;
+- (void)editInfoCell:(IWEditInfoCell *)cell didChangeContent:(NSString *)content;
 
 @end
 

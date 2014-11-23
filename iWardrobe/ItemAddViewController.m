@@ -10,6 +10,7 @@
 #import "IWImageResizer.h"
 #import "IWImageConfigure.h"
 #import "Item+Service.h"
+#import "InfoType+Service.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "IWContextManager.h"
 #import "SVProgressHUD.h"
@@ -47,16 +48,15 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    [self fetchImageMetaDataCompletion:^(NSDictionary *metaData) {
-        [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
-            Item *item = [Item insertItemWithImage:self.itemImageView.image imageMetaData:metaData inContext:backgroundContext];
-            // TODO: Add Tags
-            // TODO: Add info
-        }];
-        
-        [SVProgressHUD dismiss];
-        [self.delegate itemAddViewControllerDidSave:self];
+    [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
+        Item *item = [Item insertItemWithImage:self.itemImageView.image inContext:backgroundContext];
+        [self.infos removeLastObject];
+        item.infos = self.infos;
+        // TODO: Add Tags
     }];
+    
+    [SVProgressHUD dismiss];
+    [self.delegate itemAddViewControllerDidSave:self];
 }
 
 
@@ -82,8 +82,11 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *data = self.datas[indexPath.section][indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:data[kCellIdentifierKey] forIndexPath:indexPath];
-    if ([cell isKindOfClass:[IWEditInfoCell class]]) {
+    UITableViewCell *cell;
+    if (data[kCellIdentifierKey]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:data[kCellIdentifierKey] forIndexPath:indexPath];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"EditInfo" forIndexPath:indexPath];
         IWEditInfoCell *editInfoCell = (IWEditInfoCell *)cell;
         [editInfoCell configureWithData:data delegate:self];
     }
@@ -98,8 +101,9 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if ([cell isKindOfClass:[IWAddInfoCell class]]) {
-        [self.infos addObject:@{kCellIdentifierKey: @"EditInfo", kEditInfoTitleKey: @"", kEditInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count + 1]}];
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 1) inSection:0];
+        NSDictionary *info = @{kInfoTypeKey: @"", kInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count + 1]};
+        [self.infos insertObject:info atIndex:self.infos.count - 1];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 2) inSection:0];
         [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
     
@@ -112,6 +116,22 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 {
     self.editingCell = cell;
     [self performSegueWithIdentifier:@"ChooseInfoType" sender:nil];
+}
+
+- (void)editInfoCell:(IWEditInfoCell *)cell didChangeType:(NSString *)type
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSMutableDictionary *info = [self.infos[indexPath.row] mutableCopy];
+    info[kInfoTypeKey] = type;
+    self.infos[indexPath.row] = [info copy];
+}
+
+- (void)editInfoCell:(IWEditInfoCell *)cell didChangeContent:(NSString *)content
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSMutableDictionary *info = [self.infos[indexPath.row] mutableCopy];
+    info[kInfoContentKey] = content;
+    self.infos[indexPath.row] = [info copy];
 }
 
 #pragma mark - ChooseInfoTypeViewControllerDelegate
@@ -133,37 +153,9 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 {
     self.datas = [NSMutableArray array];
     self.infos = [NSMutableArray array];
+    [self.infos addObject:@{kCellIdentifierKey: @"AddInfo"}];
     [self.datas addObject:self.infos];
-    [self.datas addObject:@[@{kCellIdentifierKey: @"AddInfo"}]];
 }
 
-#pragma mark - Helper
-
-- (void)fetchImageMetaDataCompletion:(void(^)(NSDictionary *metaData))completion
-{
-    NSDictionary *imageMetaData = self.imageMetaDataInfo[UIImagePickerControllerMediaMetadata];
-    if (imageMetaData) {
-        if (completion) {
-            completion(imageMetaData);
-        }
-    } else {
-        ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
-        [lib assetForURL:self.imageMetaDataInfo[UIImagePickerControllerReferenceURL]
-             resultBlock:^(ALAsset *asset) {
-                 dispatch_async(dispatch_get_main_queue(), ^(void) {
-                     if (completion) {
-                         completion(asset.defaultRepresentation.metadata);
-                     }
-                 });
-             }
-            failureBlock:^(NSError *error) {
-                dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    if (completion) {
-                        completion(nil);
-                    }
-                });
-            }];
-    }
-}
 
 @end

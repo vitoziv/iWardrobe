@@ -9,6 +9,7 @@
 #import "ChooseInfoTypeViewController.h"
 #import "InfoType+Service.h"
 #import "IWFRCTableViewDelegate.h"
+#import "IWContextManager.h"
 
 @interface ChooseInfoTypeViewController ()
 
@@ -41,6 +42,9 @@
 - (IBAction)doneAction:(id)sender {
     [self.delegate chooseInfoTypeViewController:self didChoosedType:self.addTypeTextField.text];
     // TODO: save new custom info type
+    [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
+        [InfoType insertWithName:self.addTypeTextField.text inContext:backgroundContext];
+    }];
 }
 
 - (IBAction)cancelAction:(id)sender {
@@ -60,12 +64,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-        static NSString *InfoTypeCellIdentifier = @"InfoType";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:InfoTypeCellIdentifier forIndexPath:indexPath];
-        InfoType *infoType = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        cell.textLabel.text = infoType.type;
-    
-        return cell;
+    static NSString *InfoTypeCellIdentifier = @"InfoType";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:InfoTypeCellIdentifier forIndexPath:indexPath];
+    InfoType *infoType = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = infoType.type;
+
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate

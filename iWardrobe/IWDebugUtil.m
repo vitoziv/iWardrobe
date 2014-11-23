@@ -26,11 +26,11 @@
         UIImage *image4 = [UIImage imageNamed:@"4.jpg"];
         UIImage *image5 = [UIImage imageNamed:@"5.jpg"];
         UIImage *image6 = [UIImage imageNamed:@"6.jpg"];
-        Item *item1 = [Item insertItemWithImage:image1 imageMetaData:nil inContext:backgroundContext];
+        Item *item1 = [Item insertItemWithImage:image1 inContext:backgroundContext];
 
-        Item *item2 = [Item insertItemWithImage:image2 imageMetaData:nil inContext:backgroundContext];
+        Item *item2 = [Item insertItemWithImage:image2 inContext:backgroundContext];
 
-        Item *item3 = [Item insertItemWithImage:image3 imageMetaData:nil inContext:backgroundContext];
+        Item *item3 = [Item insertItemWithImage:image3 inContext:backgroundContext];
         
         Look *look1 = [Look createLookWithImage:image4 imageMetaData:nil inContext:backgroundContext];
         look1.items = [NSSet setWithArray:@[item1, item2, item3]];

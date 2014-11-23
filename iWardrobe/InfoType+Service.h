@@ -8,6 +8,9 @@
 
 #import "InfoType.h"
 
+extern NSString *const kInfoTypeKey;
+extern NSString *const kInfoContentKey;
+
 @interface InfoType (Service)
 
 + (instancetype)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;

@@ -57,7 +57,7 @@ static NSString *const kImageSaveSizeKey = @"kImageSaveSizeKey";
 
 + (NSString *)saveImage:(UIImage *)image completion:(IWImageUtilSaveBlock)completion
 {
-    NSString *imageName = [[NSProcessInfo processInfo] globallyUniqueString];
+    NSString *imageName = [[[NSProcessInfo processInfo] globallyUniqueString] stringByAppendingPathExtension:@"jpg"];
     NSString *path = [IWDocumentDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", imageName]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {

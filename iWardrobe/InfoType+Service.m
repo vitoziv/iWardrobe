@@ -9,6 +9,9 @@
 #import "InfoType+Service.h"
 #import "IWContextManager.h"
 
+NSString *const kInfoTypeKey = @"type";
+NSString *const kInfoContentKey = @"content";
+
 @implementation InfoType (Service)
 
 + (instancetype)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context
