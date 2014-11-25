@@ -29,7 +29,8 @@
     
     // Fetch infotypes
     self.fetchedResultsControllerDelegate = [[IWFRCTableViewDelegate alloc] initWithTableView:self.tableView];
-    self.fetchedResultsController = [InfoType controllerForAllInfoTypesWithDelegate:self.fetchedResultsControllerDelegate];
+    self.fetchedResultsController = [InfoType controllerForAllInfoTypes];
+    self.fetchedResultsController.delegate = self.fetchedResultsControllerDelegate;
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]) {

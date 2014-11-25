@@ -7,12 +7,18 @@
 //
 
 #import "Tag+Service.h"
+#import "NSFetchedResultsController+IWExtension.h"
 
 NSString *const IWTableTag = @"Tag";
 NSString *const IWTagName = @"name";
 NSString *const IWTagId = @"tagId";
 
 @implementation Tag (Service)
+
++ (NSString *)entityName
+{
+    return NSStringFromClass([self class]);
+}
 
 #pragma mark - Public
 
@@ -74,6 +80,13 @@ NSString *const IWTagId = @"tagId";
 + (void)deleteTag:(Tag *)tag inContext:(NSManagedObjectContext *)context
 {
     [context deleteObject:tag];
+}
+
++ (NSFetchedResultsController *)controllerForAllTags
+{
+    NSFetchedResultsController *fetchedResultsController = [NSFetchedResultsController controllerForEntityName:[self entityName] sortKey:@"name" fetchBatchSize:40];
+    
+    return fetchedResultsController;
 }
 
 #pragma mark Query

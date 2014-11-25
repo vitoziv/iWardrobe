@@ -7,7 +7,7 @@
 //
 
 #import "InfoType+Service.h"
-#import "IWContextManager.h"
+#import "NSFetchedResultsController+IWExtension.h"
 
 NSString *const kInfoTypeKey = @"type";
 NSString *const kInfoContentKey = @"content";
@@ -28,27 +28,9 @@ NSString *const kInfoContentKey = @"content";
     return @"InfoType";
 }
 
-+ (NSFetchedResultsController *)controllerForAllInfoTypesWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate
++ (NSFetchedResultsController *)controllerForAllInfoTypes
 {
-    NSManagedObjectContext *managedObjectContext = [IWContextManager mainContext];
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:[InfoType entityName] inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"type" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
-    
-    [fetchRequest setFetchBatchSize:40];
-    
-    NSFetchedResultsController *fetchedResultsController =
-    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:managedObjectContext
-                                          sectionNameKeyPath:nil
-                                                   cacheName:@"infoTypes"];
-    
-    fetchedResultsController.delegate = delegate;
+    NSFetchedResultsController *fetchedResultsController = [NSFetchedResultsController controllerForEntityName:[self entityName] sortKey:@"type" fetchBatchSize:40];
 
     return fetchedResultsController;
 }

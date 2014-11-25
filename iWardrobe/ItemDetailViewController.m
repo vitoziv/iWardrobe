@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+
     [self setupData];
 }
 
@@ -47,15 +47,6 @@
     [cell configureWithInfo:info];
     
     return cell;
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGPoint headerViewCenter = self.tableView.tableHeaderView.center;
-    NSLog(@"");
-    self.tableView.tableHeaderView.center = CGPointMake(headerViewCenter.x, headerViewCenter.y - scrollView.contentOffset.y);
 }
 
 @end

@@ -16,6 +16,7 @@
 #import "SVProgressHUD.h"
 #import "IWAddInfoCell.h"
 #import "IWEditInfoCell.h"
+#import "IWChooseTagCell.h"
 #import "ChooseInfoTypeViewController.h"
 
 static NSString *const kCellIdentifierKey = @"CellIdentifier";
@@ -94,10 +95,11 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     return cell;
 }
 
-
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if ([cell isKindOfClass:[IWAddInfoCell class]]) {
@@ -105,9 +107,11 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
         [self.infos insertObject:info atIndex:self.infos.count - 1];
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 2) inSection:0];
         [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    } else if ([cell isKindOfClass:[IWChooseTagCell class]]) {
+        NSLog(@"choose tag");
+        [self performSegueWithIdentifier:@"ChooseTag" sender:nil];
     }
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - IWEditInfoCellDelegate
@@ -153,6 +157,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 {
     self.datas = [NSMutableArray array];
     self.infos = [NSMutableArray array];
+    [self.datas addObject:@[@{kCellIdentifierKey: @"ChooseTag"}]];
     [self.infos addObject:@{kCellIdentifierKey: @"AddInfo"}];
     [self.datas addObject:self.infos];
 }

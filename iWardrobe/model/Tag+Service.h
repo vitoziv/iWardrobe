@@ -18,6 +18,8 @@ extern NSString *const IWTagName;
 + (Tag *)updateWithTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
 + (void)deleteTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
 
++ (NSFetchedResultsController *)controllerForAllTags;
+
 + (NSArray *)tagListInContext:(NSManagedObjectContext *)context;
 
 @end

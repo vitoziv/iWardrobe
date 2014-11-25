@@ -15,6 +15,6 @@ extern NSString *const kInfoContentKey;
 
 + (instancetype)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 
-+ (NSFetchedResultsController *)controllerForAllInfoTypesWithDelegate:(id<NSFetchedResultsControllerDelegate>)delegate;
++ (NSFetchedResultsController *)controllerForAllInfoTypes;
 
 @end
