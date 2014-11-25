@@ -46,6 +46,7 @@
 		5F776C8319C41A00006C8E87 /* VIArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8219C41A00006C8E87 /* VIArrayDataSource.m */; };
 		5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8519C42295006C8E87 /* ImageBaseData.m */; };
 		5F776C8A19C477DD006C8E87 /* IWItemLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8919C477DD006C8E87 /* IWItemLayout.m */; };
+		5F8F209E1A24C5EA00AC7E47 /* IWStringInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F209D1A24C5EA00AC7E47 /* IWStringInfoCell.m */; };
 		5F9855781A1A31B60030B54A /* IWFRCCollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */; };
 		5FBD44A119C5857100ED6E3C /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */; };
 		5FBD44A519C5887400ED6E3C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD44A319C5887400ED6E3C /* 1.jpg */; };
@@ -140,6 +141,8 @@
 		5F776C8519C42295006C8E87 /* ImageBaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBaseData.m; sourceTree = "<group>"; };
 		5F776C8819C477DD006C8E87 /* IWItemLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemLayout.h; sourceTree = "<group>"; };
 		5F776C8919C477DD006C8E87 /* IWItemLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemLayout.m; sourceTree = "<group>"; };
+		5F8F209C1A24C5EA00AC7E47 /* IWStringInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWStringInfoCell.h; sourceTree = "<group>"; };
+		5F8F209D1A24C5EA00AC7E47 /* IWStringInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWStringInfoCell.m; sourceTree = "<group>"; };
 		5F9855761A1A31B60030B54A /* IWFRCCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWFRCCollectionViewDelegate.h; sourceTree = "<group>"; };
 		5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWFRCCollectionViewDelegate.m; sourceTree = "<group>"; };
 		5FBD449F19C5857100ED6E3C /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
@@ -343,6 +346,8 @@
 				5F67AB1E1A1C8AA00021A73B /* IWAddInfoCell.m */,
 				5F67AB201A1C9DD30021A73B /* IWEditInfoCell.h */,
 				5F67AB211A1C9DD30021A73B /* IWEditInfoCell.m */,
+				5F8F209C1A24C5EA00AC7E47 /* IWStringInfoCell.h */,
+				5F8F209D1A24C5EA00AC7E47 /* IWStringInfoCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -495,6 +500,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Vito;
 				TargetAttributes = {
+					5F012140190BFAD000C36277 = {
+						DevelopmentTeam = VWD67942DL;
+					};
 					5F012161190BFAD000C36277 = {
 						TestTargetID = 5F012140190BFAD000C36277;
 					};
@@ -603,6 +611,7 @@
 				5F67AB221A1C9DD30021A73B /* IWEditInfoCell.m in Sources */,
 				5FDD5DB019BAA70F00A4EA26 /* Look+Service.m in Sources */,
 				5F67AB251A1CAC970021A73B /* InfoType.m in Sources */,
+				5F8F209E1A24C5EA00AC7E47 /* IWStringInfoCell.m in Sources */,
 				5F012151190BFAD000C36277 /* main.m in Sources */,
 				5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */,
 				5FDD5DC519BB5B9200A4EA26 /* IWLookCell.m in Sources */,
