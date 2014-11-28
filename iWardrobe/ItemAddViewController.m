@@ -30,7 +30,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 @property (strong, nonatomic) NSMutableArray *datas;
 @property (strong, nonatomic) NSMutableArray *infos;
 
-@property (strong, nonatomic) NSArray *tags; // Tag list
+@property (strong, nonatomic) NSArray *tagIDs; // Tags' objectID list
 
 @property (strong, nonatomic) IWEditInfoCell *editingCell;
 
@@ -62,7 +62,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
         Item *item = [Item insertItemWithImage:self.itemImageView.image inContext:backgroundContext];
         [self.infos removeLastObject];
         item.infos = self.infos;
-        [self.tags enumerateObjectsUsingBlock:^(NSManagedObjectID *objectID, NSUInteger idx, BOOL *stop) {
+        [self.tagIDs enumerateObjectsUsingBlock:^(NSManagedObjectID *objectID, NSUInteger idx, BOOL *stop) {
             NSError *error;
             Tag *tag = (Tag *)[backgroundContext existingObjectWithID:objectID error:&error];
             if (!error) {
@@ -175,9 +175,9 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
 #pragma mark - ChooseTagControllerDelegate
 
-- (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tags
+- (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tagIDs
 {
-    self.tags = tags;
+    self.tagIDs = tagIDs;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

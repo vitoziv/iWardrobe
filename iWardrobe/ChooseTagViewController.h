@@ -19,6 +19,6 @@
 
 @protocol ChooseTagControllerDelegate <NSObject>
 
-- (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tags;
+- (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tagIDs;
 
 @end

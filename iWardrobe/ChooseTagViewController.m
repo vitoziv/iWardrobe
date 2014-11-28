@@ -54,12 +54,12 @@
 - (IBAction)doneAction:(id)sender {
     // TODO: 对 done 按钮进行验证，如果没有选择任何 tag，就把 done 按钮设置为 enable = no
     
-    NSMutableArray *tags = [NSMutableArray array];
+    NSMutableArray *tagIDs = [NSMutableArray array];
     [self.tableView.indexPathsForSelectedRows enumerateObjectsUsingBlock:^(NSIndexPath *obj, NSUInteger idx, BOOL *stop) {
         Tag *tag = [self.fetchedResultsController objectAtIndexPath:obj];
-        [tags addObject:tag.objectID];
+        [tagIDs addObject:tag.objectID];
     }];
-    [self.delegate chooseTagViewController:self didChooseTags:[tags copy]];
+    [self.delegate chooseTagViewController:self didChooseTags:[tagIDs copy]];
 }
 
 #pragma mark - Table view data source
