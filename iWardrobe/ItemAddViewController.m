@@ -18,15 +18,19 @@
 #import "IWEditInfoCell.h"
 #import "IWChooseTagCell.h"
 #import "ChooseInfoTypeViewController.h"
+#import "ChooseTagViewController.h"
+#import "Tag+Service.h"
 
 static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
-@interface ItemAddViewController () <IWEditInfoCellDelegate, ChooseInfoTypeViewControllerDelegate>
+@interface ItemAddViewController () <IWEditInfoCellDelegate, ChooseInfoTypeViewControllerDelegate, ChooseTagControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
 
 @property (strong, nonatomic) NSMutableArray *datas;
 @property (strong, nonatomic) NSMutableArray *infos;
+
+@property (strong, nonatomic) NSArray *tags; // Tag list
 
 @property (strong, nonatomic) IWEditInfoCell *editingCell;
 
@@ -47,13 +51,27 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     [self setupDatas];
 }
 
+- (IBAction)backToItemAdd:(UIStoryboardSegue*)sender
+{
+    
+}
+
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
         Item *item = [Item insertItemWithImage:self.itemImageView.image inContext:backgroundContext];
         [self.infos removeLastObject];
         item.infos = self.infos;
-        // TODO: Add Tags
+        [self.tags enumerateObjectsUsingBlock:^(NSManagedObjectID *objectID, NSUInteger idx, BOOL *stop) {
+            NSError *error;
+            Tag *tag = (Tag *)[backgroundContext existingObjectWithID:objectID error:&error];
+            if (!error) {
+                [item addTagsObject:tag];
+            } else {
+                // TODO: Handle error
+                NSLog(@"Get Tag from objectID: %@ error: %@", objectID, error);
+            }
+        }];
     }];
     
     [SVProgressHUD dismiss];
@@ -66,6 +84,10 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     if ([segue.identifier isEqualToString:@"ChooseInfoType"]) {
         UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
         ChooseInfoTypeViewController *viewController = (ChooseInfoTypeViewController *)[navigationController.viewControllers lastObject];
+        viewController.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"ChooseTag"]) {
+        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+        ChooseTagViewController *viewController = (ChooseTagViewController *)[navigationController.viewControllers lastObject];
         viewController.delegate = self;
     }
 }
@@ -105,7 +127,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     if ([cell isKindOfClass:[IWAddInfoCell class]]) {
         NSDictionary *info = @{kInfoTypeKey: @"", kInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count + 1]};
         [self.infos insertObject:info atIndex:self.infos.count - 1];
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 2) inSection:0];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 2) inSection:indexPath.section];
         [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     } else if ([cell isKindOfClass:[IWChooseTagCell class]]) {
         NSLog(@"choose tag");
@@ -148,6 +170,14 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 - (void)chooseInfoTypeViewController:(ChooseInfoTypeViewController *)viewController didChoosedType:(NSString *)type
 {
     [self.editingCell updateType:type];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - ChooseTagControllerDelegate
+
+- (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tags
+{
+    self.tags = tags;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

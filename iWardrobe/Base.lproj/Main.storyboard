@@ -325,7 +325,7 @@
                                     <outlet property="titleButton" destination="cqR-2m-CoO" id="9Sn-An-tZc"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddInfo" textLabel="7xo-3v-blP" style="IBUITableViewCellStyleDefault" id="gnw-6m-CQa">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddInfo" textLabel="7xo-3v-blP" style="IBUITableViewCellStyleDefault" id="gnw-6m-CQa" customClass="IWAddInfoCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gnw-6m-CQa" id="aGb-3K-2Vu">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -605,11 +605,11 @@
             </objects>
             <point key="canvasLocation" x="6021" y="-292"/>
         </scene>
-        <!--Choose Tag Controller-->
+        <!--Choose Tag View Controller-->
         <scene sceneID="1fq-ye-ubE">
             <objects>
-                <tableViewController id="2XC-Ap-lg0" customClass="ChooseTagController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vDb-z1-4Jt">
+                <tableViewController id="2XC-Ap-lg0" customClass="ChooseTagViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vDb-z1-4Jt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -618,22 +618,37 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add new tag" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvF-CR-czr">
-                                    <rect key="frame" x="8" y="8" width="584" height="44"/>
+                                    <rect key="frame" x="8" y="8" width="514" height="44"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aq8-H3-EZn">
+                                    <rect key="frame" x="530" y="8" width="62" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="62" id="Rr4-wQ-L7K"/>
+                                    </constraints>
+                                    <state key="normal" title="Add">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addNewTagAction:" destination="2XC-Ap-lg0" eventType="touchUpInside" id="hew-IO-3dD"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="nvF-CR-czr" firstAttribute="leading" secondItem="GdE-G7-f53" secondAttribute="leading" constant="8" id="B4e-L0-BUb"/>
                                 <constraint firstItem="nvF-CR-czr" firstAttribute="top" secondItem="GdE-G7-f53" secondAttribute="top" constant="8" id="DCH-uD-v4h"/>
-                                <constraint firstAttribute="trailing" secondItem="nvF-CR-czr" secondAttribute="trailing" constant="8" id="I3T-H6-AY0"/>
+                                <constraint firstItem="Aq8-H3-EZn" firstAttribute="top" secondItem="GdE-G7-f53" secondAttribute="top" constant="8" id="Gzt-5W-CL5"/>
+                                <constraint firstAttribute="trailing" secondItem="Aq8-H3-EZn" secondAttribute="trailing" constant="8" id="Wlu-yk-Gmv"/>
+                                <constraint firstItem="Aq8-H3-EZn" firstAttribute="leading" secondItem="nvF-CR-czr" secondAttribute="trailing" constant="8" id="ZhI-WX-wsp"/>
                                 <constraint firstAttribute="bottom" secondItem="nvF-CR-czr" secondAttribute="bottom" constant="8" id="efM-3J-wG5"/>
+                                <constraint firstAttribute="bottom" secondItem="Aq8-H3-EZn" secondAttribute="bottom" constant="8" id="m1d-RX-VZm"/>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagCell" textLabel="KOi-Wp-fHE" style="IBUITableViewCellStyleDefault" id="jEr-xH-TyH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagCell" textLabel="KOi-Wp-fHE" style="IBUITableViewCellStyleDefault" id="jEr-xH-TyH" customClass="IWTagCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEr-xH-TyH" id="5QA-Z2-qjq">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -656,11 +671,18 @@
                     <navigationItem key="navigationItem" id="hDK-jf-apO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hRu-f4-vEw">
                             <connections>
-                                <segue destination="TNv-od-h3P" kind="unwind" unwindAction="backToItem:" id="c6H-0F-YDM"/>
+                                <segue destination="TNv-od-h3P" kind="unwind" unwindAction="backToItemAdd:" id="L8U-7x-gIh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="df4-am-WVq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="df4-am-WVq">
+                            <connections>
+                                <action selector="doneAction:" destination="2XC-Ap-lg0" id="VVq-yt-58a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tagTextField" destination="nvF-CR-czr" id="qho-Lv-o15"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn2-g7-TP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TNv-od-h3P" userLabel="Exit" sceneMemberID="exit"/>
