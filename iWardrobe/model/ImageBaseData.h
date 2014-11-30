@@ -15,11 +15,11 @@
 @property (nonatomic, strong) UIImage *tempImage;
 @property (nonatomic, strong) NSDate *createDate;
 @property (nonatomic, strong) NSDate *modifyDate;
-@property (nonatomic, strong) NSArray *infos;
 
+@property (nonatomic, strong) NSOrderedSet *infos;
 @property (nonatomic, strong) NSOrderedSet *tags;
 
-+ (instancetype)insertWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context;
++ (instancetype)insertWithimage:(UIImage *)image inContext:(NSManagedObjectContext *)context;
 
 @end
 

@@ -30,9 +30,9 @@
     self.modifyDate = newDate;
 }
 
-+ (instancetype)insertWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context
++ (instancetype)insertWithimage:(UIImage *)image inContext:(NSManagedObjectContext *)context
 {
-    ImageBaseData *imageData = [NSEntityDescription insertNewObjectForEntityForName:name inManagedObjectContext:context];
+    ImageBaseData *imageData = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
     
     imageData.uid = [[NSProcessInfo processInfo] globallyUniqueString];
     imageData.tempImage = image;
@@ -47,6 +47,12 @@
                                       }];
     imageData.imageName = imageName;
     return imageData;
+}
+
+
++ (NSString *)entityName
+{
+    return NSStringFromClass(self);
 }
 
 @end

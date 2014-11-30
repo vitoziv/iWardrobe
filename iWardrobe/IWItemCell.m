@@ -12,8 +12,6 @@
 
 @interface IWItemCell ()
 
-@property (strong, nonatomic) NSArray *tags;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
@@ -22,9 +20,6 @@
 
 - (void)configureWithItem:(Item *)item
 {
-    self.tags = [[item.tags allObjects] sortedArrayUsingComparator:^NSComparisonResult(Tag *obj1, Tag *obj2) {
-        return obj1.items.count > obj2.items.count ? NSOrderedDescending : NSOrderedAscending;
-    }];
     self.imageView.image = item.image;
 }
 

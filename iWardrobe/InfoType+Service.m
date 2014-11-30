@@ -9,7 +9,7 @@
 #import "InfoType+Service.h"
 #import "NSFetchedResultsController+IWExtension.h"
 
-NSString *const kInfoTypeKey = @"type";
+NSString *const kInfoTitleKey = @"title";
 NSString *const kInfoContentKey = @"content";
 
 @implementation InfoType (Service)

@@ -17,7 +17,7 @@ NSString *const IWTagId = @"tagId";
 
 + (NSString *)entityName
 {
-    return NSStringFromClass([self class]);
+    return NSStringFromClass(self);
 }
 
 #pragma mark - Public

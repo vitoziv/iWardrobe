@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ImageBaseData.h"
 
-@class Look, Tag;
+@class Look, Info, Tag;
 
 @interface Item : ImageBaseData
 

@@ -31,7 +31,7 @@
 
 - (void)configureWithData:(NSDictionary *)data delegate:(id<IWEditInfoCellDelegate>)delegate
 {
-    NSString *title = data[kInfoTypeKey];
+    NSString *title = data[kInfoTitleKey];
     NSString *content = data[kInfoContentKey];
     
     if (title.length > 0) {

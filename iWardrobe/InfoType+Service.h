@@ -8,7 +8,7 @@
 
 #import "InfoType.h"
 
-extern NSString *const kInfoTypeKey;
+extern NSString *const kInfoTitleKey;
 extern NSString *const kInfoContentKey;
 
 @interface InfoType (Service)

@@ -12,4 +12,12 @@
 
 @dynamic looks;
 
+
+- (void)addTagsObject:(Tag *)value
+{
+    NSMutableOrderedSet *tags = [NSMutableOrderedSet orderedSetWithOrderedSet:self.tags];
+    [tags addObject:value];
+    self.tags = tags;
+}
+
 @end

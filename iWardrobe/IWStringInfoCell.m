@@ -30,7 +30,7 @@
 
 - (void)configureWithInfo:(NSDictionary *)info
 {
-    self.titleLabel.text = info[kInfoTypeKey];
+    self.titleLabel.text = info[kInfoTitleKey];
     self.descriptionLabel.text = info[kInfoContentKey];
 }
 

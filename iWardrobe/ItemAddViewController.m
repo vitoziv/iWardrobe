@@ -20,6 +20,7 @@
 #import "ChooseInfoTypeViewController.h"
 #import "ChooseTagViewController.h"
 #import "Tag+Service.h"
+#import "Info+Service.h"
 
 static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
@@ -60,8 +61,17 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
         Item *item = [Item insertItemWithImage:self.itemImageView.image inContext:backgroundContext];
-        [self.infos removeLastObject];
-        item.infos = self.infos;
+        
+        // Create infos
+        [self.infos enumerateObjectsUsingBlock:^(NSDictionary *infoDic, NSUInteger idx, BOOL *stop) {
+            NSString *title = infoDic[kInfoTitleKey];
+            NSString *content = infoDic[kInfoContentKey];
+            
+            Info *info = [Info insertWithTitle:title content:content inContext:backgroundContext];
+            info.whichItem = item;
+        }];
+        
+        // Create Tags
         [self.tagIDs enumerateObjectsUsingBlock:^(NSManagedObjectID *objectID, NSUInteger idx, BOOL *stop) {
             NSError *error;
             Tag *tag = (Tag *)[backgroundContext existingObjectWithID:objectID error:&error];
@@ -141,7 +151,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if ([cell isKindOfClass:[IWAddInfoCell class]]) {
-        NSDictionary *info = @{kInfoTypeKey: @"", kInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count]};
+        NSDictionary *info = @{kInfoTitleKey: @"", kInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count]};
         [self.infos insertObject:info atIndex:self.infos.count];
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.infos.count - 1 inSection:indexPath.section];
         [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
@@ -162,7 +172,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSMutableDictionary *info = [self.infos[indexPath.row] mutableCopy];
-    info[kInfoTypeKey] = type;
+    info[kInfoTitleKey] = type;
     self.infos[indexPath.row] = [info copy];
 }
 

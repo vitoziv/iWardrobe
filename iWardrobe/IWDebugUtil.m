@@ -33,13 +33,13 @@
         Item *item3 = [Item insertItemWithImage:image3 inContext:backgroundContext];
         
         Look *look1 = [Look createLookWithImage:image4 imageMetaData:nil inContext:backgroundContext];
-        look1.items = [NSSet setWithArray:@[item1, item2, item3]];
+        look1.items = [NSOrderedSet orderedSetWithArray:@[item1, item2, item3]];
         
         Look *look2 = [Look createLookWithImage:image5 imageMetaData:nil inContext:backgroundContext];
-        look2.items = [NSSet setWithArray:@[item1, item2, item3]];
+        look2.items = [NSOrderedSet orderedSetWithArray:@[item1, item2, item3]];
         
         Look *look3 = [Look createLookWithImage:image6 imageMetaData:nil inContext:backgroundContext];
-        look3.items = [NSSet setWithArray:@[item1, item2, item3]];
+        look3.items = [NSOrderedSet orderedSetWithArray:@[item1, item2, item3]];
     }];
     
 }

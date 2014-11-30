@@ -37,7 +37,7 @@ NSString *const IWItemTags = @"tags";
 
 + (instancetype)insertItemWithImage:(UIImage *)image inContext:(NSManagedObjectContext *)context
 {
-    return [self insertWithEntityName:IWTableItem image:image inContext:context];
+    return [self insertWithimage:image inContext:context];
 }
 
 + (NSArray *)itemsByTag:(Tag *)tag inContext:(NSManagedObjectContext *)context
