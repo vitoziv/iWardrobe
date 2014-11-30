@@ -13,7 +13,7 @@
 
 @interface Item : ImageBaseData
 
-@property (nonatomic, strong) NSSet *looks;
+@property (nonatomic, strong) NSOrderedSet *looks;
 
 @end
 
@@ -21,12 +21,17 @@
 
 - (void)addLooksObject:(Look *)value;
 - (void)removeLooksObject:(Look *)value;
-- (void)addLooks:(NSSet *)values;
-- (void)removeLooks:(NSSet *)values;
+- (void)addLooks:(NSOrderedSet *)values;
+- (void)removeLooks:(NSOrderedSet *)values;
+
+- (void)addInfosObject:(Info *)value;
+- (void)removeInfosObject:(Info *)value;
+- (void)addInfos:(NSOrderedSet *)values;
+- (void)removeInfos:(NSOrderedSet *)values;
 
 - (void)addTagsObject:(Tag *)value;
 - (void)removeTagsObject:(Tag *)value;
-- (void)addTags:(NSSet *)values;
-- (void)removeTags:(NSSet *)values;
+- (void)addTags:(NSOrderedSet *)values;
+- (void)removeTags:(NSOrderedSet *)values;
 
 @end

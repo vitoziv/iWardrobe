@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "ImageBaseData.h"
 
-@class Item, Tag;
+@class Item, Info, Tag;
 
 @interface Look : ImageBaseData
 
-@property (nonatomic, strong) NSSet *items;
+@property (nonatomic, strong) NSOrderedSet *items;
 
 @end
 
@@ -21,12 +21,17 @@
 
 - (void)addItemsObject:(Item *)value;
 - (void)removeItemsObject:(Item *)value;
-- (void)addItems:(NSSet *)values;
-- (void)removeItems:(NSSet *)values;
+- (void)addItems:(NSOrderedSet *)values;
+- (void)removeItems:(NSOrderedSet *)values;
+
+- (void)addInfosObject:(Info *)value;
+- (void)removeInfosObject:(Info *)value;
+- (void)addInfos:(NSOrderedSet *)values;
+- (void)removeInfos:(NSOrderedSet *)values;
 
 - (void)addTagsObject:(Tag *)value;
 - (void)removeTagsObject:(Tag *)value;
-- (void)addTags:(NSSet *)values;
-- (void)removeTags:(NSSet *)values;
+- (void)addTags:(NSOrderedSet *)values;
+- (void)removeTags:(NSOrderedSet *)values;
 
 @end

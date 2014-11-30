@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSDate *modifyDate;
 @property (nonatomic, strong) NSArray *infos;
 
-@property (nonatomic, strong) NSSet *tags;
+@property (nonatomic, strong) NSOrderedSet *tags;
 
 + (instancetype)insertWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context;
 
