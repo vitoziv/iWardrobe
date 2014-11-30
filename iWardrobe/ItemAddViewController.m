@@ -27,7 +27,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
 
-@property (strong, nonatomic) NSMutableArray *datas;
+@property (strong, nonatomic) NSArray *datas;
 @property (strong, nonatomic) NSMutableArray *infos;
 
 @property (strong, nonatomic) NSArray *tagIDs; // Tags' objectID list
@@ -99,19 +99,35 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.datas[section] count];
+    return [self.datas[section] count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *data = self.datas[indexPath.section][indexPath.row];
     UITableViewCell *cell;
-    if (data[kCellIdentifierKey]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:data[kCellIdentifierKey] forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+        // Tag cell
+        if (indexPath.row < self.tagIDs.count) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"TagCell" forIndexPath:indexPath];
+            NSManagedObjectID *tagID = self.tagIDs[indexPath.row];
+            NSError *error;
+            Tag *tag = (Tag *)[[IWContextManager mainContext] existingObjectWithID:tagID error:&error];
+            if (error) {
+                return nil;
+            } else {
+                cell.textLabel.text = tag.name;
+            }
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"ChooseTag" forIndexPath:indexPath];
+        }
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"EditInfo" forIndexPath:indexPath];
-        IWEditInfoCell *editInfoCell = (IWEditInfoCell *)cell;
-        [editInfoCell configureWithData:data delegate:self];
+        if (indexPath.row < self.infos.count) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"EditInfo" forIndexPath:indexPath];
+            IWEditInfoCell *editInfoCell = (IWEditInfoCell *)cell;
+            [editInfoCell configureWithData:self.infos[indexPath.row] delegate:self];
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"AddInfo" forIndexPath:indexPath];
+        }
     }
     
     return cell;
@@ -125,15 +141,13 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if ([cell isKindOfClass:[IWAddInfoCell class]]) {
-        NSDictionary *info = @{kInfoTypeKey: @"", kInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count + 1]};
-        [self.infos insertObject:info atIndex:self.infos.count - 1];
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:(self.infos.count - 2) inSection:indexPath.section];
+        NSDictionary *info = @{kInfoTypeKey: @"", kInfoContentKey: [NSString stringWithFormat:@"%ld", self.infos.count]};
+        [self.infos insertObject:info atIndex:self.infos.count];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.infos.count - 1 inSection:indexPath.section];
         [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     } else if ([cell isKindOfClass:[IWChooseTagCell class]]) {
-        NSLog(@"choose tag");
         [self performSegueWithIdentifier:@"ChooseTag" sender:nil];
     }
-    
 }
 
 #pragma mark - IWEditInfoCellDelegate
@@ -178,6 +192,8 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 - (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tagIDs
 {
     self.tagIDs = tagIDs;
+    self.datas = @[tagIDs, self.infos];
+    [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -185,12 +201,9 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
 - (void)setupDatas
 {
-    self.datas = [NSMutableArray array];
     self.infos = [NSMutableArray array];
-    [self.datas addObject:@[@{kCellIdentifierKey: @"ChooseTag"}]];
-    [self.infos addObject:@{kCellIdentifierKey: @"AddInfo"}];
-    [self.datas addObject:self.infos];
+    self.tagIDs = [NSArray array];
+    self.datas = @[self.tagIDs, self.infos];
 }
-
 
 @end
