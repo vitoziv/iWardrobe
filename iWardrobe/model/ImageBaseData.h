@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSArray *infos;
 
 @property (nonatomic, strong) NSSet *tags;
-@property (nonatomic, strong) NSSet *locations;
 
 + (instancetype)insertWithEntityName:(NSString *)name image:(UIImage *)image inContext:(NSManagedObjectContext *)context;
 

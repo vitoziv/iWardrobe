@@ -21,7 +21,6 @@ NSString *const IWItemStatus = @"status";
 NSString *const IWItemCreateDate = @"createDate";
 NSString *const IWItemModifyDate = @"modifyDate";
 NSString *const IWItemLooks = @"looks";
-NSString *const IWItemLocations = @"locations";
 NSString *const IWItemTags = @"tags";
 
 @implementation Item (Service)

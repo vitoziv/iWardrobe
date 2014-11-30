@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ImageBaseData.h"
 
-@class Location, Look, Tag;
+@class Look, Tag;
 
 @interface Item : ImageBaseData
 
@@ -23,11 +23,6 @@
 - (void)removeLooksObject:(Look *)value;
 - (void)addLooks:(NSSet *)values;
 - (void)removeLooks:(NSSet *)values;
-
-- (void)addLocationsObject:(Location *)value;
-- (void)removeLocationsObject:(Location *)value;
-- (void)addLocations:(NSSet *)values;
-- (void)removeLocations:(NSSet *)values;
 
 - (void)addTagsObject:(Tag *)value;
 - (void)removeTagsObject:(Tag *)value;

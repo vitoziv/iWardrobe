@@ -21,7 +21,6 @@
 @dynamic infos;
 
 @dynamic tags;
-@dynamic locations;
 
 - (void)awakeFromInsert
 {
