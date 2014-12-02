@@ -58,7 +58,7 @@ NSFetchedResultsControllerDelegate>
 
 - (IBAction)backToItem:(UIStoryboardSegue*)sender
 {
-    NSLog(@"back to item");
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -42,7 +42,6 @@
 		5F67AB221A1C9DD30021A73B /* IWEditInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F67AB211A1C9DD30021A73B /* IWEditInfoCell.m */; };
 		5F67AB251A1CAC970021A73B /* InfoType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F67AB241A1CAC970021A73B /* InfoType.m */; };
 		5F6A40781928AC0F00E40606 /* Tag+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40771928AC0F00E40606 /* Tag+Service.m */; };
-		5F6A40841928AC3F00E40606 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6A40801928AC3F00E40606 /* Tag.m */; };
 		5F776C7C19C41285006C8E87 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C7B19C41285006C8E87 /* HomeViewController.m */; };
 		5F776C7F19C4153E006C8E87 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C7E19C4153E006C8E87 /* ItemsViewController.m */; };
 		5F776C8319C41A00006C8E87 /* VIArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8219C41A00006C8E87 /* VIArrayDataSource.m */; };
@@ -52,6 +51,7 @@
 		5F8F20A11A24D63800AC7E47 /* IWChooseTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F20A01A24D63800AC7E47 /* IWChooseTagCell.m */; };
 		5F8F20A41A24D73A00AC7E47 /* ChooseTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F20A31A24D73A00AC7E47 /* ChooseTagViewController.m */; };
 		5F8F20A71A24DA4800AC7E47 /* NSFetchedResultsController+IWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F20A61A24DA4800AC7E47 /* NSFetchedResultsController+IWExtension.m */; };
+		5F95D60D1A2D8FB9002608CA /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F95D60C1A2D8FB9002608CA /* Tag.m */; };
 		5F9855781A1A31B60030B54A /* IWFRCCollectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */; };
 		5FBD44A119C5857100ED6E3C /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD44A019C5857100ED6E3C /* ItemDetailViewController.m */; };
 		5FBD44A519C5887400ED6E3C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD44A319C5887400ED6E3C /* 1.jpg */; };
@@ -138,8 +138,6 @@
 		5F67AB241A1CAC970021A73B /* InfoType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoType.m; sourceTree = "<group>"; };
 		5F6A40761928AC0F00E40606 /* Tag+Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+Service.h"; path = "model/Tag+Service.h"; sourceTree = "<group>"; };
 		5F6A40771928AC0F00E40606 /* Tag+Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Service.m"; path = "model/Tag+Service.m"; sourceTree = "<group>"; };
-		5F6A407F1928AC3F00E40606 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		5F6A40801928AC3F00E40606 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		5F776C7A19C41285006C8E87 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5F776C7B19C41285006C8E87 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5F776C7D19C4153E006C8E87 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
@@ -158,6 +156,8 @@
 		5F8F20A31A24D73A00AC7E47 /* ChooseTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTagViewController.m; sourceTree = "<group>"; };
 		5F8F20A51A24DA4800AC7E47 /* NSFetchedResultsController+IWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+IWExtension.h"; sourceTree = "<group>"; };
 		5F8F20A61A24DA4800AC7E47 /* NSFetchedResultsController+IWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchedResultsController+IWExtension.m"; sourceTree = "<group>"; };
+		5F95D60B1A2D8FB9002608CA /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		5F95D60C1A2D8FB9002608CA /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		5F9855761A1A31B60030B54A /* IWFRCCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWFRCCollectionViewDelegate.h; sourceTree = "<group>"; };
 		5F9855771A1A31B60030B54A /* IWFRCCollectionViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWFRCCollectionViewDelegate.m; sourceTree = "<group>"; };
 		5FBD449F19C5857100ED6E3C /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
@@ -297,12 +297,12 @@
 			children = (
 				5FF9C2431944932C00F7C2AD /* Services */,
 				5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */,
+				5F95D60B1A2D8FB9002608CA /* Tag.h */,
+				5F95D60C1A2D8FB9002608CA /* Tag.m */,
 				5F52660D1A2B20F400ADEA10 /* Info.h */,
 				5F52660E1A2B20F400ADEA10 /* Info.m */,
 				5F67AB231A1CAC970021A73B /* InfoType.h */,
 				5F67AB241A1CAC970021A73B /* InfoType.m */,
-				5F6A407F1928AC3F00E40606 /* Tag.h */,
-				5F6A40801928AC3F00E40606 /* Tag.m */,
 				5F10A83F192E3C7B0079D26B /* Item.h */,
 				5F10A840192E3C7B0079D26B /* Item.m */,
 				5F10A83C192E3C7B0079D26B /* Look.h */,
@@ -647,13 +647,13 @@
 				5FF9C246194495C700F7C2AD /* IWImageConfigure.m in Sources */,
 				5F605C6F1A28BF0C00E27E38 /* IWTagCell.m in Sources */,
 				5F9855781A1A31B60030B54A /* IWFRCCollectionViewDelegate.m in Sources */,
-				5F6A40841928AC3F00E40606 /* Tag.m in Sources */,
 				5F67AB1F1A1C8AA00021A73B /* IWAddInfoCell.m in Sources */,
 				5FDD5DB319BAAE6E00A4EA26 /* IWStringGenerator.m in Sources */,
 				5F41735F1A1DDF7800490ED2 /* InfoType+Service.m in Sources */,
 				5F8F20A41A24D73A00AC7E47 /* ChooseTagViewController.m in Sources */,
 				5F6A40781928AC0F00E40606 /* Tag+Service.m in Sources */,
 				5F41735C1A1DDD9F00490ED2 /* ChooseInfoTypeViewController.m in Sources */,
+				5F95D60D1A2D8FB9002608CA /* Tag.m in Sources */,
 				5F52660F1A2B20F400ADEA10 /* Info.m in Sources */,
 				5F10A838192E25570079D26B /* Item+Service.m in Sources */,
 				5F776C7F19C4153E006C8E87 /* ItemsViewController.m in Sources */,

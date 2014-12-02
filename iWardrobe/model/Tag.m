@@ -2,7 +2,7 @@
 //  Tag.m
 //  iWardrobe
 //
-//  Created by Vito on 5/18/14.
+//  Created by Vito on 12/2/14.
 //  Copyright (c) 2014 Vito. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 @implementation Tag
 
 @dynamic name;
-@dynamic looks;
 @dynamic items;
+@dynamic looks;
 
 @end

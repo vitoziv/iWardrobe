@@ -59,6 +59,7 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
 
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
     [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
         Item *item = [Item insertItemWithImage:self.itemImageView.image inContext:backgroundContext];
         
@@ -82,10 +83,12 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
                 NSLog(@"Get Tag from objectID: %@ error: %@", objectID, error);
             }
         }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [SVProgressHUD dismiss];
+            [self.delegate itemAddViewControllerDidSave:self];
+        });
     }];
-    
-    [SVProgressHUD dismiss];
-    [self.delegate itemAddViewControllerDidSave:self];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "ItemDetailViewController.h"
 #import "Item.h"
+#import "Info.h"
 #import "IWStringInfoCell.h"
 
 @interface ItemDetailViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
@@ -23,10 +24,10 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
 
-    [self setupData];
+    [self setupView];
 }
 
-- (void)setupData
+- (void)setupView
 {
     self.imageView.image = self.item.image;
 }
@@ -42,8 +43,9 @@
 {
     static NSString *StringInfoCellIdentifier = @"StringInfoCell";
     IWStringInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:StringInfoCellIdentifier forIndexPath:indexPath];
-    
-    NSDictionary *info = self.item.infos[indexPath.row];
+
+    Info *info = [(NSSet *)self.item.infos allObjects][indexPath.row];
+#warning fault 对象处理
     [cell configureWithInfo:info];
     
     return cell;

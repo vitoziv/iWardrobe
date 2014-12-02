@@ -303,9 +303,6 @@
                                             <rect key="frame" x="145" y="8" width="447" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="hpU-rf-6FW" id="whx-VJ-xQg"/>
-                                            </connections>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRI-sd-iH6" userLabel="View - Line">
                                             <rect key="frame" x="136" y="0.0" width="1" height="43"/>
@@ -496,7 +493,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZs-4D-omb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZs-4D-omb">
                                                     <rect key="frame" x="8" y="38" width="584" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -514,7 +511,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="OZs-4D-omb" id="avI-AD-qjQ"/>
+                                            <outlet property="contentLabel" destination="OZs-4D-omb" id="n5v-SE-ItU"/>
                                             <outlet property="titleLabel" destination="D5a-Y1-cv8" id="zJx-o0-8Kr"/>
                                         </connections>
                                     </tableViewCell>

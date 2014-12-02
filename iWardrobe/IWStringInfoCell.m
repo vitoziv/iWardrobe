@@ -7,12 +7,12 @@
 //
 
 #import "IWStringInfoCell.h"
-#import "InfoType+Service.h"
+#import "Info.h"
 
 @interface IWStringInfoCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
@@ -28,10 +28,10 @@
     // Configure the view for the selected state
 }
 
-- (void)configureWithInfo:(NSDictionary *)info
+- (void)configureWithInfo:(Info *)info
 {
-    self.titleLabel.text = info[kInfoTitleKey];
-    self.descriptionLabel.text = info[kInfoContentKey];
+    self.titleLabel.text = info.title;
+    self.contentLabel.text = info.content;
 }
 
 @end

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Info;
+
 @interface IWStringInfoCell : UITableViewCell
 
-- (void)configureWithInfo:(NSDictionary *)info;
+- (void)configureWithInfo:(Info *)info;
 
 @end

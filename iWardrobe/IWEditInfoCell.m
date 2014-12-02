@@ -19,8 +19,17 @@
 
 @implementation IWEditInfoCell
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)awakeFromNib {
     // Initialization code
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contentDidChange:)
+                                                 name:UITextFieldTextDidChangeNotification
+                                               object:self.contentTextField];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -51,11 +60,11 @@
     [self.delegate editInfoCellDidTapChooseType:self];
 }
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - Notification
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void)contentDidChange:(NSNotification *)notification
 {
-    [self.delegate editInfoCell:self didChangeContent:textField.text];
+    [self.delegate editInfoCell:self didChangeContent:self.contentTextField.text];
 }
 
 @end
