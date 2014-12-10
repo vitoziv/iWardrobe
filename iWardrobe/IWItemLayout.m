@@ -12,7 +12,7 @@
 
 - (void)iwCommonInit
 {
-    self.sectionInset = UIEdgeInsetsMake(60, 10, 20, 10);
+    self.sectionInset = UIEdgeInsetsMake(10, 10, 20, 10);
 }
 
 - (instancetype)init
