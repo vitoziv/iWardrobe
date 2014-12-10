@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14C68m" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C78c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Info" representedClassName="Info" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,7 +15,7 @@
         <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
         <attribute name="tempImage" optional="YES" transient="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="uid" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="infos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Info" inverseName="whichItem" inverseEntity="Info" syncable="YES"/>
+        <relationship name="infos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Info" inverseName="whichItem" inverseEntity="Info" syncable="YES"/>
         <relationship name="looks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Look" inverseName="items" inverseEntity="Look" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tag" inverseName="items" inverseEntity="Tag" syncable="YES"/>
     </entity>
@@ -25,7 +25,7 @@
         <attribute name="modifyDate" attributeType="Date" syncable="YES"/>
         <attribute name="tempImage" optional="YES" transient="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="uid" attributeType="String" syncable="YES"/>
-        <relationship name="infos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Info" inverseName="whichLook" inverseEntity="Info" syncable="YES"/>
+        <relationship name="infos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Info" inverseName="whichLook" inverseEntity="Info" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="looks" inverseEntity="Item" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tag" inverseName="looks" inverseEntity="Tag" syncable="YES"/>
     </entity>
@@ -36,10 +36,10 @@
     </entity>
     <fetchRequest name="FetchRequest" entity="Item" predicateString="brand CONTAINS &quot;&quot;"/>
     <elements>
-        <element name="InfoType" positionX="72" positionY="-216" width="128" height="60"/>
-        <element name="Item" positionX="322" positionY="-54" width="128" height="163"/>
-        <element name="Look" positionX="-162" positionY="-54" width="128" height="163"/>
-        <element name="Tag" positionX="81" positionY="144" width="128" height="88"/>
         <element name="Info" positionX="72" positionY="-72" width="128" height="103"/>
+        <element name="InfoType" positionX="72" positionY="-216" width="128" height="60"/>
+        <element name="Item" positionX="322" positionY="-54" width="128" height="165"/>
+        <element name="Look" positionX="-162" positionY="-54" width="128" height="165"/>
+        <element name="Tag" positionX="81" positionY="144" width="128" height="88"/>
     </elements>
 </model>

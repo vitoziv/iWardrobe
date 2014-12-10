@@ -44,8 +44,7 @@
     static NSString *StringInfoCellIdentifier = @"StringInfoCell";
     IWStringInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:StringInfoCellIdentifier forIndexPath:indexPath];
 
-    Info *info = [(NSSet *)self.item.infos allObjects][indexPath.row];
-#warning fault 对象处理
+    Info *info = self.item.infos[indexPath.row];
     [cell configureWithInfo:info];
     
     return cell;
