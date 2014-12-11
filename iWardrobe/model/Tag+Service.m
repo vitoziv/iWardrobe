@@ -44,37 +44,10 @@ NSString *const IWTagId = @"tagId";
 
 + (Tag *)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context
 {
-    Tag *tag = nil;
-    NSError *error;
-    NSArray *matches = [self fetchTagsWithName:name inContext:context error:&error];
-    if (!matches || matches.count > 1) {
-        // TODO: handle error
-        NSLog( @"Tag Error: %@", error ? error : @"Too many tags with the same name.");
-    } else if (matches.count == 0) {
-        tag = [NSEntityDescription insertNewObjectForEntityForName:IWTableTag inManagedObjectContext:context];
-        tag.name = name;
-    } else {
-        NSLog(@"Try to insert a new Tag, which already exist. Return the exist one.");
-        tag = [matches lastObject];
-        tag.name = name;
-    }
+    Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:IWTableTag inManagedObjectContext:context];
+    tag.name = name;
     
     return tag;
-}
-
-+ (Tag *)updateWithTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
-{
-    Tag *newTag = (Tag *)[context objectWithID:tag.objectID];
-    
-    if (!newTag.isFault) {
-        newTag.name = tag.name;
-        newTag.looks = tag.looks;
-        newTag.items = tag.items;
-    } else {
-        newTag = nil;
-    }
-    
-    return newTag;
 }
 
 + (void)deleteTag:(Tag *)tag inContext:(NSManagedObjectContext *)context

@@ -15,7 +15,6 @@ extern NSString *const IWTagName;
 
 + (Tag *)insertWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 + (Tag *)tagWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
-+ (Tag *)updateWithTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
 + (void)deleteTag:(Tag *)tag inContext:(NSManagedObjectContext *)context;
 
 + (NSFetchedResultsController *)controllerForAllTags;

@@ -52,11 +52,6 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     [self setupDatas];
 }
 
-- (IBAction)backToItemAdd:(UIStoryboardSegue*)sender
-{
-    
-}
-
 - (IBAction)saveAction:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
