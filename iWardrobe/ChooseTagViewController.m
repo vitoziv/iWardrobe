@@ -44,6 +44,7 @@
 
 - (IBAction)addNewTagAction:(id)sender {
     // TODO: 保存要处理重复的 tag 名
+    // TODO: 删除 add 按钮，在编辑 tag 时直接对现有 tag 进行过滤，如果找不到编辑的 tag 名称就在下方显示添加新的 tag
     NSString *tagName = self.tagTextField.text;
     [IWContextManager saveOnBackContext:^(NSManagedObjectContext *backgroundContext) {
         [Tag insertWithName:tagName inContext:backgroundContext];
@@ -57,7 +58,17 @@
     NSMutableArray *tagIDs = [NSMutableArray array];
     [self.tableView.indexPathsForSelectedRows enumerateObjectsUsingBlock:^(NSIndexPath *obj, NSUInteger idx, BOOL *stop) {
         Tag *tag = [self.fetchedResultsController objectAtIndexPath:obj];
-        [tagIDs addObject:tag.objectID];
+        if (tag.objectID.isTemporaryID) {
+            NSError *error;
+            [self.fetchedResultsController.managedObjectContext obtainPermanentIDsForObjects:@[tag] error:&error];
+            if (error) {
+                NSLog(@"Obtain permanent tag id error:%@", error);
+            } else {
+                [tagIDs addObject:tag.objectID];
+            }
+        } else {
+            [tagIDs addObject:tag.objectID];
+        }
     }];
     [self.delegate chooseTagViewController:self didChooseTags:[tagIDs copy]];
 }
