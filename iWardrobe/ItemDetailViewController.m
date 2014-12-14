@@ -11,11 +11,18 @@
 #import "Info.h"
 #import "Tag.h"
 #import "IWStringInfoCell.h"
+#import "ChooseTagViewController.h"
+#import "IWContextManager.h"
 
 static NSString *const CellIdentifierKey = @"CellIdentifier";
 static NSString *const SectionDataKey = @"SectionData";
 
-@interface ItemDetailViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+@interface ItemDetailViewController ()
+<UITableViewDelegate,
+UITableViewDataSource,
+UIScrollViewDelegate,
+ChooseTagControllerDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -32,21 +39,7 @@ static NSString *const SectionDataKey = @"SectionData";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     [self setupView];
-    [self setupData];
-}
-
-- (void)setupView
-{
-    self.imageView.image = self.item.image;
-}
-
-- (void)setupData
-{
-    NSMutableString *tagString = [NSMutableString string];
-    [self.item.tags enumerateObjectsUsingBlock:^(Tag *tag, NSUInteger idx, BOOL *stop) {
-        [tagString appendString:[NSString stringWithFormat:@"%@  ", tag.name]];
-    }];
-    self.data = @[@{CellIdentifierKey: @"TagCell", SectionDataKey: @[[tagString copy]]}, @{CellIdentifierKey: @"StringInfoCell", SectionDataKey: self.item.infos}];
+    [self loadData];
 }
 
 
@@ -54,6 +47,36 @@ static NSString *const SectionDataKey = @"SectionData";
 {
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:animated];
+    
+    if (!editing) {
+        // TODO: 保存改变
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ItemDetialEditTag"]) {
+        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+        ChooseTagViewController *viewController = (ChooseTagViewController *)[navigationController.viewControllers lastObject];
+        viewController.delegate = self;
+        viewController.oldTags = [self.item.tags array];
+    }
+}
+
+#pragma mark - Setup
+
+- (void)setupView
+{
+    self.imageView.image = self.item.image;
+}
+
+- (void)loadData
+{
+    NSMutableString *tagString = [NSMutableString string];
+    [self.item.tags enumerateObjectsUsingBlock:^(Tag *tag, NSUInteger idx, BOOL *stop) {
+        [tagString appendString:[NSString stringWithFormat:@"%@  ", tag.name]];
+    }];
+    self.data = @[@{CellIdentifierKey: @"TagCell", SectionDataKey: @[[tagString copy]]}, @{CellIdentifierKey: @"StringInfoCell", SectionDataKey: self.item.infos}];
 }
 
 #pragma mark - UITableViewDataSource
@@ -85,7 +108,23 @@ static NSString *const SectionDataKey = @"SectionData";
 
 #pragma mark - UITableViewDelegate
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.selectionStyle == UITableViewCellSelectionStyleNone) {
+        return nil;
+    }
+    
+    return indexPath;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *CellIdentifier = self.data[indexPath.section][CellIdentifierKey];
+    
+    if ([CellIdentifier isEqualToString:@"TagCell"]) {
+        [self performSegueWithIdentifier:@"ItemDetialEditTag" sender:nil];
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -101,6 +140,26 @@ static NSString *const SectionDataKey = @"SectionData";
     }
     
     return UITableViewCellEditingStyleNone;
+}
+
+#pragma mark - 
+
+- (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tagIDs
+{
+    NSMutableOrderedSet *tags = [NSMutableOrderedSet orderedSet];
+    [tagIDs enumerateObjectsUsingBlock:^(NSManagedObjectID *tagID, NSUInteger idx, BOOL *stop) {
+        Tag *tag = (Tag *)[[IWContextManager mainContext] objectWithID:tagID];
+        [tags addObject:tag];
+    }];
+    [self.item setTags:tags];
+    [self loadData];
+    [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)chooseTagViewControllerDidCancel:(ChooseTagViewController *)viewController
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

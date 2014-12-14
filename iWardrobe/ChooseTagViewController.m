@@ -70,11 +70,12 @@
             [tagIDs addObject:tag.objectID];
         }
     }];
+    
     [self.delegate chooseTagViewController:self didChooseTags:[tagIDs copy]];
 }
 
 - (IBAction)cancelAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate chooseTagViewControllerDidCancel:self];
 }
 
 #pragma mark - Table view data source
@@ -94,8 +95,39 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TagCellIdentifier forIndexPath:indexPath];
     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = tag.name;
+    
+    
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.oldTags.count > 0) {
+        Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if ([self.oldTags containsObject:tag]) {
+            NSMutableArray *mutaOldTags = [self.oldTags mutableCopy];
+            [mutaOldTags removeObject:tag];
+            self.oldTags = [mutaOldTags copy];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.oldTags.count > 0) {
+        Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if ([self.oldTags containsObject:tag]) {
+            [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        } else {
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        }
+    }
+}
 
 @end

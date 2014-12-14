@@ -40,6 +40,9 @@
     NSLog(@"%@ set edit %d", NSStringFromClass([self class]), editing);
     
     self.selectionStyle = editing ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleBlue;
+    
+    // TODO: 标题和内容转换成可编辑状态
+    
 }
 
 @end

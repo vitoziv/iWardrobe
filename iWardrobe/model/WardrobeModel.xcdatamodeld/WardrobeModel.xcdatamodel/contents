@@ -36,10 +36,10 @@
     </entity>
     <fetchRequest name="FetchRequest" entity="Item" predicateString="brand CONTAINS &quot;&quot;"/>
     <elements>
-        <element name="Info" positionX="72" positionY="-72" width="128" height="103"/>
-        <element name="InfoType" positionX="72" positionY="-216" width="128" height="60"/>
-        <element name="Item" positionX="322" positionY="-54" width="128" height="165"/>
-        <element name="Look" positionX="-162" positionY="-54" width="128" height="165"/>
-        <element name="Tag" positionX="81" positionY="144" width="128" height="88"/>
+        <element name="Info" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="InfoType" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Look" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Tag" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

@@ -205,6 +205,11 @@ static NSString *const kCellIdentifierKey = @"CellIdentifier";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)chooseTagViewControllerDidCancel:(ChooseTagViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Setup
 
 - (void)setupDatas

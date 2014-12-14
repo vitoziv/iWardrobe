@@ -12,6 +12,8 @@
 
 @interface ChooseTagViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *oldTags;
+
 @property (weak, nonatomic) id<ChooseTagControllerDelegate> delegate;
 
 @end
@@ -20,5 +22,6 @@
 @protocol ChooseTagControllerDelegate <NSObject>
 
 - (void)chooseTagViewController:(ChooseTagViewController *)viewController didChooseTags:(NSArray *)tagIDs;
+- (void)chooseTagViewControllerDidCancel:(ChooseTagViewController *)viewController;
 
 @end
