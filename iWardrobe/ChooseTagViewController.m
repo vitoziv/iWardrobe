@@ -73,6 +73,10 @@
     [self.delegate chooseTagViewController:self didChooseTags:[tagIDs copy]];
 }
 
+- (IBAction)cancelAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

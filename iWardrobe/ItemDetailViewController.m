@@ -29,6 +29,7 @@ static NSString *const SectionDataKey = @"SectionData";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     [self setupView];
     [self setupData];
@@ -46,6 +47,13 @@ static NSString *const SectionDataKey = @"SectionData";
         [tagString appendString:[NSString stringWithFormat:@"%@  ", tag.name]];
     }];
     self.data = @[@{CellIdentifierKey: @"TagCell", SectionDataKey: @[[tagString copy]]}, @{CellIdentifierKey: @"StringInfoCell", SectionDataKey: self.item.infos}];
+}
+
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
 }
 
 #pragma mark - UITableViewDataSource
@@ -73,6 +81,26 @@ static NSString *const SectionDataKey = @"SectionData";
     }
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *CellIdentifier = self.data[indexPath.section][CellIdentifierKey];
+
+    if ([CellIdentifier isEqualToString:@"TagCell"]) {
+        return UITableViewCellEditingStyleNone;
+    } else if ([CellIdentifier isEqualToString:@"StringInfoCell"]) {
+        return UITableViewCellEditingStyleDelete;
+    }
+    
+    return UITableViewCellEditingStyleNone;
 }
 
 @end

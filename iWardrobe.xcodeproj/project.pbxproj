@@ -47,6 +47,7 @@
 		5F776C8319C41A00006C8E87 /* VIArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8219C41A00006C8E87 /* VIArrayDataSource.m */; };
 		5F776C8619C42295006C8E87 /* ImageBaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8519C42295006C8E87 /* ImageBaseData.m */; };
 		5F776C8A19C477DD006C8E87 /* IWItemLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F776C8919C477DD006C8E87 /* IWItemLayout.m */; };
+		5F8254991A3D824200A63EC0 /* IWTagDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8254981A3D824200A63EC0 /* IWTagDisplayCell.m */; };
 		5F8F209E1A24C5EA00AC7E47 /* IWStringInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F209D1A24C5EA00AC7E47 /* IWStringInfoCell.m */; };
 		5F8F20A11A24D63800AC7E47 /* IWChooseTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F20A01A24D63800AC7E47 /* IWChooseTagCell.m */; };
 		5F8F20A41A24D73A00AC7E47 /* ChooseTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8F20A31A24D73A00AC7E47 /* ChooseTagViewController.m */; };
@@ -148,6 +149,8 @@
 		5F776C8519C42295006C8E87 /* ImageBaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBaseData.m; sourceTree = "<group>"; };
 		5F776C8819C477DD006C8E87 /* IWItemLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemLayout.h; sourceTree = "<group>"; };
 		5F776C8919C477DD006C8E87 /* IWItemLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemLayout.m; sourceTree = "<group>"; };
+		5F8254971A3D824200A63EC0 /* IWTagDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWTagDisplayCell.h; sourceTree = "<group>"; };
+		5F8254981A3D824200A63EC0 /* IWTagDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWTagDisplayCell.m; sourceTree = "<group>"; };
 		5F8F209C1A24C5EA00AC7E47 /* IWStringInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWStringInfoCell.h; sourceTree = "<group>"; };
 		5F8F209D1A24C5EA00AC7E47 /* IWStringInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWStringInfoCell.m; sourceTree = "<group>"; };
 		5F8F209F1A24D63800AC7E47 /* IWChooseTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWChooseTagCell.h; sourceTree = "<group>"; };
@@ -369,6 +372,8 @@
 				5F8F20A01A24D63800AC7E47 /* IWChooseTagCell.m */,
 				5F605C6D1A28BF0C00E27E38 /* IWTagCell.h */,
 				5F605C6E1A28BF0C00E27E38 /* IWTagCell.m */,
+				5F8254971A3D824200A63EC0 /* IWTagDisplayCell.h */,
+				5F8254981A3D824200A63EC0 /* IWTagDisplayCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				5F776C7C19C41285006C8E87 /* HomeViewController.m in Sources */,
 				5FC5CEC81928F27600B237E3 /* IWContextManager.m in Sources */,
 				5F4173651A1EF7F500490ED2 /* IWFRCTableViewDelegate.m in Sources */,
+				5F8254991A3D824200A63EC0 /* IWTagDisplayCell.m in Sources */,
 				5F4D434F1A062BD000C6E19B /* IWImageResizer.m in Sources */,
 				5F67AB221A1C9DD30021A73B /* IWEditInfoCell.m in Sources */,
 				5FDD5DB019BAA70F00A4EA26 /* Look+Service.m in Sources */,

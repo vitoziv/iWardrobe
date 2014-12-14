@@ -118,6 +118,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="aJr-JC-OTw"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsS-53-Ss9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,6 +188,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="AVP-oW-PgD" id="YFo-s3-UIw"/>
                         <segue destination="ZRA-fW-fn8" kind="show" identifier="ShowItemDetail" id="VTA-aF-5Hv"/>
@@ -326,11 +328,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="xUo-0K-gTf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2sY-QK-7Ia">
-                            <connections>
-                                <segue destination="EON-Eq-mSo" kind="unwind" unwindAction="backToItem:" id="cAv-aa-Yfz"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2sY-QK-7Ia"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="JEu-Be-65f">
                             <connections>
                                 <action selector="saveAction:" destination="MgS-JE-gRA" id="h9i-Yo-0o0"/>
@@ -344,7 +342,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ch9-0r-zPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="EON-Eq-mSo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5039" y="86"/>
         </scene>
@@ -428,7 +425,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="aPG-z3-UVG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="aPG-z3-UVG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="JkG-xY-4XS">
@@ -448,12 +445,12 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TagCell" textLabel="rh1-e9-4lY" rowHeight="80" style="IBUITableViewCellStyleDefault" id="oa8-sh-qs2" customClass="IWStringInfoCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TagCell" editingAccessoryType="disclosureIndicator" textLabel="rh1-e9-4lY" rowHeight="80" style="IBUITableViewCellStyleDefault" id="oa8-sh-qs2" customClass="IWTagDisplayCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oa8-sh-qs2" id="KBO-uq-30g">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rh1-e9-4lY">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tag" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rh1-e9-4lY">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -513,9 +510,7 @@
                             <constraint firstItem="aPG-z3-UVG" firstAttribute="leading" secondItem="a6U-7P-8Xl" secondAttribute="leadingMargin" constant="-16" id="f3S-4F-5yZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5Em-jX-iWs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="JMs-ab-Twf"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="5Em-jX-iWs"/>
                     <connections>
                         <outlet property="imageView" destination="UAl-cu-WqM" id="NML-Ij-cQp"/>
                         <outlet property="tableView" destination="aPG-z3-UVG" id="w1L-ya-VCt"/>
@@ -530,7 +525,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U74-01-Ngm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARV-w9-Kqb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -646,7 +640,7 @@
                     <navigationItem key="navigationItem" id="hDK-jf-apO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hRu-f4-vEw">
                             <connections>
-                                <segue destination="TNv-od-h3P" kind="unwind" unwindAction="backToItemAdd:" id="L8U-7x-gIh"/>
+                                <action selector="cancelAction:" destination="2XC-Ap-lg0" id="F7N-vH-JDu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="df4-am-WVq">
@@ -660,7 +654,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn2-g7-TP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="TNv-od-h3P" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6833" y="485"/>
         </scene>

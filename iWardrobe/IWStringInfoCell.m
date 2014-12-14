@@ -34,4 +34,12 @@
     self.contentLabel.text = info.content;
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    NSLog(@"%@ set edit %d", NSStringFromClass([self class]), editing);
+    
+    self.selectionStyle = editing ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleBlue;
+}
+
 @end
