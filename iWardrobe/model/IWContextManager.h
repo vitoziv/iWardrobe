@@ -13,10 +13,10 @@
 + (instancetype)sharedInstance;
 
 + (void)saveContext;
++ (void)saveOnBackContext:(void(^)(NSManagedObjectContext *backgroundContext))handler;
 
 + (NSManagedObjectContext *)rootContext;
 + (NSManagedObjectContext *)mainContext;
 
-+ (void)saveOnBackContext:(void(^)(NSManagedObjectContext *backgroundContext))handler;
 
 @end

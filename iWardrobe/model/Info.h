@@ -13,8 +13,8 @@
 
 @interface Info : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * content;
+@property (nonatomic, copy) NSString * title;
+@property (nonatomic, copy) NSString * content;
 @property (nonatomic, retain) Item *whichItem;
 @property (nonatomic, retain) Look *whichLook;
 

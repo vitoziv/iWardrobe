@@ -12,6 +12,6 @@
 
 @interface InfoType : NSManagedObject
 
-@property (nonatomic, retain) NSString * type;
+@property (nonatomic, copy) NSString * type;
 
 @end

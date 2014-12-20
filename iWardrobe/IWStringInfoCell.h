@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IWUndoProtocol.h"
 
 @class Info;
+@protocol IWStringInfoCellDelegate;
 
-@interface IWStringInfoCell : UITableViewCell
+@interface IWStringInfoCell : UITableViewCell <IWUndoProtocol>
+
+@property (weak, nonatomic) id<IWStringInfoCellDelegate> delegate;
 
 - (void)configureWithInfo:(Info *)info;
+
+@end
+
+
+@protocol IWStringInfoCellDelegate <NSObject>
+
+- (void)stringInfoCellDidChangeSize:(IWStringInfoCell *)cell;
 
 @end

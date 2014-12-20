@@ -181,6 +181,7 @@
 		5FDD5DBA19BB441D00A4EA26 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		5FDD5DC319BB5B9200A4EA26 /* IWLookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWLookCell.h; sourceTree = "<group>"; };
 		5FDD5DC419BB5B9200A4EA26 /* IWLookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWLookCell.m; sourceTree = "<group>"; };
+		5FE6141E1A45DFA400416F5F /* IWUndoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWUndoProtocol.h; sourceTree = "<group>"; };
 		5FF9C24019448F9B00F7C2AD /* IWItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWItemCell.h; sourceTree = "<group>"; };
 		5FF9C24119448F9B00F7C2AD /* IWItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWItemCell.m; sourceTree = "<group>"; };
 		5FF9C244194495C700F7C2AD /* IWImageConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWImageConfigure.h; sourceTree = "<group>"; };
@@ -298,20 +299,9 @@
 		5F012179190C05C400C36277 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5FE614191A45CCAB00416F5F /* CoreData */,
 				5FF9C2431944932C00F7C2AD /* Services */,
 				5F01217A190C05D800C36277 /* WardrobeModel.xcdatamodeld */,
-				5F95D60B1A2D8FB9002608CA /* Tag.h */,
-				5F95D60C1A2D8FB9002608CA /* Tag.m */,
-				5F52660D1A2B20F400ADEA10 /* Info.h */,
-				5F52660E1A2B20F400ADEA10 /* Info.m */,
-				5F67AB231A1CAC970021A73B /* InfoType.h */,
-				5F67AB241A1CAC970021A73B /* InfoType.m */,
-				5F10A83F192E3C7B0079D26B /* Item.h */,
-				5F10A840192E3C7B0079D26B /* Item.m */,
-				5F10A83C192E3C7B0079D26B /* Look.h */,
-				5F10A83D192E3C7B0079D26B /* Look.m */,
-				5F776C8419C42295006C8E87 /* ImageBaseData.h */,
-				5F776C8519C42295006C8E87 /* ImageBaseData.m */,
 			);
 			name = Model;
 			path = model;
@@ -396,6 +386,7 @@
 		5FC5CEC91928F46300B237E3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				5FE6141D1A45DF8C00416F5F /* Protocol */,
 				5FF9C247194496F300F7C2AD /* DFDateFormatterFactory */,
 				5FC5CECB1928F49000B237E3 /* IWDefine.h */,
 				5F4D43501A062BDB00C6E19B /* Image */,
@@ -431,6 +422,33 @@
 				5FDD5DB819BB42E900A4EA26 /* LookTests.m */,
 			);
 			name = CoreDataTest;
+			sourceTree = "<group>";
+		};
+		5FE614191A45CCAB00416F5F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5F95D60B1A2D8FB9002608CA /* Tag.h */,
+				5F95D60C1A2D8FB9002608CA /* Tag.m */,
+				5F52660D1A2B20F400ADEA10 /* Info.h */,
+				5F52660E1A2B20F400ADEA10 /* Info.m */,
+				5F67AB231A1CAC970021A73B /* InfoType.h */,
+				5F67AB241A1CAC970021A73B /* InfoType.m */,
+				5F10A83F192E3C7B0079D26B /* Item.h */,
+				5F10A840192E3C7B0079D26B /* Item.m */,
+				5F10A83C192E3C7B0079D26B /* Look.h */,
+				5F10A83D192E3C7B0079D26B /* Look.m */,
+				5F776C8419C42295006C8E87 /* ImageBaseData.h */,
+				5F776C8519C42295006C8E87 /* ImageBaseData.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		5FE6141D1A45DF8C00416F5F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5FE6141E1A45DFA400416F5F /* IWUndoProtocol.h */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		5FF9C23F19448F7200F7C2AD /* Views */ = {
